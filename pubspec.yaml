@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   google_fonts: ^6.2.1
   flutter_native_splash: ^2.4.1
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_test:
@@ -58,11 +59,11 @@ flutter_native_splash:
   image: assets/logo/Logo.png
   image_dark: assets/logo/Logo.png
 
-android_12:
-  image: assets/logo/Logo.png
-  icon_background_color: "#f7f6f1"
-  image_dark: assets/logo/Logo.png
-  icon_background_color_dark: "#272727"
+  android_12:
+    image: assets/logo/Logo.png
+    icon_background_color: "#f7f6f1"
+    image_dark: assets/logo/Logo.png
+    icon_background_color_dark: "#272727"
 
 # The following section is specific to Flutter packages.
 flutter:

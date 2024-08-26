@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/splash_screen/splash_screen.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/theme.dart';
+import 'package:get/get.dart';
 
 void main() => runApp(const App());
 
@@ -9,26 +11,11 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      home: const AppHome(),
+      home: SplashScreen()
     );//Closed Material App
   } // Closed widget
 }
-
-class AppHome extends StatelessWidget{
-  const AppHome({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      appBar: AppBar(title: const Text(".appable/")),
-      body: const Center(child: Text("Home Page")),
-    );
-  } //Closed Widget
-
-
-
-}// Closed class AppHome
