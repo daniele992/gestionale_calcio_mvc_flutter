@@ -4,6 +4,7 @@ import 'package:gestionale_calcio_mvc_flutter/src/constants/colors.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/image_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/login/login_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
@@ -18,7 +19,6 @@ class WelcomeScreen extends StatelessWidget{
 
     final controller = Get.put(FadeInAnimationController());
     controller.startAnimation();
-
     var mediaQuery = MediaQuery.of(context);
     var height = MediaQuery.of(context).size.height;
     var brightness = mediaQuery.platformBrightness;
@@ -67,7 +67,7 @@ class WelcomeScreen extends StatelessWidget{
                     children: [
                       Expanded(
                           child: OutlinedButton(
-                              onPressed: (){},
+                              onPressed: () => Get.to(() => const LoginScreen()),
                               child: Text(tLogin.toUpperCase())),),
                       const SizedBox(
                         width: 10.0,
