@@ -7,6 +7,9 @@ const String tSignup = "Signup";
 const String tPassword = "Password";
 const String tForgetPassword = "Forget Password";
 const String tSignInWithGoogle = "Sign-In with Google";
+const String tFormTitle = "";
+const String tFormSubtTitle = "";
+const String tFullName = "";
 
 const String tAppName = ".appable/";
 const String tAppTagLine = "Learn To Code. \nFree For Everyone";
@@ -30,5 +33,9 @@ const String tWelcomeSubTitle = "Da scrivere il subtitle";
 const String tLoginTitle = "Welcome Back,";
 const String tLoginSubTitle = "Make it work, make it right, make it fast.";
 const String tRememberMe = "Remember Me?";
-const String tAlreadyHaveAnAccount = "Already have an Account?";
 const String tDontHaveAnAccount = "Don't have an Accont?";
+
+/* --- Sign Up Screen Text --- */
+const String tSignUpTitle = "Get On Board";
+const String tSignUpSubTitle = "Create your profile to start your Journey with us...";
+const String tAlreadyHaveAnAccount = "Already have an Account?";
