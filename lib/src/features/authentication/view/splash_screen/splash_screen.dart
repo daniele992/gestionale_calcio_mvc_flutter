@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:gestionale_calcio_mvc_flutter/src/common_widgets/fade_in_animation/animation_design.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/colors.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/image_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
-import 'package:gestionale_calcio_mvc_flutter/src/common_widgets/fade_in_animation/splash_screen_controller.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/welcome/welcome_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../../../common_widgets/fade_in_animation/fade_in_animation_model.dart';
+import '../../../../utils/animations/fade_in_animation/animation_design.dart';
+import '../../../../utils/animations/fade_in_animation/fade_in_animation_model.dart';
+import '../../../../utils/animations/fade_in_animation/splash_screen_controller.dart';
+
 
 class SplashScreen extends StatelessWidget {
   SplashScreen({Key? key}) : super(key: key);

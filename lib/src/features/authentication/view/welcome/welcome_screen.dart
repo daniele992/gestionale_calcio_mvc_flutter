@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gestionale_calcio_mvc_flutter/src/common_widgets/fade_in_animation/animation_design.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/colors.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/image_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart';
@@ -7,9 +6,9 @@ import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/login/login_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-
-import '../../../../common_widgets/fade_in_animation/fade_in_animation_model.dart';
-import '../../../../common_widgets/fade_in_animation/splash_screen_controller.dart';
+import '../../../../utils/animations/fade_in_animation/animation_design.dart';
+import '../../../../utils/animations/fade_in_animation/fade_in_animation_model.dart';
+import '../../../../utils/animations/fade_in_animation/splash_screen_controller.dart';
 
 class WelcomeScreen extends StatelessWidget{
   const WelcomeScreen({Key? key}) : super(key: key);

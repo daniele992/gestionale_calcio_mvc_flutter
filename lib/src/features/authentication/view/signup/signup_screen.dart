@@ -4,6 +4,7 @@ import "package:gestionale_calcio_mvc_flutter/src/constants/colors.dart";
 import "package:gestionale_calcio_mvc_flutter/src/constants/image_strings.dart";
 import "package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart";
 import "package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart";
+import "package:gestionale_calcio_mvc_flutter/src/features/authentication/view/signup/widgets/signup_forms_widget.dart";
 
 class SignUpScreen extends StatelessWidget{
   const SignUpScreen({Key? key}) : super(key: key);
@@ -14,39 +15,40 @@ class SignUpScreen extends StatelessWidget{
       child: Scaffold(
         body: SingleChildScrollView(
          child: Container(
-           padding: EdgeInsets.all(tDefaultSize),
-           child: Column(
+           padding: const EdgeInsets.all(tDefaultSize),
+           child:  Column(
              children:  [
-               const FormHeaderWidget(
+                 const FormHeaderWidget(
                  image: tWelcomeScreenImage,
                  title: tSignUpTitle,
                  subTitle: tSignUpSubTitle,
                ),
-               Container(
-                   padding: const EdgeInsets.symmetric(vertical: tFormHeight - 10),
-                   child: Form(
-                     child: Column(
-                       crossAxisAlignment: CrossAxisAlignment.start,
-                       children: [
-                         TextFormField(
-                           decoration: const InputDecoration(
-                               label: Text(tFullName),
-                               border: OutlineInputBorder(),
-                               prefixIcon: Icon(
-                                 Icons.person_outline_rounded,
-                                 color: tSecondaryColor,
-                               ),
-                               labelStyle: TextStyle(color: tSecondaryColor),
-                               focusedBorder: OutlineInputBorder(
-                                 borderSide: BorderSide(
-                                     width: 2.0,
-                                     color: tSecondaryColor)
-                               )
-                           ),
-                         )
-                       ],
+               const SignUpFormWidget(),
+               Column(
+                 children: [
+                   const Text("OR"),
+                   SizedBox(
+                     width: double.infinity,
+                     child: OutlinedButton.icon(
+                         onPressed: (){},
+                         icon: const Image(
+                             image: AssetImage(tGoogleLogoImage),
+                             width:  20.0),
+                         label: Text(tSignInWithGoogle.toUpperCase()),
+                     ),
+                   ),
+                   TextButton(
+                     onPressed: (){},
+                     child: Text.rich(
+                       TextSpan(
+                         children: [
+                           TextSpan(text: tAlreadyHaveAnAccount, style: Theme.of(context).textTheme.bodyLarge), //bodyText1?
+                           TextSpan(text: tLogin.toUpperCase())
+                         ]
+                       )
                      ),
                    )
+                 ],
                )
              ],
            ),
@@ -56,4 +58,5 @@ class SignUpScreen extends StatelessWidget{
     ); //Scaffold
   }
 
-} //Class SignUpScreen
+}
+
