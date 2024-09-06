@@ -13,3 +13,6 @@ const String tWelcomeScreenImage = "";
 
 /* --- Login Image --- */
 const String tGoogleLogoImage = "assets/logo/";
+
+/* -- Forget Password Images --- */
+const String tForgetPasswordImage = "";

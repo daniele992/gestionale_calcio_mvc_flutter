@@ -40,3 +40,15 @@ const String tDontHaveAnAccount = "Don't have an Accont?";
 const String tSignUpTitle = "Get On Board";
 const String tSignUpSubTitle = "Create your profile to start your Journey with us...";
 const String tAlreadyHaveAnAccount = "Already have an Account?";
+
+/* --- Forget Password Text --- */
+const String tForgetPasswordTitle = "Make Selection";
+const String tForgetPasswordSubTitle = "Select one of the options given below to reset your password.";
+const String tResetViaEmail = "Reset via E-Mail Verification.";
+const String tResetViaPhone = "Reset via Phone Verification.";
+
+/* --- Forget Password Via Phone --- */
+const String tForgetPhoneSubTitle = "Enter your registered Phone No to receive OTP";
+
+/* --- Forget Password Via E-Mail --- */
+const String tForgetMailSubTitle = "Enter your registered E-Mail No to receive OTP ";
