@@ -11,6 +11,7 @@ const String tSignInWithGoogle = "Sign-In with Google";
 const String tFormTitle = "";
 const String tFormSubtTitle = "";
 const String tFullName = "";
+const String tNext = "Next";
 
 const String tAppName = ".appable/";
 const String tAppTagLine = "Learn To Code. \nFree For Everyone";
