@@ -3,6 +3,9 @@ import 'package:gestionale_calcio_mvc_flutter/src/common_widgets/form/form_heade
 import 'package:gestionale_calcio_mvc_flutter/src/constants/image_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/forget_password/forget_password_otp/otp_screen.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class ForgetPasswordMailScreen extends StatelessWidget{
   const ForgetPasswordMailScreen({Key? key}) : super(key: key);
@@ -40,7 +43,9 @@ class ForgetPasswordMailScreen extends StatelessWidget{
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
-                                onPressed: (){},
+                                onPressed: (){
+                                  Get.to(() => const OTPScreen());
+                                },
                                 child: const Text(tNext)),
                           ),
                         ],

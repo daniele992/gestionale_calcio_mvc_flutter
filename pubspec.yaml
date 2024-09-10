@@ -40,6 +40,7 @@ dependencies:
   get: ^4.6.6
   liquid_swipe: ^3.1.0
   smooth_page_indicator: ^1.2.0+3
+  flutter_otp_text_field: ^1.2.0
 
 dev_dependencies:
   flutter_test:
@@ -79,6 +80,7 @@ flutter:
     - assets/images/splash_images/
     - assets/images/on_boarding_images/
     - assets/images/welcome_images/
+    - assets/images/forget_password/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
