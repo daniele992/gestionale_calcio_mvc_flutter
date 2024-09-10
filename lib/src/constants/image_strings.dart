@@ -16,3 +16,10 @@ const String tGoogleLogoImage = "assets/logo/";
 
 /* -- Forget Password Images --- */
 const String tForgetPasswordImage = "";
+
+/* --- Dashboard Images --- */
+const String tUserProfileImage = "";
+const String tBannerImage1 = "";
+const String tBannerImage2 = "";
+const String tTopCourseImage1 = "";
+const String tTopCourseImage2 = "";

@@ -58,3 +58,14 @@ const String tForgetMailSubTitle = "Enter your registered E-Mail No to receive O
 const String tOtpTitle = "CO\nDE";
 const String tOtpSubTitle = "verification";
 const String tOtpMessage = "Enter the verification code sent at ";
+
+/* --- DashBoard Screen - Text --- */
+const String tDashBoardTitle = "Hey, Coding With ?";
+const String tDashBoardHeading = "Explore Courses";
+const String tDashBoardSearch = "Search...";
+const String tDashBoardBannerTitle1 = "Android for Beginners";
+const String tDashBoardBannerTitle2 = "JAVA";
+const String tDashBoardBannerSubTitle = "10 Lessons";
+const String tDashBoardButton = "View All";
+const String tDashBoardTopCourses = "Top Courses";
+
