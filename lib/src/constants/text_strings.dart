@@ -68,4 +68,4 @@ const String tDashBoardBannerTitle2 = "JAVA";
 const String tDashBoardBannerSubTitle = "10 Lessons";
 const String tDashBoardButton = "View All";
 const String tDashBoardTopCourses = "Top Courses";
-
+const String tBookmarkIcon = "";
