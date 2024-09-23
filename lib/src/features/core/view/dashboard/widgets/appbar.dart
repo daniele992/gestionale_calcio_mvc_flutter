@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/repository/authentication_repository/authentication_repository.dart';
 
 import '../../../../../constants/colors.dart';
 import '../../../../../constants/image_strings.dart';
@@ -22,7 +23,10 @@ class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
         Container(
           margin: const EdgeInsets.only(right: 20, top: 7),
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: tCardBgColor),
-          child: IconButton(onPressed: (){}, icon: const Image(image: AssetImage(tUserProfileImage))),
+          child: IconButton(onPressed: (){
+            AuthenticationRepository.instance.logout();
+          },
+              icon: const Image(image: AssetImage(tUserProfileImage))),
         )
       ],
     );
