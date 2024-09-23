@@ -22,6 +22,7 @@ class SignUpScreen extends StatelessWidget{
                  image: tWelcomeScreenImage,
                  title: tSignUpTitle,
                  subTitle: tSignUpSubTitle,
+                   imageHeight: 0.15,
                ),
                const SignUpFormWidget(),
                Column(
@@ -49,7 +50,7 @@ class SignUpScreen extends StatelessWidget{
                      ),
                    )
                  ],
-               )
+               ),
              ],
            ),
          ),
