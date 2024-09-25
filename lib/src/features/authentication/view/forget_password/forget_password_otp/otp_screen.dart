@@ -5,7 +5,7 @@ import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class OTPScreen extends StatelessWidget{
-  const OTPScreen({Key? key}) : super(key: key);
+  const OTPScreen({super.key});
 
   @override
   Widget build(BuildContext context){

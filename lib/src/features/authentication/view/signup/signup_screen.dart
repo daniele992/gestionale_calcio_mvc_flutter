@@ -9,7 +9,7 @@ import "package:gestionale_calcio_mvc_flutter/src/features/authentication/view/s
 import "../../../../common_widgets/form/form_footer_widget.dart";
 
 class SignUpScreen extends StatelessWidget{
-  const SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({super.key});
 
   @override
   Widget build(BuildContext context)  {

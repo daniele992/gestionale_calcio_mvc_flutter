@@ -10,7 +10,7 @@ import "package:gestionale_calcio_mvc_flutter/src/features/core/view/dashboard/w
 import "package:gestionale_calcio_mvc_flutter/src/features/core/view/dashboard/widgets/top_courses.dart";
 
 class Dashboard extends StatelessWidget{
-  const  Dashboard({Key? key}) : super(key:key);
+  const  Dashboard({super.key});
 
   @override
   Widget build(BuildContext context)

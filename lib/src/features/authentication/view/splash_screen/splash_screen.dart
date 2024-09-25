@@ -13,7 +13,7 @@ import '../../../../utils/animations/fade_in_animation/splash_screen_controller.
 
 
 class SplashScreen extends StatelessWidget {
-  SplashScreen({Key? key}) : super(key: key);
+  SplashScreen({super.key});
 
   //final splashController = Get.put(SplashScreenController());
 

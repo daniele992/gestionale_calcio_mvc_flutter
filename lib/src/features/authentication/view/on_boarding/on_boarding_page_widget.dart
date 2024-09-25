@@ -5,9 +5,9 @@ import '../../models/model_on_boarding.dart';
 class OnBoardingPageWidget extends StatelessWidget {
   const OnBoardingPageWidget({
     //super.key,
-    Key? key,
+    super.key,
     required this.model,
-  }) : super(key: key);
+  });
 
   final OnBoardingModel model;
 

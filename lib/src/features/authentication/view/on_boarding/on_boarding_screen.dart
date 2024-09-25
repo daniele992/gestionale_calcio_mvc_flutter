@@ -11,7 +11,7 @@ import '../../../../constants/colors.dart';
 import '../../controllers/on_boarding_controller.dart';
 
 class OnBoardingScreen extends StatelessWidget{
-  const OnBoardingScreen({Key? key}): super(key: key);
+  const OnBoardingScreen({super.key});
 
   @override
   Widget build(BuildContext context){

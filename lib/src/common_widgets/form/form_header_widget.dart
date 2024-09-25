@@ -3,7 +3,7 @@ import '../../constants/image_strings.dart';
 import '../../constants/text_strings.dart';
 
 class FormHeaderWidget extends StatelessWidget {
-  const FormHeaderWidget({ Key? key,
+  const FormHeaderWidget({ super.key,
 
     this.imageColor,
     this.heightBetween,
@@ -13,7 +13,7 @@ class FormHeaderWidget extends StatelessWidget {
     this.imageHeight = 0.2,
     this.textAlign,
     this.crossAxisAlignment = CrossAxisAlignment.start,
-  }) :super(key: key);
+  });
 
   final Color? imageColor;
   final double imageHeight;

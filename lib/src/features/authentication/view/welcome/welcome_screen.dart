@@ -11,7 +11,7 @@ import '../../../../utils/animations/fade_in_animation/fade_in_animation_model.d
 import '../../../../utils/animations/fade_in_animation/splash_screen_controller.dart';
 
 class WelcomeScreen extends StatelessWidget{
-  const WelcomeScreen({Key? key}) : super(key: key);
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context){

@@ -8,12 +8,12 @@ import 'splash_screen_controller.dart';
 class TFadeInAnimation extends StatelessWidget {
     TFadeInAnimation({
     //super.key,
-    Key? key,
+    super.key,
     required this.durationInMs,
       required this.child,
       this.animate,
 
-  }) : super(key: key);
+  });
 
   final controller = Get.put(FadeInAnimationController());
   final int durationInMs;
