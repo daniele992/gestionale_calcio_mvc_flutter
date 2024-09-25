@@ -4,8 +4,6 @@ import 'package:gestionale_calcio_mvc_flutter/src/constants/image_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import '../../../../utils/animations/fade_in_animation/animation_design.dart';
 import '../../../../utils/animations/fade_in_animation/fade_in_animation_model.dart';
 import '../../../../utils/animations/fade_in_animation/splash_screen_controller.dart';

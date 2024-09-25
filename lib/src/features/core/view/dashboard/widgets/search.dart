@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../constants/text_strings.dart';
 
 class DashboardSearchBox extends StatelessWidget {

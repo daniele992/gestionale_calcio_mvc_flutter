@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/controllers/signup_controller.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
 

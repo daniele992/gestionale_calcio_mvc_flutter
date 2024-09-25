@@ -5,7 +5,6 @@ import 'package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/login/login_screen.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import '../../../../utils/animations/fade_in_animation/animation_design.dart';
 import '../../../../utils/animations/fade_in_animation/fade_in_animation_model.dart';
 import '../../../../utils/animations/fade_in_animation/splash_screen_controller.dart';
@@ -40,7 +39,7 @@ class WelcomeScreen extends StatelessWidget{
                 rightBefore: 0,
             ),
             child: Container(
-              padding: EdgeInsets.all(tDefaultSize),
+              padding: const EdgeInsets.all(tDefaultSize),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

@@ -5,7 +5,7 @@ import 'package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/forget_password/forget_password_otp/otp_screen.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
 
 class ForgetPasswordMailScreen extends StatelessWidget{
   const ForgetPasswordMailScreen({super.key});
