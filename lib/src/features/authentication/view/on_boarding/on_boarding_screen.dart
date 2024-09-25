@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gestionale_calcio_mvc_flutter/src/constants/image_strings.dart';
-import 'package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart';
-import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
-import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/models/model_on_boarding.dart';
-import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/on_boarding/on_boarding_page_widget.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

@@ -4,7 +4,6 @@ import "package:gestionale_calcio_mvc_flutter/src/constants/image_strings.dart";
 import "package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart";
 import "package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart";
 import "package:gestionale_calcio_mvc_flutter/src/features/authentication/view/login/widgets/login_form_widget.dart";
-import "package:gestionale_calcio_mvc_flutter/src/features/authentication/view/login/widgets/login_header_widget.dart";
 import "widgets/login_footer_widget.dart";
 
 
@@ -13,7 +12,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(

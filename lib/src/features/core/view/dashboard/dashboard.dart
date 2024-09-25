@@ -1,6 +1,4 @@
 import "package:flutter/material.dart";
-import "package:gestionale_calcio_mvc_flutter/src/constants/colors.dart";
-import "package:gestionale_calcio_mvc_flutter/src/constants/image_strings.dart";
 import "package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart";
 import "package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart";
 import "package:gestionale_calcio_mvc_flutter/src/features/core/view/dashboard/widgets/appbar.dart";

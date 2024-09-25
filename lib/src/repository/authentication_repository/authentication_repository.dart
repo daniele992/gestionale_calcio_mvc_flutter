@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/welcome/welcome_screen.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/core/view/dashboard/dashboard.dart';
 import 'package:get/get.dart';
