@@ -40,12 +40,12 @@ class AuthenticationRepository extends GetxController{
     }
   }
 
-  Future<void> loginWithEmailPassword(String email, String password) async{
+  /*Future<void> loginWithEmailPassword(String email, String password) async{
     try{
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch(e){}
     catch(_){}
-  }
+  }*/
 
   Future<void> logout() async => await _auth.signOut();
 

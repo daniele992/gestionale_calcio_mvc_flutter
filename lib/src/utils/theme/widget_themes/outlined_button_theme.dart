@@ -10,20 +10,20 @@ class TOutlinedButtonTheme{
   /* --- Light Theme --- */
   static final lightOutLinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
-      shape: RoundedRectangleBorder(),
+      shape: const RoundedRectangleBorder(),
       foregroundColor: tSecondaryColor,
-      side: BorderSide(color: tSecondaryColor),
-      padding: EdgeInsets.symmetric(vertical: tButtonHeight),
+      side: const BorderSide(color: tSecondaryColor),
+      padding: const EdgeInsets.symmetric(vertical: tButtonHeight),
     ),
   );
 
   /* --- Dark Theme --- */
   static final darkOutLinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
-      shape: RoundedRectangleBorder(),
+      shape: const RoundedRectangleBorder(),
       foregroundColor: tWhiteColor,
-      side: BorderSide(color: tWhiteColor),
-      padding: EdgeInsets.symmetric(vertical: tButtonHeight),
+      side: const BorderSide(color: tWhiteColor),
+      padding: const EdgeInsets.symmetric(vertical: tButtonHeight),
     ),
   );
 
