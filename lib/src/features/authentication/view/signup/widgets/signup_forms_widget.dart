@@ -3,6 +3,7 @@ import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/contro
 import 'package:get/get.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
+import '../../forget_password/forget_password_otp/otp_screen.dart';
 
 class SignUpFormWidget extends StatelessWidget {
   const SignUpFormWidget({
@@ -48,6 +49,7 @@ class SignUpFormWidget extends StatelessWidget {
                     if(_formKey.currentState!.validate()){
                       //SignUpController.instance.registerUser(controller.email.text.trim(), controller.password.text.trim());
                       SignUpController.instance.phoneAuthentication(controller.phoneNo.text.trim());
+                      Get.to(() => const OTPScreen());
                     }
                   },
                   child: Text(tSignup.toUpperCase()),

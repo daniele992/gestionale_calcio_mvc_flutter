@@ -27,7 +27,7 @@ class AuthenticationRepository extends GetxController{
 
   //Function
 
-  void phoneAuthentication(String phoneNo) async {
+  Future<void> phoneAuthentication(String phoneNo) async {
     await _auth.verifyPhoneNumber(
         phoneNumber: phoneNo,
         verificationCompleted: (credential) async{
@@ -71,12 +71,12 @@ class AuthenticationRepository extends GetxController{
     }
   }
 
-  /*Future<String?> loginWithEmailPassword(String email, String password) async{
+  Future<String?> loginWithEmailAndPassword(String email, String password) async{
     try{
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch(e){}
     catch(_){}
-  }*/
+  }
 
   Future<void> logout() async => await _auth.signOut();
 
