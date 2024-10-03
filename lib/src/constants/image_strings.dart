@@ -19,7 +19,12 @@ const String tForgetPasswordImage = "";
 
 /* --- Dashboard Images --- */
 const String tUserProfileImage = "";
+const String tBookmarkIcon = "";
 const String tBannerImage1 = "";
 const String tBannerImage2 = "";
 const String tTopCourseImage1 = "";
 const String tTopCourseImage2 = "";
+
+/* -- Profile Images -- */
+const String tProfileImage = "";
+

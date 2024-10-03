@@ -12,6 +12,7 @@ const String tFormTitle = "";
 const String tFormSubtTitle = "";
 const String tFullName = "";
 const String tNext = "Next";
+const String tLogout = "logout";
 
 const String tAppName = ".appable/";
 const String tAppTagLine = "Learn To Code. \nFree For Everyone";
@@ -68,4 +69,25 @@ const String tDashBoardBannerTitle2 = "JAVA";
 const String tDashBoardBannerSubTitle = "10 Lessons";
 const String tDashBoardButton = "View All";
 const String tDashBoardTopCourses = "Top Courses";
-const String tBookmarkIcon = "";
+//const String tBookmarkIcon = "";
+
+/* -- Profile Screen - Text -- */
+const String tProfile = "Profile";
+const String tEditProfile = "Edit Profile";
+const String tLogoutDialogHeading = "Logout";
+const String tProfileHeading = "Coding with T";
+const String tProfileSubHeading = "superAdmin@codingwitht.com";
+
+/* -- Menu -- */
+const String tMenu1 = "Settings";
+const String tMenu2 = "Billing Details";
+const String tMenu3 = "User Management";
+const String tMenu4 = "Information";
+const String tMenu5 = tLogout;
+
+/* -- Update Profile Screen - Text -- */
+const String tDelete = "Delete";
+const String tJoined = "Joined";
+const String tJoinedAt = "31 october 2022";
+
+
