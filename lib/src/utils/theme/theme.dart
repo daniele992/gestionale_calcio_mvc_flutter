@@ -12,6 +12,7 @@ class TAppTheme{
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     textTheme: TTextTheme.lightTextTheme,
+    //appBarTheme: TAppBarTheme.lightAppBarTheme,
     //elevatedButtonTheme: ElevatedButtonThemeData(style: ElevatedButton.styleFrom()),
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
     outlinedButtonTheme: TOutlinedButtonTheme.lightOutLinedButtonTheme,
@@ -21,6 +22,7 @@ class TAppTheme{
 static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     textTheme: TTextTheme.darkTextTheme,
+    //appBarTheme: TAppBarTheme.darkAppBarTheme,
     elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
     outlinedButtonTheme: TOutlinedButtonTheme.darkOutLinedButtonTheme,
     inputDecorationTheme: TTextFormFieldTheme.darkInputDecorationTheme,
