@@ -28,7 +28,7 @@ class App extends StatelessWidget {
       defaultTransition: Transition.leftToRightWithFade,
       transitionDuration: const Duration(milliseconds: 500),
       //home: SplashScreen() //const?
-      home: const CircularProgressIndicator(),
+      home: const Scaffold(body: Center(child: CircularProgressIndicator())),
     );//Closed Material App
   } // Closed widget
 }

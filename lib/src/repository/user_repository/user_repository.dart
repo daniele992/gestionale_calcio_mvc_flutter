@@ -5,19 +5,13 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
-/*
- =========
- Todo: Step - 2 [User Repository to perform Database Operations]
- =========
- */
-
-
 
 class UserRepository extends GetxController {
   static UserRepository get instance => Get.find();
 
   final _db = FirebaseFirestore.instance;
 
+  /// Store user in FireStore
   createUser(UserModel user) async {
     await _db.collection("Users").add(user.toJson())
         .whenComplete(
@@ -34,4 +28,19 @@ class UserRepository extends GetxController {
           print(error.toString());
     });
   }
+
+  ///Step 2 - Fetch All Users OR User details
+  Future<UserModel> getUserDetails(String email) async {
+    final snapshot = await _db.collection("Users").where("Email", isEqualTo: email).get();
+    final userData = snapshot.docs.map((e) => UserModel.fromSnapshot(e)).single;
+    return userData;
+  }
+
+  Future<List<UserModel>> allUser() async {
+    final snapshot = await _db.collection("Users").get();
+    final userData = snapshot.docs.map((e) => UserModel.fromSnapshot(e)).toList();
+    return userData;
+  }
+
+
 }

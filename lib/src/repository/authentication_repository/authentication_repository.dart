@@ -12,6 +12,7 @@ class AuthenticationRepository extends GetxController{
   late final Rx<User?> firebaseUser;
   var verificationId = ''.obs;
 
+  //Will be load when app launches this func will be called and set the firebaseUser state
   @override
   void onReady(){
     //Future.delayed(const Duration(seconds: 6));
@@ -20,11 +21,23 @@ class AuthenticationRepository extends GetxController{
     ever(firebaseUser, _setInitialScreen);
   }
 
+  /// Setting initial screen onLOAD
   _setInitialScreen(User? user){
     user == null ? Get.offAll(() => const WelcomeScreen()) : Get.offAll(() => const Dashboard());
   }
 
-  //Function
+  /// Phone Authentication
+  loginWithPhoneNo(String phoneNumber) async {
+    try {
+      await _auth.signInWithPhoneNumber(phoneNumber);
+    } on FirebaseAuthException catch(e){
+      if(e.code == 'invalid-phone-number'){
+        Get.snackbar("Error", "Invalid Phone No");
+      }
+    } catch(_) {
+      Get.snackbar("Error", "Something went wrong.");
+    }
+  }
 
   Future<void> phoneAuthentication(String phoneNo) async {
     await _auth.verifyPhoneNumber(

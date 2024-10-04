@@ -45,6 +45,8 @@ class UpdateProfileScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 50),
+
+              // -- Form Fields
               Form(
                 child: Column(
                   children: [
