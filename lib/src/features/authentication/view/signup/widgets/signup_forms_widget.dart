@@ -3,6 +3,7 @@ import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/contro
 import 'package:get/get.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
+import '../../../models/user_model.dart';
 import '../../forget_password/forget_password_otp/otp_screen.dart';
 
 class SignUpFormWidget extends StatelessWidget {
@@ -47,8 +48,25 @@ class SignUpFormWidget extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: (){
                     if(formKey.currentState!.validate()){
-                      //SignUpController.instance.registerUser(controller.email.text.trim(), controller.password.text.trim());
-                      SignUpController.instance.phoneAuthentication(controller.phoneNo.text.trim());
+                      //Email e Password Authentication
+                      //SignUpController.instance.phoneAuthentication(controller.phoneNo.text.trim());
+
+                      //For Phone Authentication
+                      //SignUpController.instance.phoneAuthentication(controller.phoneNo.text.trim());
+
+                      /*
+                      ========
+                      TODO: Step - 3 [Get User and Pass it to Controller]
+
+                       */
+                      final user = UserModel(
+                        email: controller.email.text.trim(),
+                        password: controller.password.text.trim(),
+                        fullName: controller.fullName.text.trim(),
+                        phoneNo: controller.phoneNo.text.trim(),
+                      );
+                      SignUpController.instance.phoneAuthentication(user.phoneNo);
+
                       Get.to(() => const OTPScreen());
                     }
                   },
