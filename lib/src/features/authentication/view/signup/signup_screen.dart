@@ -14,6 +14,7 @@ class SignUpScreen extends StatelessWidget{
   Widget build(BuildContext context)  {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(),
         body: SingleChildScrollView(
          child: Container(
            padding: const EdgeInsets.all(tDefaultSize),
@@ -23,7 +24,7 @@ class SignUpScreen extends StatelessWidget{
                  image: tWelcomeScreenImage,
                  title: tSignUpTitle,
                  subTitle: tSignUpSubTitle,
-                   imageHeight: 0.15,
+                   imageHeight: 0.1,
                ),
                SignUpFormWidget(),
                SignUpFooterWidget(),
