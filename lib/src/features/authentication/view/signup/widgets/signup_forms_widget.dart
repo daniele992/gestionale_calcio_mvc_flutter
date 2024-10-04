@@ -65,14 +65,13 @@ class SignUpFormWidget extends StatelessWidget {
                         fullName: controller.fullName.text.trim(),
                         phoneNo: controller.phoneNo.text.trim(),
                       );
-                      SignUpController.instance.phoneAuthentication(user.phoneNo);
-
-                      Get.to(() => const OTPScreen());
+                      SignUpController.instance.createUser(user);
+                      //Get.to(() => const OTPScreen());
                     }
                   },
                   child: Text(tSignup.toUpperCase()),
-                )
-            ),
+                ),
+            )
           ],
         ),
       ),
