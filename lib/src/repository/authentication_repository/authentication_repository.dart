@@ -8,7 +8,6 @@ import 'exceptions/signup_email_password_failure.dart';
 class AuthenticationRepository extends GetxController{
   static AuthenticationRepository get instance => Get.find();
 
-  //Varibales
   final _auth = FirebaseAuth.instance;
   late final Rx<User?> firebaseUser;
   var verificationId = ''.obs;
