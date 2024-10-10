@@ -3,6 +3,7 @@ import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/w
 import 'package:gestionale_calcio_mvc_flutter/src/features/core/view/dashboard/dashboard.dart';
 import 'package:get/get.dart';
 
+import '../../features/authentication/models/user_model.dart';
 import 'exceptions/signup_email_password_failure.dart';
 
 class AuthenticationRepository extends GetxController{
@@ -91,6 +92,8 @@ class AuthenticationRepository extends GetxController{
   }
 
   Future<void> logout() async => await _auth.signOut();
+
+
 
 
 }

@@ -2,6 +2,8 @@ import 'package:gestionale_calcio_mvc_flutter/src/repository/authentication_repo
 import 'package:gestionale_calcio_mvc_flutter/src/repository/user_repository/user_repository.dart';
 import 'package:get/get.dart';
 
+import '../../authentication/models/user_model.dart';
+
 class ProfileController extends GetxController {
   static ProfileController get instance => Get.find();
 
@@ -17,5 +19,9 @@ class ProfileController extends GetxController {
       Get.snackbar("Error", "Login to continue");
     }
   }
+
+  //Future<List<UserModel>> getAllUser() async{
+    //return await _authRepo.allUser();
+  //}
 
 }
