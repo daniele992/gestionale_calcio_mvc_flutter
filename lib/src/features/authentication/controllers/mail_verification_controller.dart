@@ -38,7 +38,7 @@ class MailVerificationController extends GetxController {
   }
 
   /// -- Manually Check if Verification Completed then Redirect
-  void manuallyCheckEmailVerificarionStatus() {
+  void manuallyCheckEmailVerificationStatus() {
     FirebaseAuth.instance.currentUser?.reload();
     final user = FirebaseAuth.instance.currentUser;
     if(user!.emailVerified) {
