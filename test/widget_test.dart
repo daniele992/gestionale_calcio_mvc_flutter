@@ -7,6 +7,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:gestionale_calcio_mvc_flutter/app.dart';
 
 import 'package:gestionale_calcio_mvc_flutter/main.dart';
 
