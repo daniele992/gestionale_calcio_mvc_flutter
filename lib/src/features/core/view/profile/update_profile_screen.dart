@@ -4,6 +4,8 @@ import 'package:gestionale_calcio_mvc_flutter/src/constants/image_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/core/controllers/profile_controller.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/features/core/view/profile/profile_form.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/features/core/view/profile/widgets/image_with_icon.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
@@ -23,38 +25,33 @@ class UpdateProfileScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.all(tDefaultSize),
+          /// -- Future Builder to load cloud data
           child: FutureBuilder(
-            //future: controller.getAllUser(),
             future: controller.getUserData(),
             builder: (context, snapshot){
               if(snapshot.connectionState == ConnectionState.done){
                 if(snapshot.hasData){
-                  //UserModel userData = snapshot.data as UserModel;
-                  return ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (c, index) {
-                      return Column(
-                        children: [
-                          ListTile(
-                            iconColor: Colors.blue,
-                            tileColor: Colors.blue.withOpacity(0.1),
-                            leading: const Icon(LineAwesomeIcons.user),
-                            title: Text("Name: ${snapshot.data![index].fullName}"),
-                            subtitle: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(snapshot.data![index].phoneNo),
-                                Text(snapshot.data![index].email),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 10)
-                        ],
-                      );
-                    }
+                  UserModel user = snapshot.data as UserModel;
 
+                  //Controllers
+                  final email = TextEditingController(text: user.email);
+                  final password = TextEditingController(text: user.password);
+                  final fullName = TextEditingController(text: user.fullName);
+                  final phoneNo = TextEditingController(text: user.phoneNo);
+
+                  //Image e Form
+                  return Column(
+                    children: [
+                      /// -- IMAGE with ICON
+                      const ImageWithIcon(),
+                      const SizedBox(height: 50),
+
+                      /// -- Form (Get data and pass it to FormScreen)
+                      ProfileFormScreen(fullName: fullName, email: email, phoneNo: phoneNo, password: password, user:user),
+                    ],
                   );
+
+
                 } else if (snapshot.hasError) {
                   return Center(child: Text(snapshot.error.toString()));
                 } else {

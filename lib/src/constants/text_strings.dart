@@ -1,20 +1,37 @@
 /* --- APP TEXT STRINGS --- */
 
-/* --- Generic Text --- */
-const String tEmail = "Email";
-const String tLogin = "Login";
-const String tSignup = "Signup";
-const String tPhoneNo = "Phone Number";
-const String tPassword = "Password";
-const String tForgetPassword = "Forget Password";
-const String tSignInWithGoogle = "Sign-In with Google";
-const String tFormTitle = "";
-const String tFormSubtTitle = "";
-const String tFullName = "";
+/* --- Global Texts --- */
+const String tNo = "No";
+const String tYes = "Yes";
 const String tNext = "Next";
+const String tLogin = "Login";
+const String tEmail = "E-Mail";
+const String tSignup = "Signup";
 const String tLogout = "logout";
+const String tSuccess = "Success";
+const String tPhoneNo = "Phone No";
+const String tContinue = "Continue";
+const String tPassword = "Password";
+const String tFullName = "Full Name";
+const String tGetStarted = "Get Started";
+const String tForgetPassword = "Forget Password?";
+const String tSignInWithGoogle = "Sign-In with Google";
 
-const String tAppName = ".appable/";
+// -- Validation
+const String tEmailCannotEmpty = "Email cannot be empty";
+const String tInvalidEmailFormat = "Invalid email format";
+const String tNoRecordFound = "No record found";
+
+// -- SnackBar --
+const String tAlert = "Alert";
+const String tOhSnap = "Oh Snap";
+const String tEmailSent = "Hurray!!! Email is on its way.";
+const String tCongratulations = "Congratulations";
+const String tEmailLinkToResetPassword = "Email Link To Reset Password";
+const String tAccountCreateVerifyEmail = "Account Create Verify Email";
+
+// -- Splash Screen Text
+const String tAppName = "/appable:";
 const String tAppTagLine = "Learn To Code. \nFree For Everyone";
 
 /* --- On Boarding Text --- */
@@ -23,20 +40,26 @@ const String tOnBoardingTitle2 = "Learn from YouTube";
 const String tOnBoardingTitle3 = "Get Code e Resources";
 const String tOnBoardingSubTitle1 = "Let's start your journey with us on this amazing and easy";
 const String tOnBoardingSubTitle2 = "Get Video Tutorials of each topic to learn things easily";
-const String tOnBoardingSubTitle3 = "Save time by just appy pasting complete apps learn from video";
+const String tOnBoardingSubTitle3 = "Save time by just copy pasting complete apps learn from video";
 const String tOnBoardingCounter1 = "1/3";
 const String tOnBoardingCounter2 = "2/3";
 const String tOnBoardingCounter3 = "3/3";
 
 /* --- Welcome Screen Text --- */
 const String tWelcomeTitle = "Build Awesome Apps";
-const String tWelcomeSubTitle = "Da scrivere il subtitle";
+const String tWelcomeSubTitle = "Let's put yout creativity on the developmente highway.";
 
 /* --- Login Screen Text --- */
 const String tLoginTitle = "Welcome Back,";
 const String tLoginSubTitle = "Make it work, make it right, make it fast.";
 const String tRememberMe = "Remember Me?";
 const String tDontHaveAnAccount = "Don't have an Accont?";
+const String tEnterYour = "Enter your";
+const String tResetPassword = "Reset Password";
+const String tOR = "OR";
+const String tConnectWith = "Connect With";
+const String tFacebook = "Facebook";
+const String tGoogle = "Google";
 
 /* --- Sign Up Screen Text --- */
 const String tSignUpTitle = "Get On Board";
@@ -59,6 +82,12 @@ const String tForgetMailSubTitle = "Enter your registered E-Mail No to receive O
 const String tOtpTitle = "CO\nDE";
 const String tOtpSubTitle = "verification";
 const String tOtpMessage = "Enter the verification code sent at ";
+
+// -- Email Verification
+const String tEmailVerificationTitle = "Verify your email address";
+const String tEmailVerificationSubTitle = "We have just send email verification link on your email. Please check email and click on that link to verify your Email address. \n\n If not auto redirected after verification, click on the Continue button.";
+const String tResendEmailLink = "Resend E-Mail Link";
+const String tBackToLogin = "Back to login";
 
 /* --- DashBoard Screen - Text --- */
 const String tDashBoardTitle = "Hey, Coding With ?";

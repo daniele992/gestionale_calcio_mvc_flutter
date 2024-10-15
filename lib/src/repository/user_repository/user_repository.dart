@@ -2,9 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/models/user_model.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-
 
 class UserRepository extends GetxController {
   static UserRepository get instance => Get.find();
@@ -12,10 +9,11 @@ class UserRepository extends GetxController {
   final _db = FirebaseFirestore.instance;
 
   /// Store user in FireStore
-  createUser(UserModel user) async {
+  Future<void> createUser(UserModel user) async {
     await _db.collection("Users").add(user.toJson())
         .whenComplete(
-        () => Get.snackbar("Success", "You account has been created.",
+        () => Get.snackbar("Success",
+            "You account has been created.",
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: Colors.green.withOpacity(0.1),
           colorText: Colors.green),
@@ -36,11 +34,15 @@ class UserRepository extends GetxController {
     return userData;
   }
 
-  Future<List<UserModel>> allUser() async {
+  Future<List<UserModel>> allUsers() async {
     final snapshot = await _db.collection("Users").get();
     final userData = snapshot.docs.map((e) => UserModel.fromSnapshot(e)).toList();
     return userData;
   }
 
+  Future<void> updateUserRecord(UserModel user) async {
+    await _db.collection("Users").doc(user.id).update(user.toJson());
+
+  }
 
 }
