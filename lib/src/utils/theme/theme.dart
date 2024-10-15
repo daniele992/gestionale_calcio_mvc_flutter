@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/widget_themes/appbar_theme.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/widget_themes/elevated_button_theme.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/widget_themes/outlined_button_theme.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/widget_themes/text_field_theme.dart';
@@ -12,8 +13,7 @@ class TAppTheme{
   static ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     textTheme: TTextTheme.lightTextTheme,
-    //appBarTheme: TAppBarTheme.lightAppBarTheme,
-    //elevatedButtonTheme: ElevatedButtonThemeData(style: ElevatedButton.styleFrom()),
+    appBarTheme: TAppBarTheme.lightAppBarTheme,
     elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme,
     outlinedButtonTheme: TOutlinedButtonTheme.lightOutLinedButtonTheme,
     inputDecorationTheme: TTextFormFieldTheme.lightInputDecorationTheme,
@@ -22,10 +22,10 @@ class TAppTheme{
 static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     textTheme: TTextTheme.darkTextTheme,
-    //appBarTheme: TAppBarTheme.darkAppBarTheme,
+    appBarTheme: TAppBarTheme.darkAppBarTheme,
     elevatedButtonTheme: TElevatedButtonTheme.darkElevatedButtonTheme,
     outlinedButtonTheme: TOutlinedButtonTheme.darkOutLinedButtonTheme,
     inputDecorationTheme: TTextFormFieldTheme.darkInputDecorationTheme,
-);
+  );
 
 } //Closed Class TAppTheme
