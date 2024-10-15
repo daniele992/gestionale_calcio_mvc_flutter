@@ -8,11 +8,13 @@ const String tOnBoardingImage1 = "";
 const String tOnBoardingImage2 = "";
 const String tOnBoardingImage3 = "";
 
-/* --- Welcome Screen Images --- */
+/* --- Welcome Screen Images [Used in Login e SignUp]--- */
 const String tWelcomeScreenImage = "";
+const String tLogoImage = "";
 
-/* --- Login Image --- */
-const String tGoogleLogoImage = "assets/logo/";
+// -- SOCIAL Images
+const String tFacebookLogo = "";
+const String tGoogleLogo = "";
 
 /* -- Forget Password Images --- */
 const String tForgetPasswordImage = "";
@@ -27,4 +29,7 @@ const String tTopCourseImage2 = "";
 
 /* -- Profile Images -- */
 const String tProfileImage = "";
+
+/* --- Login Image --- */
+const String tGoogleLogoImage = "assets/logo/";
 
