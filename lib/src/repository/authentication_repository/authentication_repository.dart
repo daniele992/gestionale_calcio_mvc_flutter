@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import '../../features/authentication/models/user_model.dart';
 import '../../features/authentication/view/on_boarding/on_boarding_screen.dart';
 import 'exceptions/signup_email_password_failure.dart';
+import 'exceptions/t_exceptions.dart';
 
 class AuthenticationRepository extends GetxController{
   static AuthenticationRepository get instance => Get.find();
