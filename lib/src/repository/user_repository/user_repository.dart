@@ -96,7 +96,7 @@ class UserRepository extends GetxController {
 
 
   /// Delete User Data
-  Future<void> deleteUser() async {
+  Future<void> deleteUser(String id) async {
     try {
       await _db.collection("Users").doc(id).delete();
     }
