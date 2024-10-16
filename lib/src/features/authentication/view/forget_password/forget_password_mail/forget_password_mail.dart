@@ -6,21 +6,28 @@ import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/forget_password/forget_password_otp/otp_screen.dart';
 import 'package:get/get.dart';
 
+import '../../../../../constants/colors.dart';
+
 
 class ForgetPasswordMailScreen extends StatelessWidget{
   const ForgetPasswordMailScreen({super.key});
 
   @override
   Widget build(BuildContext context){
+    //Just In-case if you want to replace the Image Color for Dark Theme
+    final brightness = MediaQuery.of(context).platformBrightness;
+    final bool isDark = brightness == Brightness.dark;
+
     return SafeArea(
       child: Scaffold(
           body: SingleChildScrollView(
             child: Container(
-              padding: const EdgeInsets.all(tDefaultSize),
+              padding: const EdgeInsets.all(tDefaultSpace),
               child: Column(
                 children: [
-                  const SizedBox(height: tDefaultSize * 4),
-                  const FormHeaderWidget(
+                  const SizedBox(height: tDefaultSpace * 4),
+                  FormHeaderWidget(
+                      imageColor: isDark ? tPrimaryColor : tSecondaryColor,
                       image: tForgetPasswordImage,
                       title: tForgetPassword,
                       subTitle: tForgetPasswordSubTitle,
@@ -43,13 +50,11 @@ class ForgetPasswordMailScreen extends StatelessWidget{
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
-                                onPressed: (){
-                                  Get.to(() => const OTPScreen());
-                                },
+                                onPressed: (){}, //Get.to(() => const OTPScreen());
                                 child: const Text(tNext)),
                           ),
                         ],
-                      )
+                      ),
                   ),
                 ],
               ),

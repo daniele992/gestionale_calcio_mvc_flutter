@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/theme.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
