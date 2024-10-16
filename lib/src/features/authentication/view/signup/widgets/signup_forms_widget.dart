@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/common_widgets/buttons/primary_button.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/controllers/signup_controller.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/utils/helper/helper_controller.dart';
 import 'package:get/get.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
 import '../../../models/user_model.dart';
@@ -14,64 +17,66 @@ class SignUpFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(SignUpController());
-    final formKey = GlobalKey<FormState>();
-
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: tFormHeight - 10),
+      padding: const EdgeInsets.only(top: tFormHeight - 15, bottom: tFormHeight),
       child: Form(
-        key: formKey,
+        key: controller.signupFormKey,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextFormField(
               controller: controller.fullName,
-              decoration: const InputDecoration(label: Text(tFullName), prefixIcon: Icon(Icons.person_outline_rounded),),
+              validator: (value){
+                if(value!.isEmpty) return 'Name cannot be empty';
+                return null;
+              },
+              decoration: const InputDecoration(label: Text(tFullName), prefixIcon: Icon(LineAwesomeIcons.user)),
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
               controller: controller.email,
-              decoration: const InputDecoration(label: Text(tEmail), prefixIcon: Icon(Icons.email_outlined),),
+              validator: Helper.validateEmail,
+              decoration: const InputDecoration(label: Text(tEmail), prefixIcon: Icon(LineAwesomeIcons.envelope)),
             ),
             const SizedBox(height: tFormHeight - 20),
             TextFormField(
               controller: controller.phoneNo,
-              decoration: const InputDecoration(label: Text(tPhoneNo), prefixIcon: Icon(Icons.numbers),),
+              validator: (value) {
+                if(value!.isEmpty) return 'Phone number cannot be empty';
+                return null;
+              },
+              decoration: const InputDecoration(label: Text(tPhoneNo), prefixIcon: Icon(LineAwesomeIcons.phone_solid)),
             ),
             const SizedBox(height: tFormHeight - 20),
-            TextFormField(
-              controller: controller.password,
-              decoration: const InputDecoration(label: Text(tPassword), prefixIcon: Icon(Icons.fingerprint),),
+            Obx(
+                () => TextFormField(
+                  controller: controller.password,
+                  validator: Helper.validatePassword,
+                  obscureText: controller.showPassword.value ? false : true,
+                  decoration: InputDecoration(
+                    label: const Text(tPassword),
+                    prefixIcon: const Icon(Icons.fingerprint),
+                    suffixIcon: IconButton(
+                        icon: controller.showPassword.value
+                            ? const Icon(LineAwesomeIcons.eye)
+                            : const Icon(LineAwesomeIcons.eye_slash),
+                      onPressed: () => controller.showPassword.value = !controller.showPassword.value,
+                    ),
+                  ),
+                ),
             ),
             const SizedBox(height: tFormHeight - 10),
-            SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: (){
-                    if(formKey.currentState!.validate()){
-                      //Email e Password Authentication
-                      //SignUpController.instance.phoneAuthentication(controller.phoneNo.text.trim());
-
-                      //For Phone Authentication
-                      //SignUpController.instance.phoneAuthentication(controller.phoneNo.text.trim());
-
-                      /*
-                      ========
-                      TODO: Step - 3 [Get User and Pass it to Controller]
-
-                       */
-                      final user = UserModel(
-                        email: controller.email.text.trim(),
-                        password: controller.password.text.trim(),
-                        fullName: controller.fullName.text.trim(),
-                        phoneNo: controller.phoneNo.text.trim(),
-                      );
-                      SignUpController.instance.createUser(user);
-                      //Get.to(() => const OTPScreen());
-                    }
-                  },
-                  child: Text(tSignup.toUpperCase()),
+            Obx(
+                () => TPrimaryButton(
+                  isLoading: controller.isLoading.value ? true : false,
+                  text: tSignup.tr,
+                  onPressed: controller.isFacebookLoading.value || controller.isGoogleLoading.value
+                      ? () {}
+                      : controller.isLoading.value
+                          ? () {}
+                          : () => controller.createUser(),
                 ),
-            )
+            ),
           ],
         ),
       ),
