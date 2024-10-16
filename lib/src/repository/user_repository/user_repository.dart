@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/models/user_model.dart';
 import 'package:get/get.dart';
+
+import '../authentication_repository/exceptions/t_exceptions.dart';
 
 class UserRepository extends GetxController {
   static UserRepository get instance => Get.find();
@@ -10,39 +13,114 @@ class UserRepository extends GetxController {
 
   /// Store user in FireStore
   Future<void> createUser(UserModel user) async {
-    await _db.collection("Users").add(user.toJson())
-        .whenComplete(
-        () => Get.snackbar("Success",
-            "You account has been created.",
-          snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Colors.green.withOpacity(0.1),
-          colorText: Colors.green),
-    )
-        .catchError((error, stackTrace) {
-          Get.snackbar("Error", "Something went wrong. Try again",
-              snackPosition: SnackPosition.BOTTOM,
-              backgroundColor: Colors.redAccent.withOpacity(0.1),
-              colorText: Colors.red);
-          print(error.toString());
-    });
-  }
+    try {
+      // It is recommended to use Authentication Id as DocumentId of the Users Collection.
+      // To store a new user you first have to authenticate and get uID (e.g: Check Authentication Repository)
+      // Add user like this: await _db.collection("Users").doc(uID).set(user.toJson());
+      await recordExist(user.email) ? throw "Record Already Exists" : await _db.collection("Users").add(user.toJson());
+    } on FirebaseAuthException catch (e) {
+        final result = TExceptions.fromCode(e.code);
+        throw result.message;
+    } on FirebaseException catch (e) {
+        throw e.message.toString();
+    } catch (e) {
+        throw e.toString().isEmpty
+            ? 'Something went wrong. Please Try Again'
+            : e.toString();
+    }
+  } //Closed Function createUser()
 
-  ///Step 2 - Fetch All Users OR User details
+  /// Fetch User Specific details
   Future<UserModel> getUserDetails(String email) async {
-    final snapshot = await _db.collection("Users").where("Email", isEqualTo: email).get();
-    final userData = snapshot.docs.map((e) => UserModel.fromSnapshot(e)).single;
-    return userData;
-  }
+    try {
+      // It is recommended to use Authentication Id as DocumentId of the Users Collection.
+      // Then when fetching the record you only have to get user authenticationID uID and query as follows.
+      // final snapshot = await _db.collection("Users").doc(uID).get();
+      final snapshot = await _db.collection("Users").where("Email", isEqualTo: email).get();
+      if(snapshot.docs.isEmpty) throw 'No such user found';
 
+      // Single will throw exception if there are two entries when result return.
+      // In case of multiple entries use .first to pick the first one without exception.
+      final userData = snapshot.docs.map((e) => UserModel.fromSnapshot(e)).single;
+      return userData;
+
+    } on FirebaseAuthException catch (e) {
+        final result = TExceptions.fromCode(e.code);
+        throw result.message;
+    } on FirebaseException catch (e) {
+        throw e.message.toString();
+    } catch (e) {
+        throw e.toString().isEmpty
+            ? 'Something went wrong. Please Try Again'
+            : e.toString();
+    }
+  } //Closed Function getUserDetails()
+
+
+  /// Fetch All users
   Future<List<UserModel>> allUsers() async {
-    final snapshot = await _db.collection("Users").get();
-    final userData = snapshot.docs.map((e) => UserModel.fromSnapshot(e)).toList();
-    return userData;
-  }
+    try {
+      final snapshot = await _db.collection("Users").get();
+      final users = snapshot.docs.map((e) => UserModel.fromSnapshot(e)).toList();
+      return users;
+    }
+    on FirebaseAuthException catch (e) {
+      final result = TExceptions.fromCode(e.code);
+      throw result.message;
+    }
+    on FirebaseException catch (e) {
+      throw e.message.toString();
+    }
+    catch (_) {
+      throw 'Something went wrong. Please Try Again';
+    }
+  } //Closed Function allUsers()
 
+
+  /// Update User details
   Future<void> updateUserRecord(UserModel user) async {
-    await _db.collection("Users").doc(user.id).update(user.toJson());
+    try {
+      await _db.collection("Users").doc(user.id).update(user.toJson());
+    }
+    on FirebaseAuthException catch (e) {
+      final result = TExceptions.fromCode(e.code);
+      throw result.message;
+    }
+    on FirebaseException catch (e) {
+      throw e.message.toString();
+    }
+    catch (_) {
+      throw 'Something went wrong. Please Try Again';
+    }
+  } //Closed Function updateUserRecord()
 
-  }
 
+  /// Delete User Data
+  Future<void> deleteUser() async {
+    try {
+      await _db.collection("Users").doc(id).delete();
+    }
+    on FirebaseAuthException catch (e) {
+      final result = TExceptions.fromCode(e.code);
+      throw result.message;
+    }
+    on FirebaseException catch (e) {
+      throw e.message.toString();
+    }
+    catch (_) {
+      throw 'Something went wrong. Please Try Again';
+    }
+  } //Closed deleteUser()
+
+
+  /// Check if user exists with email or phoneNo
+  Future<bool> recordExist(String email) async {
+    try {
+      final snapshot = await _db.collection("Users").where("Email", isEqualTo: email).get();
+      return snapshot.docs.isEmpty ? false : true;
+    }
+    catch (e) {
+      throw "Error fetching record.";
+    }
+  } //Closed Function recordExist()
 }
