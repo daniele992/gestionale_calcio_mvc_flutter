@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../../constants/colors.dart';
+
 class ForgetPasswordBtnWidget extends StatelessWidget {
   const ForgetPasswordBtnWidget({
     required this.btnIcon,
@@ -15,13 +17,18 @@ class ForgetPasswordBtnWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    //Use for Dark Theme
+    final bool isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-          color: Colors.grey.shade200,
+          color: isDark ? tSecondaryColor : Colors.grey.shade200,
+          // color: Colors.grey.shade200,
         ),
         child: Row(
           children: [
@@ -30,7 +37,7 @@ class ForgetPasswordBtnWidget extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(title, style: Theme.of(context).textTheme.headlineSmall),
+                Text(title, style: Theme.of(context).textTheme.titleLarge),
                 Text(subTitle, style: Theme.of(context).textTheme.bodyMedium)
               ],
             )
