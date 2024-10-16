@@ -19,51 +19,66 @@ class SplashScreen extends StatelessWidget {
     final controller = Get.put(FadeInAnimationController());
     controller.startSplashAnimation();
 
-    return Scaffold(
-      body: Stack(
-        children: [
-          TFadeInAnimation(
-            durationInMs: 1600,
-            animate: TAnimatePosition(
-              topAfter: 0, topBefore: -30, leftBefore: -30, leftAfter: 0,
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
+          children: [
+            TFadeInAnimation(
+              durationInMs: 1200,
+              animate: TAnimatePosition(
+                topAfter: 0,
+                topBefore: -30,
+                leftBefore: -30,
+                leftAfter: 0,
+              ),
+              child: const Image(image: AssetImage(tSplashTopIcon)),
             ),
-            child: const Image(image: AssetImage(tSplashTopIcon)),
-          ),
-          TFadeInAnimation (
-            durationInMs: 2000,
-              animate: TAnimatePosition(topBefore: 80, topAfter: 80, leftAfter: tDefaultSize, leftBefore: -80),
+            TFadeInAnimation(
+              durationInMs: 1600,
+                animate: TAnimatePosition(
+                  topBefore: 100,
+                  topAfter: 100,
+                  leftAfter: tDefaultSpace,
+                  leftBefore: -100,
+                ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     tAppName,
                     style: Theme.of(context).textTheme.headlineSmall,
-                  ), //textTheme.headline3?
+                  ),
                   Text(
                     tAppTagLine,
-                    style: Theme.of(context).textTheme.headlineMedium,
-                   ), //textTheme.headline2?
-                  ],
-                ),
-           ),
-           TFadeInAnimation(
-             durationInMs: 2400,
-             animate: TAnimatePosition(bottomBefore: 0, bottomAfter: 100),
-             child: const Image(image: AssetImage(tSplashImage)),
-           ),
-           TFadeInAnimation(
-             durationInMs: 2400,
-               animate: TAnimatePosition(bottomBefore: 0, bottomAfter: 60, rightBefore: tDefaultSize, rightAfter: tDefaultSize),
-               child: Container(
-                   width: tSplashContainerSize,
-                   height: tSplashContainerSize,
-                   decoration: BoxDecoration(
-                     borderRadius: BorderRadius.circular(100),
-                     color: tPrimaryColor,
-                   ),
-                 )
-           ),
-        ], //Children
+                    style: Theme.of(context).textTheme.displayMedium,
+                  )
+                ],
+              ),
+            ),
+            TFadeInAnimation(
+              durationInMs: 2000,
+              animate: TAnimatePosition(bottomBefore: 0, bottomAfter: 100),
+              child: const Image(image: AssetImage(tSplashImage)),
+            ),
+            TFadeInAnimation(
+              durationInMs: 2000,
+              animate: TAnimatePosition(
+                  bottomBefore: 0,
+                  bottomAfter: 60,
+                  rightBefore: tDefaultSpace,
+                  rightAfter: tDefaultSpace
+              ),
+              child: Container(
+                width: tSplashContainerSize,
+                height: tSplashContainerSize,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(100),
+                      color: tPrimaryColor
+                  ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
