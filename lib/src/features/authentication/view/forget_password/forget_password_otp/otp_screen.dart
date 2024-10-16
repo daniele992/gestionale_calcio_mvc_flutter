@@ -12,21 +12,22 @@ class OTPScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context){
 
-    var otpController = Get.put(OTPController());
-    var otp;
+    String otp;
 
    return Scaffold(
      body: Container(
-       padding: const EdgeInsets.all(tDefaultSize),
+       padding: const EdgeInsets.all(tDefaultSpace),
        child: Column(
          mainAxisAlignment: MainAxisAlignment.center,
          children: [
-           Text(tOtpTitle, style: GoogleFonts.montserrat(
-             fontWeight: FontWeight.bold,
-             fontSize: 80.0
-           )),
-           Text(tOtpSubTitle.toUpperCase(),
-               style: Theme.of(context).textTheme.headlineSmall),  //Headline6?
+           Text(
+               tOtpTitle,
+               style: GoogleFonts.montserrat(fontWeight: FontWeight.bold, fontSize: 80.0)
+           ),
+           Text(
+               tOtpSubTitle.toUpperCase(),
+               style: Theme.of(context).textTheme.titleLarge
+           ),
            const SizedBox(height: 40.0),
            const Text(
                "$tOtpMessage support@codingwitht.com",
@@ -51,11 +52,10 @@ class OTPScreen extends StatelessWidget{
                      OTPController.instance.verifyOTP(otp);
                    },
                    child: const Text(tNext)),
-           )
+           ),
          ],
        ),
      ),
    );
-
   }
 }
