@@ -25,19 +25,27 @@ class UserModel {
       "FullName": fullName,
       "Email": email,
       "Phone": phoneNo,
-      //"Password": password,
     };
   }
 
-  ///Step 1 - Map user fetched from Firebase to UserModel
+  ///Empty Constructor for UserModel
+  static UserModel empty () => const UserModel(
+      id: '',
+      email: '',
+      fullName: '',
+      phoneNo: ''
+  );
+
+  /// Map Json oriented document snapshot from Firebase to UserModel
   factory UserModel.fromSnapshot(DocumentSnapshot<Map<String, dynamic>> document) {
+    // If document is empty then return an empty Model as created above.
+    if(document.data() == null || document.data()!.isEmpty) return UserModel.empty();
     final data = document.data()!;
     return UserModel(
       id: document.id,
-      email: data["Email"],
-      //password: data["Password"],
-      fullName: data["FullName"],
-      phoneNo: data["Phone"],
+      email: data["Email"] ?? '',
+      fullName: data["FullName"] ?? '',
+      phoneNo: data["Phone"] ?? ''
     );
   }
 }
