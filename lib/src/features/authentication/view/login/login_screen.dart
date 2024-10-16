@@ -32,7 +32,7 @@ class LoginScreen extends StatelessWidget {
                 SocialFooter(
                     text1: tDontHaveAnAccount,
                     text2: tSignup,
-                    onPressed: () => Get.off(() => const SignUpScreen())),
+                    onPressed: () => Get.off(() => const SignupScreen())),
               ],
             ),
           ),
