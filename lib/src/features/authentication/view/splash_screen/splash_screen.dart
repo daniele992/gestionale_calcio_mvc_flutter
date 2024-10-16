@@ -6,7 +6,7 @@ import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
 import 'package:get/get.dart';
 import '../../../../utils/animations/fade_in_animation/animation_design.dart';
 import '../../../../utils/animations/fade_in_animation/fade_in_animation_model.dart';
-import '../../../../utils/animations/fade_in_animation/splash_screen_controller.dart';
+import '../../../../utils/animations/fade_in_animation/fade_in_animation_controller.dart';
 
 
 class SplashScreen extends StatelessWidget {
