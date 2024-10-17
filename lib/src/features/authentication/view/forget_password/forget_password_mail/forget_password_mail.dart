@@ -3,9 +3,6 @@ import 'package:gestionale_calcio_mvc_flutter/src/common_widgets/form/form_heade
 import 'package:gestionale_calcio_mvc_flutter/src/constants/image_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
-import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/forget_password/forget_password_otp/otp_screen.dart';
-import 'package:get/get.dart';
-
 import '../../../../../constants/colors.dart';
 
 

@@ -6,8 +6,6 @@ import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
-import '../../../models/user_model.dart';
-import '../../forget_password/forget_password_otp/otp_screen.dart';
 
 class SignUpFormWidget extends StatelessWidget {
   const SignUpFormWidget({

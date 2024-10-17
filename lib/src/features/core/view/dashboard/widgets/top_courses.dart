@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../../constants/colors.dart';
-import '../../../../../constants/image_strings.dart';
 import '../../../../../constants/sizes.dart';
-import '../../../models/dashboard/categories_model.dart';
 import '../../../models/dashboard/courses_model.dart';
 
 class DashboardTopCourses extends StatelessWidget {

@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import '../../../../constants/image_strings.dart';
 
 class DashboardTopCoursesModel {

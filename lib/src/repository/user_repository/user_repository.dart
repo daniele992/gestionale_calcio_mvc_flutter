@@ -1,9 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/models/user_model.dart';
 import 'package:get/get.dart';
-
 import '../authentication_repository/exceptions/t_exceptions.dart';
 
 class UserRepository extends GetxController {

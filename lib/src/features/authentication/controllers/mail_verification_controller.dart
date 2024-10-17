@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-
 import '../../../constants/text_strings.dart';
 import '../../../repository/authentication_repository/authentication_repository.dart';
 import '../../../utils/helper/helper_controller.dart';

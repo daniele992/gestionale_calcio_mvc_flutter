@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/common_widgets/buttons/social_button.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import '../../constants/colors.dart';
 import '../../constants/image_strings.dart';
 import '../../constants/sizes.dart';

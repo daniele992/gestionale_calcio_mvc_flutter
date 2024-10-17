@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../../../../common_widgets/buttons/primary_button.dart';
 import '../../../../../constants/sizes.dart';
