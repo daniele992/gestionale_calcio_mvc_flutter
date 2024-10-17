@@ -12,8 +12,6 @@ import '../../../../utils/animations/fade_in_animation/fade_in_animation_control
 class SplashScreen extends StatelessWidget {
   SplashScreen({super.key});
 
-  //final splashController = Get.put(SplashScreenController());
-
   @override
   Widget build(BuildContext context){
     final controller = Get.put(FadeInAnimationController());
