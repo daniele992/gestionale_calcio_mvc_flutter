@@ -4,7 +4,6 @@ import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/models/user_model.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/core/controllers/profile_controller.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class ProfileFormScreen extends StatelessWidget {
