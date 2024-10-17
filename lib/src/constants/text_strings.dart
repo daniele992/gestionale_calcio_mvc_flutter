@@ -90,14 +90,14 @@ const String tResendEmailLink = "Resend E-Mail Link";
 const String tBackToLogin = "Back to login";
 
 /* --- DashBoard Screen - Text --- */
-const String tDashBoardTitle = "Hey, Coding With ?";
-const String tDashBoardHeading = "Explore Courses";
+const String tDashboardTitle = "Hey, Coding With ?";
+const String tDashboardHeading = "Explore Courses";
 const String tDashBoardSearch = "Search...";
 const String tDashBoardBannerTitle1 = "Android for Beginners";
 const String tDashBoardBannerTitle2 = "JAVA";
 const String tDashBoardBannerSubTitle = "10 Lessons";
 const String tDashboardButton = "View All";
-const String tDashBoardTopCourses = "Top Courses";
+const String tDashboardTopCourses = "Top Courses";
 //const String tBookmarkIcon = "";
 
 /* -- Profile Screen - Text -- */
