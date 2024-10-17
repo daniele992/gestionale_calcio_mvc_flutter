@@ -19,7 +19,7 @@ class DashboardSearchBox extends StatelessWidget {
         children: [
           Text(
               tDashBoardSearch,
-              style: txtTheme.headlineMedium?.apply(color: Colors.grey.withOpacity(0.5))
+              style: txtTheme.displayMedium?.apply(color: Colors.grey.withOpacity(0.5))
           ), //headline2
           const Icon(Icons.mic, size: 25),
         ],
