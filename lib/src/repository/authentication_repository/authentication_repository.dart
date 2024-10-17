@@ -3,6 +3,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/welcome/welcome_screen.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/core/view/dashboard/dashboard.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import '../../features/authentication/view/on_boarding/on_boarding_screen.dart';
 import 'exceptions/t_exceptions.dart';
 

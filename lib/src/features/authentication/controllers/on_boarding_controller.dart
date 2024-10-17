@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:liquid_swipe/PageHelpers/LiquidController.dart';
 import '../../../constants/colors.dart';
 import '../../../constants/image_strings.dart';
