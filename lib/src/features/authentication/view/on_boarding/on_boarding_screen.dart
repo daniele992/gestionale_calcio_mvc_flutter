@@ -17,25 +17,25 @@ class OnBoardingScreen extends StatelessWidget{
         children: [
           LiquidSwipe(
             pages: obController.pages,
+            enableSideReveal: true,
             liquidController: obController.controller,
             onPageChangeCallback: obController.onPageChangedCallback,
             slideIconWidget: const Icon(Icons.arrow_back_ios),
-            enableSideReveal: true,
+            waveType: WaveType.circularReveal,
           ),
           Positioned(
             bottom: 60.0,
             child: OutlinedButton(
-              onPressed: () => obController.animateToNextSlide(),
+              onPressed: () => obController.animateToNextSlideWithLocalStorage(),
               style: ElevatedButton.styleFrom(
                 side: const BorderSide(color: Colors.black26),
                 shape: const CircleBorder(),
                 padding: const EdgeInsets.all(20),
-                backgroundColor: Colors.white, //OnPrimary?
+                foregroundColor: Colors.white,
               ),
               child: Container(
                 padding: const EdgeInsets.all(20.0),
-                decoration: const BoxDecoration(
-                  color: tDarkColor, shape: BoxShape.circle
+                decoration: const BoxDecoration(color: tDarkColor, shape: BoxShape.circle
                 ),
                 child: const Icon(Icons.arrow_forward_ios),
               ),
@@ -53,14 +53,13 @@ class OnBoardingScreen extends StatelessWidget{
             () => Positioned(
             bottom: 10,
             child: AnimatedSmoothIndicator(
-              activeIndex: obController.currentPage.value,
               count: 3,
-              effect: const WormEffect(
+              activeIndex: obController.currentPage.value,
+              effect: const ExpandingDotsEffect(
                 activeDotColor: Color(0xff272727),
-                dotHeight: 5.0
               ),
             ),
-          ))
+          )),
         ],
       ),
     );//Closed Scaffold
