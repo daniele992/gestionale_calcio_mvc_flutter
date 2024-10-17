@@ -3,10 +3,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/welcome/welcome_screen.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/core/view/dashboard/dashboard.dart';
 import 'package:get/get.dart';
-
-import '../../features/authentication/models/user_model.dart';
 import '../../features/authentication/view/on_boarding/on_boarding_screen.dart';
-import 'exceptions/signup_email_password_failure.dart';
 import 'exceptions/t_exceptions.dart';
 
 class AuthenticationRepository extends GetxController{
