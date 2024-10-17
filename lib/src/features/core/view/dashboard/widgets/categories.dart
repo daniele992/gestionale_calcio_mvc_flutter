@@ -32,7 +32,9 @@ class DashboardCategories extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: tDarkColor),
-                  child: Text(list[index].title, style: txtTheme.headlineSmall?.apply(color: Colors.white),),
+                  child: Center(
+                    child: Text(list[index].title, style: txtTheme.titleLarge?.apply(color: Colors.white)),
+                  ),
                 ),
                 const SizedBox(width: 5),
                 Flexible(
@@ -40,108 +42,15 @@ class DashboardCategories extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(list[index].heading, style: txtTheme.headlineSmall, overflow: TextOverflow.ellipsis),
+                        Text(list[index].heading, style: txtTheme.titleLarge, overflow: TextOverflow.ellipsis),
                         Text(list[index].subHeading, style: txtTheme.bodyMedium, overflow: TextOverflow.ellipsis),
-          
                       ],
-                    )
+                    ),
                 )
-          
               ],
             ),
           ),
         ),
-        /* children: [
-          SizedBox(
-            width: 170,
-            height: 50,
-            child: Row(
-              children: [
-                Container(
-                  width: 45,
-                  height: 45,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: tDarkColor),
-                  child: Text("JS", style: txtTheme.headlineSmall?.apply(color: Colors.white),),
-                ),
-                const SizedBox(width: 5),
-                Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Java Script", style: txtTheme.headlineSmall, overflow: TextOverflow.ellipsis),
-                        Text("10 Lessons", style: txtTheme.bodyMedium, overflow: TextOverflow.ellipsis),
-
-                      ],
-                    )
-                )
-
-              ],
-            ),
-          ),
-          SizedBox(
-            width: 170,
-            height: 45,
-            child: Row(
-              children: [
-                Container(
-                  width: 45,
-                  height: 45,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: tDarkColor),
-                  child: Text("JS", style: txtTheme.headlineSmall?.apply(color: Colors.white),),
-                ),
-                const SizedBox(width: 5),
-                Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Java Script", style: txtTheme.headlineSmall, overflow: TextOverflow.ellipsis),
-                        Text("10 Lessons", style: txtTheme.bodyMedium, overflow: TextOverflow.ellipsis),
-
-                      ],
-                    )
-                )
-
-              ],
-            ),
-          ),
-          SizedBox(
-            width: 170,
-            height: 50,
-            child: Row(
-              children: [
-                Container(
-                  width: 45,
-                  height: 45,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: tDarkColor),
-                  child: Text("JS", style: txtTheme.headlineSmall?.apply(color: Colors.white),),
-                ),
-                const SizedBox(width: 5),
-                Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Java Script", style: txtTheme.headlineSmall, overflow: TextOverflow.ellipsis),
-                        Text("10 Lessons", style: txtTheme.bodyMedium, overflow: TextOverflow.ellipsis),
-
-                      ],
-                    )
-                )
-
-              ],
-            ),
-          ),
-*/
-
-        //],
       ),
     );
   }
