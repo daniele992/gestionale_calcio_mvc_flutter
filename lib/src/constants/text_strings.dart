@@ -47,13 +47,13 @@ const String tOnBoardingCounter3 = "3/3";
 
 /* --- Welcome Screen Text --- */
 const String tWelcomeTitle = "Build Awesome Apps";
-const String tWelcomeSubTitle = "Let's put yout creativity on the developmente highway.";
+const String tWelcomeSubTitle = "Let's put your creativity on the development highway.";
 
 /* --- Login Screen Text --- */
 const String tLoginTitle = "Welcome Back,";
 const String tLoginSubTitle = "Make it work, make it right, make it fast.";
 const String tRememberMe = "Remember Me?";
-const String tDontHaveAnAccount = "Don't have an Accont?";
+const String tDontHaveAnAccount = "Don't have an Account?";
 const String tEnterYour = "Enter your";
 const String tResetPassword = "Reset Password";
 const String tOR = "OR";
@@ -96,7 +96,7 @@ const String tDashBoardSearch = "Search...";
 const String tDashBoardBannerTitle1 = "Android for Beginners";
 const String tDashBoardBannerTitle2 = "JAVA";
 const String tDashBoardBannerSubTitle = "10 Lessons";
-const String tDashBoardButton = "View All";
+const String tDashboardButton = "View All";
 const String tDashBoardTopCourses = "Top Courses";
 //const String tBookmarkIcon = "";
 

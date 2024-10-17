@@ -8,18 +8,24 @@ class DashboardBanners extends StatelessWidget {
   const DashboardBanners({
     super.key,
     required this.txtTheme,
+    required this.isDark,
   });
 
   final TextTheme txtTheme;
+  final bool isDark;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        //1st banner
         Expanded(
             child: Container(
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: tCardBgColor),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
+              //For Dark Color
+              color: isDark ? tSecondaryColor : tCardBgColor,
+              ),
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,14 +53,19 @@ class DashboardBanners extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
         ),
         const SizedBox(width: tDashBoardCardPadding),
+        //2nd Banner
         Expanded(
             child: Column(
               children: [
+                //Card
                 Container(
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: tCardBgColor),
+                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
+                    //For Dark Color
+                    color: isDark ? tSecondaryColor : tCardBgColor,
+                  ),
                   padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,13 +91,17 @@ class DashboardBanners extends StatelessWidget {
                     ],
                   ),
                 ),
+                const SizedBox(height: 5),
                 SizedBox(
                   width: double.infinity,
-                  child: OutlinedButton(onPressed: (){}, child: const Text(tDashBoardButton)),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: OutlinedButton(onPressed: () {},child: const Text(tDashboardButton)),
+                  ),
                 )
               ],
-            )
-        )
+            ),
+        ),
       ],
     );
   }
