@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/view/welcome/welcome_screen.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/core/view/dashboard/dashboard.dart';
