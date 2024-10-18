@@ -57,6 +57,7 @@ dependencies:
   cloud_firestore: ^5.4.4
   flutter_facebook_auth: ^7.1.1
   google_sign_in: ^6.2.1
+  iconsax: ^0.0.8
 
 
 dev_dependencies:
