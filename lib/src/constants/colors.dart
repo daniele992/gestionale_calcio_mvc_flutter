@@ -19,3 +19,11 @@ const tFacebookBgColor = Color(0xFF1877F2);
 const tOnBoardingPage1Color = Colors.white;
 const tOnBoardingPage2Color = Color(0xfffddcdf);
 const tOnBoardingPage3Color = Color(0xffffdcbd);
+
+// -- MATCH VIEW
+const kPrimaryColor = Color(0xffffb54c);
+const kBackgroundColor = Color(0xffffffff);
+const kSecondaryBackgroundColor = Color(0xfff7f7f7);
+const kSecondaryColor = Color(0xff4c2d00);
+const kboxColor = Color(0xff202020);
+const kSecondBoxColor = Color(0xffe4e4e4);
