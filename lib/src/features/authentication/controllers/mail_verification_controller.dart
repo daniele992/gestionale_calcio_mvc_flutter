@@ -6,7 +6,7 @@ import '../../../repository/authentication_repository/authentication_repository.
 import '../../../utils/helper/helper_controller.dart';
 
 class MailVerificationController extends GetxController {
-  late Timer _timer;
+  late Timer? _timer;
 
   @override
   void onInit(){

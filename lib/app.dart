@@ -15,7 +15,7 @@ class App extends StatelessWidget {
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      /// -- README(Docs[4]) -- To use Screen Transitions here
+      /// -- README(Docs[4]) -- use Screen Transitions here
       /// -- README(Docs[5]) -- Home Screen or Progress Indicator
       home: const Scaffold(body: Center(child: CircularProgressIndicator())),
     );
