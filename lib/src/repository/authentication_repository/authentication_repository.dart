@@ -10,6 +10,7 @@ import '../../features/authentication/view/mail_verification/mail_verification.d
 import '../../features/authentication/view/on_boarding/on_boarding_screen.dart';
 import 'exceptions/t_exceptions.dart';
 
+/// -- README(Docs[6]) -- Bindings
 class AuthenticationRepository extends GetxController{
   static AuthenticationRepository get instance => Get.find();
 

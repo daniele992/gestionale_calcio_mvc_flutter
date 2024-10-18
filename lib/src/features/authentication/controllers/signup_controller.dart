@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:get/get.dart';
-
 import '../../../repository/user_repository/user_repository.dart';
 import '../models/user_model.dart';
 
