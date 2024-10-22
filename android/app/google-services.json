@@ -42,7 +42,7 @@
               "client_id": "1070771738377-15b9kf4o3l3cv2p0549ktpi2u0d2rs4r.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "me.DanieleMorani.gestionaleCalcioMvcFlutter"
+                "bundle_id": "me.DanieleMorani.gestionale_calcio_mvc_flutter",
               }
             }
           ]
@@ -52,3 +52,4 @@
   ],
   "configuration_version": "1"
 }
+
