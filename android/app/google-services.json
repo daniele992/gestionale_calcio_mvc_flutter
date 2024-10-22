@@ -12,7 +12,20 @@
           "package_name": "com.managementFootball.app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1070771738377-uk37kg498a5bhs8elp2ou5dkgd36q9dv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.managementFootball.app",
+            "certificate_hash": "3e939e7fe43060e07087408949301f7dcff75d4a"
+          }
+        },
+        {
+          "client_id": "1070771738377-2pcglrflmohrt66r9src5g589qafr9ne.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyD6JSIKC8d-xGJgZIHBnXx6clDgrWg-Bek"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070771738377-2pcglrflmohrt66r9src5g589qafr9ne.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1070771738377-15b9kf4o3l3cv2p0549ktpi2u0d2rs4r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "me.DanieleMorani.gestionaleCalcioMvcFlutter"
+              }
+            }
+          ]
         }
       }
     }
