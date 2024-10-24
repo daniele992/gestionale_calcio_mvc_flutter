@@ -132,3 +132,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+  # Splash screen has been added in the 'splash.yaml' file in main project directory
