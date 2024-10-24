@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:1070771738377:android:9b9bb15dacf3765a90a5d8",
         "android_client_info": {
-          "package_name": "com.managementFootball.app"
+          "package_name": "me.DanieleMorani.gestionale_calcio_mvc_flutter"
         }
       },
       "oauth_client": [
@@ -42,7 +42,7 @@
               "client_id": "1070771738377-15b9kf4o3l3cv2p0549ktpi2u0d2rs4r.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "me.DanieleMorani.gestionale_calcio_mvc_flutter"
+                "bundle_id": "me.DanieleMorani.gestionaleCalcioMvcFlutter"
               }
             }
           ]
@@ -52,4 +52,3 @@
   ],
   "configuration_version": "1"
 }
-
