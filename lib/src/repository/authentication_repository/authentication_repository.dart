@@ -199,7 +199,7 @@ class AuthenticationRepository extends GetxController{
   Future<void> logout() async {
     try {
       await GoogleSignIn().signOut();
-      await FacebookAuth.instance.logOut();
+     // await FacebookAuth.instance.logOut();
       await FirebaseAuth.instance.signOut();
       Get.offAll(() => const WelcomeScreen());
     } on FirebaseAuthException catch (e) {
