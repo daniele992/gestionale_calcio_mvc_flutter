@@ -23,7 +23,9 @@ Future<void> main() async {
     .then((_) => Get.put(AuthenticationRepository()));
 
   /// -- Main App Starts here (app.dart) ...
+  /* -- Once executed, the compiler will create an instance of the MyApp class and pass
+   it to the runApp function which will run the application.
+  */
   runApp(const App());
-
 
 }

@@ -4,6 +4,11 @@ import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/theme.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 
+/*
+The App class is used to initialize the app and to set the theme, color and home screen of the application,
+and in turn extends the StatelessWidget class which makes the app itself a widget.
+ */
+
 class App extends StatelessWidget {
   const App({super.key});
 
