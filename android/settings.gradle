@@ -1,3 +1,5 @@
+/// -- READ https://docs.flutter.dev/release/breaking-changes/flutter-gradle-plugin-apply
+
 pluginManagement {
     def flutterSdkPath = {
         def properties = new Properties()
