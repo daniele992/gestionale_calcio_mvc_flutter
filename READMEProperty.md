@@ -17,3 +17,21 @@ Date Settings 13/12/2024:
    -  id "com.android.application" version "7.3.1" apply false;
    -  id "com.google.gms.google-services" version "4.4.2" apply false;
    -  id "org.jetbrains.kotlin.android" version "1.9.10" apply false
+
+Various Packages:
+- flutterfire_internals [Version 1.3.46];
+- Ansicolor [Version 2.0.3];
+- Archive [Version 3.6.1];
+- Boolean Selector [Version 2.1.1];
+- Cloud Firestore [Version 5.5.0];
+- Cloud Firestore Platform Interface [Version 6.5.O];
+- Cloud Firestore Web [Version 4.3.4];
+- Csslib [Version 1.0.2];
+- Cupertino Icons [Version 1.0.8];
+- Facebook Auth Desktop [Version 2.1.1];
+- Firebase Auth [Version 5.3.3];
+- Firebase Auth Platform Interface [Version 7.4.9];
+- Firebase Auth Web [Version 5.13.14];
+- Firebase Core [Version 3.8.0];
+- Firebase Core Platform Interface [Version 5.3.0];
+- firebase_core_web [Version 2.18.1]
