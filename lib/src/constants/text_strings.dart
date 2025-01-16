@@ -98,6 +98,7 @@ const String tDashBoardBannerTitle2 = "JAVA";
 const String tDashBoardBannerSubTitle = "10 Lessons";
 const String tDashboardButton = "View All";
 const String tDashboardTopCourses = "Top Courses";
+const String emailSupport = "moranidaniele129@yahoo.it";
 //const String tBookmarkIcon = "";
 
 /* -- Profile Screen - Text -- */
