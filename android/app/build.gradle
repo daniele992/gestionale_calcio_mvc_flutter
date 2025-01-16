@@ -17,10 +17,15 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
+        //sourceCompatibility = JavaVersion.toVersion(libs.versions.jvm.get())
+        //targetCompatibility = JavaVersion.toVersion(libs.versions.jvm.get())
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = '21'
+        //jvmTarget = JavaVersion.VERSION_1_8
+        // jvmTarget = libs.versions.jvm.get().toString()
+
     }
 
     defaultConfig {
