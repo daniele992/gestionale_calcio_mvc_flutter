@@ -35,4 +35,5 @@ https://www.youtube.com/watch?v=wvCoanOI3Zw
 https://pub.dev/packages/easy_localization
 
 ## THIRST CHANCE:
+Flutter Localization in Details - Internationalization with JSON
 https://www.youtube.com/watch?v=qOGZZvmieqo&list=PLwJ4sQ79Ehm6ZkZhu5NZ52g-2PF5upAlT
