@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/localization/app_localizations.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/utils/app_bindings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/theme.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
@@ -15,6 +17,25 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      supportedLocales: const [
+        Locale('en'),
+        Locale('it'),
+      ],
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate
+      ],
+      localeResolutionCallback: (deviceLocale, supportedLocales){
+        for(var locale in supportedLocales){
+          if(deviceLocale != null &&
+              deviceLocale.languageCode == locale.languageCode){
+            return deviceLocale;
+          }
+        }
+        return supportedLocales.first;
+      },
       /// -- README(Docs[3]) -- Bindings
       initialBinding: InitialBinding(),
       themeMode: ThemeMode.system,
