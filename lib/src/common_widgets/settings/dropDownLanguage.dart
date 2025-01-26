@@ -10,18 +10,18 @@ class DropDownLanguage extends StatelessWidget {
   List<Map> _myJson = [
     {
       'id': '1',
-      '': 'assets/images/flags/',
-      'name': ''
+      '': 'assets/images/flags/england/FlagEngland_Round.png',
+      'name': 'English'
     },
     {
-      'id': '1',
-      '': 'assets/images/flags/',
-      'name': ''
+      'id': '2',
+      '': 'assets/images/flags/france/FlagFrance_Round.png',
+      'name': 'French'
     },
     {
-      'id': '1',
-      '': 'assets/images/flags/',
-      'name': ''
+      'id': '3',
+      '': 'assets/images/flags/italian/FlagItaly_Circle.png',
+      'name': 'Italian'
     },
   ];
 

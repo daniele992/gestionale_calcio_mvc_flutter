@@ -106,7 +106,9 @@ flutter:
     - assets/images/welcome_images/
     - assets/images/forget_password/
     - assets/images/on_boarding_images/
-    - assets/images/flags/
+    - assets/images/flags/england/
+    - assets/images/flags/france/
+    - assets/images/flags/italian/
     - assets/locales/en.json
     - assets/locales/it.json
   # To add assets to your application, add an assets section, like this:
