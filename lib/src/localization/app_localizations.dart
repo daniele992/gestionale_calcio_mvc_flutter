@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+
 class AppLocalizations {
   final Locale? locale;
   AppLocalizations({
@@ -20,7 +21,6 @@ class AppLocalizations {
   Future loadJsonLanguage() async {
     String jsonString =
     await rootBundle.loadString("assets/lang/${locale!.languageCode}.json");
-
     Map<String, dynamic> jsonMap = json.decode(jsonString);
     _localizedStrings = jsonMap.map((key, value) {
       return MapEntry(key, value.toString());
@@ -51,7 +51,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
 }
 
 extension TranslateX on String {
-  String tr(BuildContext context) {
+  String trans (BuildContext context) {
     return AppLocalizations.of(context)!.translate(this);
   }
 }

@@ -27,6 +27,8 @@ Future<void> main() async {
   /* -- Once executed, the compiler will create an instance of the MyApp class and pass
    it to the runApp function which will run the application.
   */
+  //runApp(App());
   runApp(const App());
-  //runApp(const LobbyScreen());
+  //runApp(GetMaterialApp(home: App()));
+
 }

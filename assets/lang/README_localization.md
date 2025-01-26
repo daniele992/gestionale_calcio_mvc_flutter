@@ -39,4 +39,10 @@ https://pub.dev/packages/easy_localization
 ## THIRD CHANCE:
 Flutter Localization in Details - Internationalization with JSON
 https://www.youtube.com/watch?v=qOGZZvmieqo&list=PLwJ4sQ79Ehm6ZkZhu5NZ52g-2PF5upAlT
+https://github.com/Rabee-Omran/Flutter-Localization-in-Details-Internationalization-with-JSON
+
+## FOUR CHANCE:
+https://www.youtube.com/watch?v=VgP2ZbhA5FE
+https://pub.dev/packages/get_cli
+
 

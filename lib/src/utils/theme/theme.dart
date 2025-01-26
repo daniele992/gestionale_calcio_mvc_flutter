@@ -18,7 +18,7 @@ class TAppTheme{
     inputDecorationTheme: TTextFormFieldTheme.lightInputDecorationTheme,
   );
 
-static ThemeData darkTheme = ThemeData(
+  static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     textTheme: TTextTheme.darkTextTheme,
     appBarTheme: TAppBarTheme.darkAppBarTheme,

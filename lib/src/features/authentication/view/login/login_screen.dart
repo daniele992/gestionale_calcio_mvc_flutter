@@ -8,6 +8,7 @@ import "package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart";
 import "package:gestionale_calcio_mvc_flutter/src/features/authentication/view/login/widgets/login_form_widget.dart";
 import "package:gestionale_calcio_mvc_flutter/src/features/authentication/view/signup/signup_screen.dart";
 import "package:get/get.dart";
+import "../../../../localization/app_localizations.dart";
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -22,9 +23,10 @@ class LoginScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const FormHeaderWidget(
+                  FormHeaderWidget(
                   image: tWelcomeScreenImage,
                   title: tLoginTitle,
+                  // "tLoginTitle".trans(context),
                   subTitle: tLoginSubTitle,
                 ),
                 const LoginFormWidget(),

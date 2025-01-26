@@ -15,27 +15,32 @@ class App extends StatelessWidget {
   const App({super.key});
 
   @override
+
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      /*
       supportedLocales: const [
         Locale('en'),
         Locale('it'),
       ],
-      localizationsDelegates: [
-        AppLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate
+      localizationsDelegates: const [
+      AppLocalizations.delegate,
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+      GlobalCupertinoLocalizations.delegate
       ],
-      localeResolutionCallback: (deviceLocale, supportedLocales){
-        for(var locale in supportedLocales){
-          if(deviceLocale != null &&
-              deviceLocale.languageCode == locale.languageCode){
+
+      localeResolutionCallback: (deviceLocale, supportedLocales) {
+        for (var locale in supportedLocales) {
+          if (deviceLocale != null &&
+              deviceLocale.languageCode == locale.languageCode) {
             return deviceLocale;
           }
         }
+
         return supportedLocales.first;
       },
+      */
       /// -- README(Docs[3]) -- Bindings
       initialBinding: InitialBinding(),
       themeMode: ThemeMode.system,
