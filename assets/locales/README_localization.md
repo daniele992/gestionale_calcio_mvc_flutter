@@ -44,5 +44,6 @@ https://github.com/Rabee-Omran/Flutter-Localization-in-Details-Internationalizat
 ## FOUR CHANCE:
 https://www.youtube.com/watch?v=VgP2ZbhA5FE
 https://pub.dev/packages/get_cli
+https://github.com/imshibaji/getx_clean_app_tutorial/tree/master/assets/locales
 
 
