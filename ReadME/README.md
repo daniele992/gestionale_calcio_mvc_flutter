@@ -11,6 +11,8 @@ A few resources to get you started if this is your first Flutter project:
 - [DESIGN PLAYLIST](https://www.youtube.com/playlist?list=PL5jb9EteFAODpfNJu8U2CMqKFp4NaXlto)
 - [FIREBASE PLAYLIST](https://www.youtube.com/playlist?list=PL5jb9EteFAOC9V6ZHAIg3ycLtjURdVxUH)
 - [Firebase setup](https://www.youtube.com/watch?v=fxDusoMcWj8)
+- https://www.youtube.com/watch?v=d7j6vZHskNY
+- https://www.youtube.com/watch?v=WxuViERlkyE
 
 ## ERROR
 1. If you are facing [The current Flutter SDK version is 3.10.6. Because login_flutter_app depends on get >=4.6.6 <5.0.0-beta.1 which requires Flutter SDK version >=3.13.0, version solving failed.].

@@ -47,6 +47,7 @@ class App extends StatelessWidget {
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
+      
 
       /// -- README(Docs[4]) -- use Screen Transitions here
       defaultTransition: Transition.leftToRightWithFade,
