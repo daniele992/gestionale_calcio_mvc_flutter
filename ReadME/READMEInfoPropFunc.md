@@ -1,6 +1,3 @@
-
-
-
 ## INFO PROPERTY, FUNCTION, CLASS
 - themeMode: Determina quale tema verrà utlizzato dall'applicazione. (https://api.flutter.dev/flutter/material/MaterialApp/themeMode.html);
 
@@ -12,6 +9,8 @@
     CENTER: Posizionare i figli in modo che il loro centro sia allineato con il centro dell'asse trasversale;
     END: Posizionare i figli il più vicino possibile all'estremità dell'asse trasversale;
     STRETCH: Chiedere ai figli di riempire l'asse trasversale. Ciò fa sì che i vincoli trasmessi ai figli siano rigidi sull'asse trasversale.
+
+- Get.lazyPut(): (https://stackoverflow.com/questions/71734768/diff-between-get-put-and-get-lazyput);
     
   
 ## CLASS
@@ -28,6 +27,9 @@
 - SizedBox(): Un box con una dimensione specifica. Se gli viene assegnato un figlio, questo widget lo obbliga ad avere una larghezza e/o altezza specifiche. (https://api.flutter.dev/flutter/widgets/SizedBox-class.html);
 
 - Text(): Visualizza e formatta il testo.(https://docs.flutter.dev/ui/widgets/text);
+
+- ElevatedButton(): Un "pulsante rialzato" di Material Design. Utilizza pulsanti elevati per aggiungere dimensione a layout altrimenti per lo più piatti, ad esempio in lunghe liste di contenuti o in ampi spazi.
+                    Evita di utilizzare pulsanti elevati su contenuti già elevati come dialoghi o schede.(https://api.flutter.dev/flutter/material/ElevatedButton-class.html);
 
 - Padding(): Un widget che inserisce il suo elemento figlio in base al padding specificato.(https://api.flutter.dev/flutter/widgets/Padding-class.html);
 
@@ -58,8 +60,13 @@
 
 - Image(): Un widget che visualizza un'immagine. (https://api.flutter.dev/flutter/widgets/Image-class.html);
 
+- Scaffold(): Implementa la struttura di base del layout visivo di Material Design. Questa classe fornisce le API per visualizzare i cassetti e i fogli inferiori.
+              Per visualizzare un foglio inferiore persistente, ottenere ScaffoldState per il BuildContext corrente tramite Scaffold.of e utilizzare la funzione ScaffoldState.showBottomSheet .(https://api.flutter.dev/flutter/material/Scaffold-class.html);
+
 - BoxDecoration(): Una descrizione immutabile di come dipingere una scatola. La classe BoxDecoration offre diversi modi per disegnare una scatola.
                    La casella ha un bordo , un corpo e può generare un boxShadow . La forma della casella può essere un cerchio o un rettangolo. Se è un rettangolo, la proprietà borderRadius controlla la rotondità degli angoli.(https://api.flutter.dev/flutter/painting/BoxDecoration-class.html);
+
+- TextStyle(): Uno stile immutabile che descrive come formattare e colorare il testo. (https://api.flutter.dev/flutter/painting/TextStyle-class.html);
 
 - LiquidSwipe():  Liquid Swipe è il clipper rivelatore per realizzare incredibili swipe simili a liquidi in contenitori impilati (https://pub.dev/packages/liquid_swipe);
 
@@ -69,11 +76,19 @@
 - Positioned(): Un widget che controlla dove viene posizionato un elemento figlio di uno Stack. Un widget Posizionato deve essere un discendente di uno Stack e il percorso dal widget Posizionato 
                 allo Stack che lo racchiude deve contenere solo StatelessWidget o StatefulWidget (non altri tipi di widget, come RenderObjectWidget ).(https://api.flutter.dev/flutter/widgets/Positioned-class.html);
 
+- TextSpan(): Un intervallo di testo immutabile. Un oggetto TextSpan può essere stilizzato usando la sua proprietà style. Lo stile verrà applicato al testo e ai figli .
+              Un oggetto TextSpan può avere solo testo normale oppure può avere oggetti TextSpan figli con i propri stili (https://api.flutter.dev/flutter/painting/TextSpan-class.html);
+
 - Stack(): Un widget che posiziona i suoi elementi figlio rispetto ai bordi del suo riquadro. Questa classe è utile se si desidera sovrapporre più elementi figlio in modo semplice, 
            ad esempio con del testo e un'immagine sovrapposti con un gradiente e un pulsante attaccato in basso.(https://api.flutter.dev/flutter/widgets/Stack-class.html);
 
 - OutlinedButton(): Un "pulsante delineato" di Material Design; essenzialmente un TextButton con un bordo delineato. I pulsanti delineati sono pulsanti di media enfasi. 
                     Contengono azioni importanti, ma non sono l'azione principale in un'app. (https://api.flutter.dev/flutter/material/OutlinedButton-class.html);
+
+- Color(): Color e ColorSwatch che rappresentano la tavolozza dei colori di Material Design. (https://api.flutter.dev/flutter/material/Colors-class.html);
+
+- AnimatedSmoothIndicator(): A differenza di SmoothPageIndicator questo indicatore è auto-animato e ha bisogno solo di conoscere l'indice attivo
+                             Utile per i widget di paging che non utilizzano PageController(https://pub.dev/documentation/smooth_page_indicator/latest/smooth_page_indicator/AnimatedSmoothIndicator-class.html);
 
 - BorderSide(): Un lato del bordo di una casella. Un bordo è costituito da quattro oggetti BorderSide : Border.top , Border.left , Border.right e Border.bottom .
                 Impostando BorderSide.width su 0.0 si otterrà un rendering sottile; vedere BorderSide.width per una spiegazione più approfondita.(https://api.flutter.dev/flutter/painting/BorderSide-class.html);
@@ -81,4 +96,9 @@
 - CircleBorder(): Un bordo che racchiude un cerchio nello spazio disponibile. Solitamente utilizzato con ShapeDecoration per disegnare un cerchio.
                   Le dimensioni presuppongono che il bordo venga utilizzato in uno spazio quadrato. Quando applicato a uno spazio rettangolare, il bordo dipinge al centro del rettangolo.(https://api.flutter.dev/flutter/painting/CircleBorder-class.html);
 
-- 
+- CircularProgressIndicator(): Un indicatore di avanzamento circolare di Material Design, che gira per indicare che l'applicazione è occupata. (https://api.flutter.dev/flutter/material/CircularProgressIndicator-class.html);
+
+- GestureDetector(): Un widget che rileva i gesti. Tenta di riconoscere i gesti che corrispondono ai suoi callback non nulli. Se questo widget ha un figlio, si rimette a quel figlio per il suo comportamento di dimensionamento. 
+                     Se non ha un figlio, cresce per adattarsi al genitore.(https://api.flutter.dev/flutter/widgets/GestureDetector-class.html);
+
+
