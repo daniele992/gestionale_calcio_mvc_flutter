@@ -21,6 +21,7 @@ class FormHeaderWidget extends StatelessWidget {
   final CrossAxisAlignment crossAxisAlignment;
   final TextAlign? textAlign;
 
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
