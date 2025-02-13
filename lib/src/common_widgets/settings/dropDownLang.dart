@@ -86,9 +86,9 @@ abstract class MenuItems {
   static const List<MenuItem> firstItems = [home, share, settings];
   static const List<MenuItem> secondItems = [logout];
 
-  static const home = MenuItem(text: 'Home', icon: Icons.home);
-  static const share = MenuItem(text: 'Share', icon: Icons.share);
-  static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
+  static const home = MenuItem(text: 'EN', icon: Icons.home);
+  static const share = MenuItem(text: 'IT', icon: Icons.share);
+  static const settings = MenuItem(text: 'FR', icon: Icons.settings);
   static const logout = MenuItem(text: 'Log Out', icon: Icons.logout);
 
   static Widget buildItem(MenuItem item) {
