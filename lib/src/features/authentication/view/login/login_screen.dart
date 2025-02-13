@@ -11,6 +11,7 @@ import "package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart";
 import "package:gestionale_calcio_mvc_flutter/src/features/authentication/view/login/widgets/login_form_widget.dart";
 import "package:gestionale_calcio_mvc_flutter/src/features/authentication/view/signup/signup_screen.dart";
 import "package:get/get.dart";
+import "../../../../common_widgets/settings/dropDownLang.dart";
 import "../../../../common_widgets/settings/dropDownLanguage.dart";
 import "../../../../localization/app_localizations.dart";
 
@@ -32,7 +33,11 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
+                  dropDownLang(
+                    colorDropDown: Colors.red,
+                    sized: 46,
+                    colorInternalDropDown: Colors.redAccent,
+                  ),
                   FormHeaderWidget(
                   image: tWelcomeScreenImage,
                   title: tLoginTitle,
