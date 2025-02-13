@@ -63,6 +63,7 @@ dependencies:
   google_sign_in: ^6.2.1
   iconsax: ^0.0.8
   dropdown_button2: ^2.3.9
+  country_flags: ^3.2.0
 
 
 dev_dependencies:
