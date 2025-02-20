@@ -51,6 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     text1: tDontHaveAnAccount,
                     text2: tSignup,
                     onPressed: () => Get.off(() => const SignupScreen())),
+
               ],
             ),
           ),
