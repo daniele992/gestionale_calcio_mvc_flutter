@@ -1,3 +1,4 @@
+import 'package:country_flags/country_flags.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +49,7 @@ class _DropDownLang extends State<dropDownLang> {
               ),
             ],
             onChanged: (value) {
-              MenuItems.onChanged(context, value! as MenuItem);
+              //MenuItems.onChanged(context, value! as MenuItem);
             },
             dropdownStyleData: DropdownStyleData(
               width: 160,
@@ -79,22 +80,26 @@ class MenuItem {
   });
 
   final String text;
-  final IconData icon;
+  final CountryFlag icon;
 }
 
 abstract class MenuItems {
-  static const List<MenuItem> firstItems = [home, share, settings];
-  static const List<MenuItem> secondItems = [logout];
+  static List<MenuItem> firstItems = [home, share, settings];
+  static List<MenuItem> secondItems = [logout];
 
-  static const home = MenuItem(text: 'EN', icon: Icons.home);
-  static const share = MenuItem(text: 'IT', icon: Icons.share);
-  static const settings = MenuItem(text: 'FR', icon: Icons.settings);
-  static const logout = MenuItem(text: 'Log Out', icon: Icons.logout);
+  static double flagsHeight = 45;
+  static double flagsWidth = 45;
+  static const double radiousFlags = 4;
+
+  static var home = MenuItem(text: 'EN', icon: CountryFlag.fromCountryCode('GB-ENG', shape:  RoundedRectangle(radiousFlags), height: flagsHeight, width: flagsWidth));
+  static var share = MenuItem(text: 'IT', icon: CountryFlag.fromCountryCode('IT', shape:  RoundedRectangle(radiousFlags), height: flagsHeight, width: flagsWidth));
+  static var settings = MenuItem(text: 'FR', icon: CountryFlag.fromCountryCode('ES', shape:  RoundedRectangle(radiousFlags), height: flagsHeight, width: flagsWidth));
+  static var logout = MenuItem(text: 'Log Out', icon: CountryFlag.fromCountryCode('ES', shape: RoundedRectangle(radiousFlags), height: flagsHeight, width: flagsWidth));
 
   static Widget buildItem(MenuItem item) {
     return Row(
       children: [
-        Icon(item.icon, color: Colors.white, size: 22),
+        item.icon,
         const SizedBox(
           width: 10,
         ),
@@ -110,21 +115,6 @@ abstract class MenuItems {
     );
   }
 
-  static void onChanged(BuildContext context, MenuItem item) {
-    switch (item) {
-      case MenuItems.home:
-      //Do something
-        break;
-      case MenuItems.settings:
-      //Do something
-        break;
-      case MenuItems.share:
-      //Do something
-        break;
-      case MenuItems.logout:
-      //Do something
-        break;
-    }
-  }
+
 }
 
