@@ -13,3 +13,6 @@ https://stackoverflow.com/questions/79067849/flutter-3-24-3-problem-with-android
 
 ## Error 2: ANDROID JAVA GRADLE MIGRATION GUIDE 
 https://docs.flutter.dev/release/breaking-changes/android-java-gradle-migration-guide
+
+## Error 3: XIAOMI FLASH TOOL TOP 5 PROBLEMS AND HOW TO FIX THEM
+https://www.youtube.com/watch?v=dpWI5gp7h2M
