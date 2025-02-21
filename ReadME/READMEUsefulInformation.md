@@ -34,6 +34,7 @@ STEPS TO INSTALL XIAOMI USB DRIVERS ON PC:
 - Install Driver USB OEM: https://developer.android.com/studio/run/oem-usb?hl=it
 - Configuring developer options on your device: https://developer.android.com/studio/debug/dev-options?hl=it
 - Download Mi Flash Tool: https://xiaomitools.com/mi-flash-tool/
+- https://xiaomiflashtool.com/#google_vignette
 - Get Driver Xiaomi: https://web.vip.miui.com/page/info/mio/mio/detail?postId=18464849&app_version=dev.20051
 - Get Driver Xiaomi 2: https://xiaomitools.com/xiaomi-usb-drivers/
 - Get Driver Samsung: https://developer.samsung.com/galaxy/others/android-usb-driver-for-windows.
