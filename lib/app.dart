@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:gestionale_calcio_mvc_flutter/src/localization/app_localizations.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/utils/app_bindings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/theme.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
