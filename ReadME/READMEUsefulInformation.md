@@ -39,3 +39,4 @@ STEPS TO INSTALL XIAOMI USB DRIVERS ON PC:
 - Get Driver Xiaomi 2: https://xiaomitools.com/xiaomi-usb-drivers/
 - Get Driver Samsung: https://developer.samsung.com/galaxy/others/android-usb-driver-for-windows.
 - Get Driver Huawei: https://consumer.huawei.com/it/support/index.htm
+- Retrieve and install drivers correctly on Windows https://www.youtube.com/watch?v=T9iP0eOMmj8
