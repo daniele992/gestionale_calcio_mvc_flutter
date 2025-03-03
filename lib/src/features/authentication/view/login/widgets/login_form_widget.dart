@@ -2,20 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../../../../common_widgets/buttons/primary_button.dart';
+import '../../../../../common_widgets/form/checkboxListTile.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
 import '../../../../../utils/helper/helper_controller.dart';
 import '../../../controllers/login_controller.dart';
 import '../../forget_password/forget_password_options/forget_password_model_bottom_sheet.dart';
 
-class LoginFormWidget extends StatelessWidget {
+class LoginFormWidget extends StatefulWidget {
   const LoginFormWidget({
     super.key,
   });
 
   @override
+  State<LoginFormWidget> createState() => _LoginFormWidgetState();
+}
+
+class _LoginFormWidgetState extends State<LoginFormWidget> {
+  @override
   Widget build(BuildContext context) {
+
     final controller = Get.put(LoginController());
+    final _valueCheckBox = false;
+
     return Container(
      padding: const EdgeInsets.symmetric(vertical: tFormHeight),
      child: Form(
@@ -53,6 +62,11 @@ class LoginFormWidget extends StatelessWidget {
                  ),
                ),
            ),
+           const SizedBox(height: tFormHeight - 20),
+           ///TODO Inserire checkbox
+           FormCheckBoxListTile(valueCheckBox: false, textCheckBox: tPrivacy, iconCheckBox: Icons.hourglass_empty,),
+           FormCheckBoxListTile(valueCheckBox: false, textCheckBox: tConditions, iconCheckBox: Icons.hourglass_empty,),
+
            const SizedBox(height: tFormHeight - 20),
 
            /// -- FORGET PASSWORD BTN

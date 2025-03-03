@@ -40,3 +40,9 @@ STEPS TO INSTALL XIAOMI USB DRIVERS ON PC:
 - Get Driver Samsung: https://developer.samsung.com/galaxy/others/android-usb-driver-for-windows.
 - Get Driver Huawei: https://consumer.huawei.com/it/support/index.htm
 - Retrieve and install drivers correctly on Windows https://www.youtube.com/watch?v=T9iP0eOMmj8
+
+
+## Genymotion
+- Genymotion tutorial: https://www.youtube.com/watch?v=TJBBL3-kUvM
+  - https://www.youtube.com/watch?v=EEByypwGOxE
+  - https://www.geeksforgeeks.org/genymotion-emulator-for-android-studio/
