@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class UserModel {
@@ -9,6 +11,8 @@ class UserModel {
   /// Authentication will handle login logout for us.
   /// So just use this variable to get data from user and pass it to authentication.
   final String? password;
+  final bool? privacyPolicy;
+  final bool? conditions;
 
   ///Constructor
   const UserModel({
@@ -17,6 +21,8 @@ class UserModel {
     this.password,
     required this.fullName,
     required this.phoneNo,
+    required this.privacyPolicy,
+    required this.conditions,
   });
 
   /// convert model to Json structure so that you can use it to store data in Firebase
@@ -25,6 +31,8 @@ class UserModel {
       "FullName": fullName,
       "Email": email,
       "Phone": phoneNo,
+      "PrivacyPolicy": privacyPolicy,
+      "Conditions": conditions
     };
   }
 
@@ -33,7 +41,9 @@ class UserModel {
       id: '',
       email: '',
       fullName: '',
-      phoneNo: ''
+      phoneNo: '',
+      privacyPolicy: null,
+      conditions: null,
   );
 
   /// Map Json oriented document snapshot from Firebase to UserModel
@@ -45,7 +55,9 @@ class UserModel {
       id: document.id,
       email: data["Email"] ?? '',
       fullName: data["FullName"] ?? '',
-      phoneNo: data["Phone"] ?? ''
+      phoneNo: data["Phone"] ?? '',
+      privacyPolicy: data["PrivacyPolicy"] ?? '',
+      conditions: data["Conditions"] ?? '',
     );
   }
 }

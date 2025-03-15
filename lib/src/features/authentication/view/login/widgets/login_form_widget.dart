@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../../../../common_widgets/buttons/primary_button.dart';
-import '../../../../../common_widgets/form/checkboxListTile.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
 import '../../../../../utils/helper/helper_controller.dart';
@@ -62,11 +61,6 @@ class _LoginFormWidgetState extends State<LoginFormWidget> {
                  ),
                ),
            ),
-           const SizedBox(height: tFormHeight - 20),
-           ///TODO Inserire checkbox
-           FormCheckBoxListTile(valueCheckBox: false, textCheckBox: tPrivacy, iconCheckBox: Icons.hourglass_empty,),
-           FormCheckBoxListTile(valueCheckBox: false, textCheckBox: tConditions, iconCheckBox: Icons.hourglass_empty,),
-
            const SizedBox(height: tFormHeight - 20),
 
            /// -- FORGET PASSWORD BTN

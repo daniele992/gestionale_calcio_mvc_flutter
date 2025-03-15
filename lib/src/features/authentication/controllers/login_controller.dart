@@ -50,7 +50,14 @@ class LoginController extends GetxController {
       // If record does not exit -> Create new
       /// --  In this case or any case do not store password in the Firestore. This is just for learning purpose.
       if(!await UserRepository.instance.recordExist(auth.getUserEmail)) {
-        UserModel user = UserModel(email: auth.getUserEmail, password: '', fullName: auth.getDisplayName, phoneNo: auth.getPhoneNo);
+        UserModel user = UserModel(
+            email: auth.getUserEmail,
+            password: '',
+            fullName: auth.getDisplayName,
+            phoneNo: auth.getPhoneNo,
+            privacyPolicy: true,
+            conditions: true,
+        );
         await UserRepository.instance.createUser(user);
       }
       isGoogleLoading.value = false;
@@ -69,7 +76,14 @@ class LoginController extends GetxController {
       await auth.signInWithFacebook();
       /// --  In this case or any case do not store password in the Firestore. This is just for learning purpose.
       if(!await UserRepository.instance.recordExist(auth.getUserID)) {
-        UserModel user = UserModel(email: auth.getUserEmail, password: '', fullName: auth.getDisplayName, phoneNo: auth.getPhoneNo);
+        UserModel user = UserModel(
+            email: auth.getUserEmail,
+            password: '',
+            fullName: auth.getDisplayName,
+            phoneNo: auth.getPhoneNo,
+            privacyPolicy: true,
+            conditions: true,
+        );
         await UserRepository.instance.createUser(user);
       }
       isFacebookLoading.value = false;

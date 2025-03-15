@@ -60,7 +60,8 @@ const String tOR = "OR";
 const String tConnectWith = "Connect With";
 const String tFacebook = "Facebook";
 const String tGoogle = "Google";
-const String tPrivacy = "I accept Privacy Policy and ackknowledge that my data will be collected and processed in compliance with it";
+//const String tPrivacy = "I accept Privacy Policy and ackknowledge that my data will be collected and processed in compliance with it";
+const String tPrivacy = "I accept Privacy Policy";
 const String tConditions = "I accept the terms and conditions";
 
 /* --- Sign Up Screen Text --- */

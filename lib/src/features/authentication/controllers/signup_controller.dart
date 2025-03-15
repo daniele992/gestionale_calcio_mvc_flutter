@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gestionale_calcio_mvc_flutter/main.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:get/get.dart';
 import '../../../repository/user_repository/user_repository.dart';
@@ -18,6 +19,8 @@ class SignUpController extends GetxController{
   final password = TextEditingController();
   final fullName = TextEditingController();
   final phoneNo = TextEditingController();
+  final privacyPolicy = true;
+  final conditions = true;
 
   /// Loader
   final isLoading = false.obs;
@@ -46,6 +49,8 @@ class SignUpController extends GetxController{
         password: password.text.trim(),
         fullName: fullName.text.trim(),
         phoneNo: phoneNo.text.trim(),
+        privacyPolicy: true,
+        conditions: true
       );
 
       // Authenticate User first
@@ -55,8 +60,15 @@ class SignUpController extends GetxController{
       auth.setInitialScreen(auth.firebaseUser);
     } catch (e) {
         isLoading.value = false;
-        Get.snackbar("Error", e.toString(), snackPosition: SnackPosition.BOTTOM, duration: const Duration(seconds: 5));
+        Get.snackbar(
+            "Error",
+            e.toString(),
+            snackPosition: SnackPosition.BOTTOM,
+            duration: const Duration(seconds: 5));
     }
+    print("prova privacy policy${privacyPolicy}");
+    print("prova conditions${conditions}");
+
   }
 
   /// [PhoneNoAuthentication]

@@ -13,7 +13,9 @@ class ProfileFormScreen extends StatelessWidget {
     required this.email,
     required this.phoneNo,
     required this.fullName,
-    required this.password
+    required this.password,
+    required this.privacyPolicy,
+    required this.conditions
   });
 
   final UserModel user;
@@ -21,6 +23,8 @@ class ProfileFormScreen extends StatelessWidget {
   final TextEditingController phoneNo;
   final TextEditingController fullName;
   final TextEditingController password;
+  final TextEditingController privacyPolicy;
+  final TextEditingController conditions;
 
   @override
   Widget build(BuildContext context){
@@ -56,6 +60,8 @@ class ProfileFormScreen extends StatelessWidget {
                     email: email.text.trim(),
                     fullName: fullName.text.trim(),
                     phoneNo: phoneNo.text.trim(),
+                    privacyPolicy: privacyPolicy.text.isBool,
+                    conditions: conditions.text.isBool,
                   );
 
                   await controller.updateRecord(userData);

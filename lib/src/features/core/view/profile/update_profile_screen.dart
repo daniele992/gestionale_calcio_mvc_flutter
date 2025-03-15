@@ -43,6 +43,8 @@ class UpdateProfileScreen extends StatelessWidget {
                   final password = TextEditingController(text: user.password);
                   final fullName = TextEditingController(text: user.fullName);
                   final phoneNo = TextEditingController(text: user.phoneNo);
+                  final privacyPolicy = TextEditingController(text: user.privacyPolicy.toString());
+                  final conditions = TextEditingController(text: user.conditions.toString());
 
                   //Image & Form
                   return Column(
@@ -57,6 +59,9 @@ class UpdateProfileScreen extends StatelessWidget {
                         email: email,
                         phoneNo: phoneNo,
                         password: password,
+                        privacyPolicy: privacyPolicy,
+                        conditions: conditions,
+
                         user: user
                       ),
                     ],
