@@ -8,15 +8,22 @@ import '../../../../../common_widgets/form/checkboxListTile.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
 
-class SignUpFormWidget extends StatelessWidget {
+class SignUpFormWidget extends StatefulWidget {
   const SignUpFormWidget({
     super.key,
   });
 
   @override
+  State<SignUpFormWidget> createState() => _SignUpFormWidgetState();
+}
+
+class _SignUpFormWidgetState extends State<SignUpFormWidget> {
+  @override
   Widget build(BuildContext context) {
 
     const double fontSize = 12;
+    bool acceptPrivacyPolicy = false;
+    bool acceptTerms = true;
 
     final controller = Get.put(SignUpController());
     return Container(
@@ -112,17 +119,30 @@ class SignUpFormWidget extends StatelessWidget {
 
             ///CheckboxListTile for accept privacy
             FormCheckBoxListTile(
-              valueCheckBox: false,
+              initialValue: false,
               textCheckBox: tPrivacy,
               iconCheckBox: Icons.hourglass_empty,
-
+              subTitle: 'Error',
+              onChanged: (value) {
+                setState(() {
+                  acceptPrivacyPolicy = value;
+                  print("acceptPrivacy${acceptPrivacyPolicy}");
+                });
+              },
             ),
 
             ///CheckboxListTile for accept conditions
             FormCheckBoxListTile(
-              valueCheckBox: false,
+              initialValue: false,
               textCheckBox: tConditions,
               iconCheckBox: Icons.hourglass_empty,
+              subTitle: 'Error',
+              onChanged: (value) {
+                setState(() {
+                  acceptTerms = value;
+                  print("acceptTerms${value}");
+                });
+              },
             ),
 
             const SizedBox(height: tFormHeight - 10),
@@ -135,7 +155,7 @@ class SignUpFormWidget extends StatelessWidget {
                       ? () {}
                       : controller.isLoading.value
                           ? () {}
-                          : () => controller.createUser(),
+                          : () => {controller.createUser(acceptPrivacyPolicy, acceptTerms), print("dddddd${acceptPrivacyPolicy}")},
                 ),
             ),
           ],

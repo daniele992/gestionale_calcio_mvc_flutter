@@ -11,8 +11,8 @@ class UserModel {
   /// Authentication will handle login logout for us.
   /// So just use this variable to get data from user and pass it to authentication.
   final String? password;
-  final bool? privacyPolicy;
-  final bool? conditions;
+  final bool privacyPolicy;
+  final bool conditions;
 
   ///Constructor
   const UserModel({
@@ -42,8 +42,8 @@ class UserModel {
       email: '',
       fullName: '',
       phoneNo: '',
-      privacyPolicy: null,
-      conditions: null,
+      privacyPolicy: false,
+      conditions: false,
   );
 
   /// Map Json oriented document snapshot from Firebase to UserModel

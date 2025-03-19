@@ -198,7 +198,7 @@ class AuthenticationRepository extends GetxController{
   /// [LogoutUser] - Valid for any authentication.
   Future<void> logout() async {
     try {
-      await GoogleSignIn().signOut();
+      //await GoogleSignIn().signOut();
      // await FacebookAuth.instance.logOut();
       await FirebaseAuth.instance.signOut();
       Get.offAll(() => const WelcomeScreen());

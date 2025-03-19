@@ -19,8 +19,6 @@ class SignUpController extends GetxController{
   final password = TextEditingController();
   final fullName = TextEditingController();
   final phoneNo = TextEditingController();
-  final privacyPolicy = true;
-  final conditions = true;
 
   /// Loader
   final isLoading = false.obs;
@@ -31,7 +29,7 @@ class SignUpController extends GetxController{
   // the change and call _setScreen() to switch screens
 
   /// Register New User using either [EmailAndPassword] OR [PhoneNumber] authentication
-  Future<void> createUser() async {
+  Future<void> createUser(bool acceptPrivacyPolicy, bool acceptTerms) async {
     try {
       isLoading.value = true;
       if (!signupFormKey.currentState!.validate()) {
@@ -49,8 +47,8 @@ class SignUpController extends GetxController{
         password: password.text.trim(),
         fullName: fullName.text.trim(),
         phoneNo: phoneNo.text.trim(),
-        privacyPolicy: true,
-        conditions: true
+        privacyPolicy: acceptPrivacyPolicy,
+        conditions: acceptTerms,
       );
 
       // Authenticate User first
@@ -66,8 +64,6 @@ class SignUpController extends GetxController{
             snackPosition: SnackPosition.BOTTOM,
             duration: const Duration(seconds: 5));
     }
-    print("prova privacy policy${privacyPolicy}");
-    print("prova conditions${conditions}");
 
   }
 
