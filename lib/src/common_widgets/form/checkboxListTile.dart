@@ -9,17 +9,17 @@ class FormCheckBoxListTile extends StatefulWidget {
   FormCheckBoxListTile ({
     super.key,
     required this.initialValue,
+    required this.noticeError,
     required this.textCheckBox,
     required this.iconCheckBox,
-    required this.subTitle,
     required this.onChanged,
   });
 
   // Variables -- Declared in Constructor
   late  bool initialValue;
+  final String noticeError;
   final String textCheckBox;
   final IconData iconCheckBox;
-  final String subTitle;
   final ValueChanged<bool> onChanged; // Callback for return the value
 
   @override
@@ -54,17 +54,18 @@ class _FormCheckBoxListTileState extends State<FormCheckBoxListTile> {
         activeColor: Colors.green,
         checkColor: Colors.white,
         subtitle: Text(
+            style: TextStyle(color: Colors.red, fontStyle:FontStyle.italic, fontSize: 8),
             _isChecked == false
-                ? widget.subTitle
+                ? widget.noticeError
                 : ''
         ),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
         onChanged: (val) {
           setState(() {
             _isChecked = val!;
-            widget.onChanged(_isChecked); // Passa il valore al widget padre
+            //widget.onChanged(_isChecked);
           });
-          widget.onChanged(_isChecked); // Passa il valore al widget padre
+          widget.onChanged(_isChecked); // Pass the value to the parent widget
         },
         controlAffinity: ListTileControlAffinity.leading,
 

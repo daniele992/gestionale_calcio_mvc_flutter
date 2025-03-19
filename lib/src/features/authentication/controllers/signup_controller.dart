@@ -51,6 +51,14 @@ class SignUpController extends GetxController{
         conditions: acceptTerms,
       );
 
+      if(acceptPrivacyPolicy == false || acceptTerms == false){
+        print("errore");
+      }
+
+      else{
+        print("Ok");
+      }
+
       // Authenticate User first
       final auth = AuthenticationRepository.instance;
       await auth.registerWithEmailAndPassword(user.email, user.password!);

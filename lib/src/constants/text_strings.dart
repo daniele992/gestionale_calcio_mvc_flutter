@@ -68,6 +68,8 @@ const String tConditions = "I accept the terms and conditions";
 const String tSignUpTitle = "Get On Board";
 const String tSignUpSubTitle = "Create your profile to start your Journey with us...";
 const String tAlreadyHaveAnAccount = "Already have an Account?";
+const String tNoticeErrorConditions = "Please accept the conditions to continue";
+const String tNoticeErrorPrivacy = "Please accept the privacy policy to continue";
 
 /* --- Forget Password Text --- */
 const String tForgetPasswordTitle = "Make Selection";

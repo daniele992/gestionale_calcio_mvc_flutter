@@ -120,13 +120,12 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
             ///CheckboxListTile for accept privacy
             FormCheckBoxListTile(
               initialValue: false,
+              noticeError: tNoticeErrorPrivacy,
               textCheckBox: tPrivacy,
               iconCheckBox: Icons.hourglass_empty,
-              subTitle: 'Error',
               onChanged: (value) {
                 setState(() {
                   acceptPrivacyPolicy = value;
-                  print("acceptPrivacy${acceptPrivacyPolicy}");
                 });
               },
             ),
@@ -134,13 +133,12 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
             ///CheckboxListTile for accept conditions
             FormCheckBoxListTile(
               initialValue: false,
+              noticeError: tNoticeErrorConditions,
               textCheckBox: tConditions,
               iconCheckBox: Icons.hourglass_empty,
-              subTitle: 'Error',
               onChanged: (value) {
                 setState(() {
                   acceptTerms = value;
-                  print("acceptTerms${value}");
                 });
               },
             ),
@@ -155,7 +153,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                       ? () {}
                       : controller.isLoading.value
                           ? () {}
-                          : () => {controller.createUser(acceptPrivacyPolicy, acceptTerms), print("dddddd${acceptPrivacyPolicy}")},
+                          : () => controller.createUser(acceptPrivacyPolicy, acceptTerms),
                 ),
             ),
           ],
