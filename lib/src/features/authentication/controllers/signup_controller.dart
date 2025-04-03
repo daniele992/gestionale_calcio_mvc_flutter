@@ -16,9 +16,10 @@ class SignUpController extends GetxController{
 
   // TextField Controllers to get data from TextFields
   final email = TextEditingController();
-  final password = TextEditingController();
+  late final password = TextEditingController();
   final fullName = TextEditingController();
   final phoneNo = TextEditingController();
+  final pwGenerate = TextEditingController();
 
   /// Loader
   final isLoading = false.obs;
@@ -29,7 +30,7 @@ class SignUpController extends GetxController{
   // the change and call _setScreen() to switch screens
 
   /// Register New User using either [EmailAndPassword] OR [PhoneNumber] authentication
-  Future<void> createUser(bool acceptPrivacyPolicy, bool acceptTerms) async {
+  Future<void> createUser(bool privacyPolicy, bool termsCondtions) async {
     try {
       isLoading.value = true;
       if (!signupFormKey.currentState!.validate()) {
@@ -47,11 +48,11 @@ class SignUpController extends GetxController{
         password: password.text.trim(),
         fullName: fullName.text.trim(),
         phoneNo: phoneNo.text.trim(),
-        privacyPolicy: acceptPrivacyPolicy,
-        conditions: acceptTerms,
+        privacyPolicy: privacyPolicy,
+        conditions: termsCondtions,
       );
 
-      if(acceptPrivacyPolicy == false || acceptTerms == false){
+      if(privacyPolicy == false || termsCondtions == false){
         print("errore");
       }
 

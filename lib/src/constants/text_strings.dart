@@ -71,6 +71,7 @@ const String tAlreadyHaveAnAccount = "Already have an Account?";
 const String tNoticeErrorConditions = "Please accept the conditions to continue";
 const String tNoticeErrorPrivacy = "Please accept the privacy policy to continue";
 
+
 /* --- Forget Password Text --- */
 const String tForgetPasswordTitle = "Make Selection";
 const String tForgetPasswordSubTitle = "Select one of the options given below to reset your password.";

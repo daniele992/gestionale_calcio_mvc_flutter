@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/common_widgets/buttons/primary_button.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/controllers/signup_controller.dart';
@@ -18,12 +20,35 @@ class SignUpFormWidget extends StatefulWidget {
 }
 
 class _SignUpFormWidgetState extends State<SignUpFormWidget> {
+
+  late TextEditingController savePwGenerate;
+
+  @override
+  void initState() {
+    super.initState();
+    savePwGenerate = TextEditingController(text: "Valore iniziale");
+  }
+
+  @override
+  void dispose() {
+    savePwGenerate.dispose(); //Frees memory when widget is removed
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
 
     const double fontSize = 12;
+    Random random = Random.secure();
+    int randomLength = 12; //initial length
     bool acceptPrivacyPolicy = false;
-    bool acceptTerms = true;
+    bool acceptTerms = false;
+    String pwGenerate = "";
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+    String randomSpecialCharacter = "";
+    String randomUpperLetter = "";
+    String randomNumber = "";
 
     final controller = Get.put(SignUpController());
     return Container(
@@ -94,6 +119,82 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
             ///TextFormField For insert password
             Obx(
                 () => TextFormField(
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            backgroundColor: Colors.cyanAccent,
+                            child: Container(
+                              width: screenWidth * 0.75,
+                              height: screenHeight * 0.45,
+                              padding: EdgeInsets.all(16),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                      "Do you want to speed up password creation?",
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                      )
+                                  ),
+                                  const SizedBox(height: 20),
+                                  Text(
+                                    "Click the button below to create a random password",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.normal
+                                    ),
+                                  ),
+                                  const SizedBox(height: 20),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        setState(() {
+                                          randomLength = getRandomNumberBetween(9, 14);//random number between 9/13
+                                          randomSpecialCharacter = getRandomSpecialCharacter(); //random special character
+                                          randomUpperLetter = getRandomUpperCaseLetter(); //random Upper letter
+                                          randomNumber = getRandomNumberBetween(1, 100).toString(); //random number between 1/100
+                                          pwGenerate = generatePassword(randomLength, requiredChars: "$randomUpperLetter$randomSpecialCharacter$randomNumber");
+                                          savePwGenerate.text = pwGenerate;
+                                        });
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.blue, //Color background
+                                        foregroundColor: Colors.green, //Color text and icon
+                                      ),
+                                      child: Text("RANDOM"),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 20),
+                                  TextField(
+                                    readOnly: true,
+                                    controller: savePwGenerate,
+                                  ),
+                                  const SizedBox(height: 20),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    child: ElevatedButton(
+                                      onPressed: (){
+                                        setState(() {
+
+                                        });
+                                      },
+                                      child: Text("Salva"),
+                                    )
+                                  )
+                                ],
+                              ),
+                            ),
+                          );
+                        }
+                    ); //End ShowDialog
+                  },
                   controller: controller.password,
                   validator: Helper.validatePassword,
                   obscureText: controller.showPassword.value ? false : true,
@@ -112,6 +213,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                       onPressed: () => controller.showPassword.value = !controller.showPassword.value,
                     ),
                   ),
+
                 ),
             ),
 
@@ -145,6 +247,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
 
             const SizedBox(height: tFormHeight - 10),
 
+            ///Primary Button for SignUp
             Obx(
                 () => TPrimaryButton(
                   isLoading: controller.isLoading.value ? true : false,
@@ -153,7 +256,10 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                       ? () {}
                       : controller.isLoading.value
                           ? () {}
-                          : () => controller.createUser(acceptPrivacyPolicy, acceptTerms),
+                          : () {controller.createUser(acceptPrivacyPolicy, acceptTerms);
+                          print("A" + acceptPrivacyPolicy.toString());
+                          print("A" + acceptTerms.toString());
+                  }
                 ),
             ),
           ],
@@ -161,4 +267,43 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
       ),
     );
   }
+
+  String generatePassword(int length, {String requiredChars = '', String allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#\$%^&*'}) {
+
+    Random random = Random();
+    List<String> password = [];
+
+    //Adds required characters
+    password.addAll(requiredChars.split(''));
+
+    //Adds the remaining characters randomly
+    for (int i = password.length; i < length; i++) {
+      password.add(allowedChars[random.nextInt(allowedChars.length)]);
+    }
+
+    //Mix up your password so that you don't always have mandatory characters at the beginning
+    password.shuffle();
+
+    //convert a list of strings into a single string.
+    return password.join();
+  }
+
+  String getRandomUpperCaseLetter(){
+    const String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    Random random = Random();
+    return letters[random.nextInt(letters.length)];
+  }
+
+  String getRandomSpecialCharacter(){
+    const String specialChars = "!@#\$%^&*()_-+=<>?/{}[]|";
+    Random random = Random();
+    return specialChars[random.nextInt(specialChars.length)];
+  }
+
+  int getRandomNumberBetween(int min, int max){
+    Random random = Random();
+    return min + random.nextInt(max - min + 1);
+  }
+
+
 } //Class SignUpScreen
