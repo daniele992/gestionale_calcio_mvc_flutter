@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/common_widgets/buttons/primary_button.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/controllers/signup_controller.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/utils/helper/helper_controller.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/utils/password_utils.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import '../../../../../common_widgets/form/checkboxListTile.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
 
@@ -41,8 +41,6 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
     const double fontSize = 12;
     Random random = Random.secure();
     int randomLength = 12; //initial length
-    bool acceptPrivacyPolicy = false;
-    bool acceptTerms = false;
     String pwGenerate = "";
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
@@ -156,11 +154,11 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                                     child: ElevatedButton(
                                       onPressed: () {
                                         setState(() {
-                                          randomLength = getRandomNumberBetween(9, 14);//random number between 9/13
-                                          randomSpecialCharacter = getRandomSpecialCharacter(); //random special character
-                                          randomUpperLetter = getRandomUpperCaseLetter(); //random Upper letter
-                                          randomNumber = getRandomNumberBetween(1, 100).toString(); //random number between 1/100
-                                          pwGenerate = generatePassword(randomLength, requiredChars: "$randomUpperLetter$randomSpecialCharacter$randomNumber");
+                                          randomLength = PasswordsUtils.getRandomNumberBetween(9, 14);//random number between 9/13
+                                          randomSpecialCharacter = PasswordsUtils.getRandomSpecialCharacter(); //random special character
+                                          randomUpperLetter = PasswordsUtils.getRandomUpperCaseLetter(); //random Upper letter
+                                          randomNumber = PasswordsUtils.getRandomNumberBetween(1, 100).toString();
+                                          pwGenerate = PasswordsUtils.generatePassword(randomLength, requiredChars: "$randomUpperLetter$randomSpecialCharacter$randomNumber");
                                           savePwGenerate.text = pwGenerate;
                                         });
                                       },
@@ -217,49 +215,86 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                 ),
             ),
 
+            const SizedBox(height: tFormHeight - 20),
+
+            LinearProgressIndicator(
+              value: strengthPercent,
+              backgroundColor: Colors.grey.shade300,
+              color: strengthColor,
+              minHeight: 10,
+              borderRadius: BorderRadius.circular(10),
+            )
+
             const SizedBox(height: tFormHeight - 10),
 
             ///CheckboxListTile for accept privacy
-            FormCheckBoxListTile(
-              initialValue: false,
-              noticeError: tNoticeErrorPrivacy,
-              textCheckBox: tPrivacy,
-              iconCheckBox: Icons.hourglass_empty,
-              onChanged: (value) {
-                setState(() {
-                  acceptPrivacyPolicy = value;
-                });
-              },
-            ),
+            Obx(() => CheckboxListTile(
+              title: Text(
+                tPrivacy,
+                textAlign: TextAlign.left,
+                textDirection: TextDirection.rtl,
+              ),
+              side: BorderSide(
+                  color: controller.acceptPrivacyPolicy.value == true
+                      ? Colors.green
+                      : Colors.red
+              ),
+              secondary: Icon(Icons.hourglass_empty),
+              activeColor: Colors.green,
+              checkColor: Colors.white,
+              value: controller.acceptPrivacyPolicy.value,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+              onChanged: (value) => controller.acceptPrivacyPolicy.value = value ?? false,
+              controlAffinity: ListTileControlAffinity.leading,
+              subtitle: Text(
+                  style: TextStyle(color: Colors.red, fontStyle:FontStyle.italic, fontSize: 8),
+                  controller.acceptPrivacyPolicy.value == false
+                      ? tNoticeErrorPrivacy
+                      : ''
+              ),
+            )),
 
             ///CheckboxListTile for accept conditions
-            FormCheckBoxListTile(
-              initialValue: false,
-              noticeError: tNoticeErrorConditions,
-              textCheckBox: tConditions,
-              iconCheckBox: Icons.hourglass_empty,
-              onChanged: (value) {
-                setState(() {
-                  acceptTerms = value;
-                });
-              },
-            ),
+            Obx(() => CheckboxListTile(
+              title: Text(
+                tConditions,
+                textAlign: TextAlign.left,
+                textDirection: TextDirection.rtl,
+              ),
+              side: BorderSide(
+                  color: controller.acceptTerms.value == true
+                      ? Colors.green
+                      : Colors.red
+              ),
+              secondary: Icon(Icons.hourglass_empty),
+              activeColor: Colors.green,
+              checkColor: Colors.white,
+              value: controller.acceptTerms.value,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+              onChanged: (value) => controller.acceptTerms.value = value ?? false,
+              controlAffinity: ListTileControlAffinity.leading,
+              subtitle: Text(
+                  style: TextStyle(color: Colors.red, fontStyle:FontStyle.italic, fontSize: 8),
+                  controller.acceptTerms.value == false
+                      ? tNoticeErrorPrivacy
+                      : ''
+              ),
+            )),
 
             const SizedBox(height: tFormHeight - 10),
 
             ///Primary Button for SignUp
             Obx(
                 () => TPrimaryButton(
+                  privacyPolicy: controller.acceptPrivacyPolicy.value,
+                  acceptTerms: controller.acceptTerms.value,
                   isLoading: controller.isLoading.value ? true : false,
                   text: tSignup.tr,
                   onPressed: controller.isFacebookLoading.value || controller.isGoogleLoading.value
                       ? () {}
                       : controller.isLoading.value
                           ? () {}
-                          : () {controller.createUser(acceptPrivacyPolicy, acceptTerms);
-                          print("A" + acceptPrivacyPolicy.toString());
-                          print("A" + acceptTerms.toString());
-                  }
+                          : () {controller.createUser();}
                 ),
             ),
           ],
@@ -267,43 +302,5 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
       ),
     );
   }
-
-  String generatePassword(int length, {String requiredChars = '', String allowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#\$%^&*'}) {
-
-    Random random = Random();
-    List<String> password = [];
-
-    //Adds required characters
-    password.addAll(requiredChars.split(''));
-
-    //Adds the remaining characters randomly
-    for (int i = password.length; i < length; i++) {
-      password.add(allowedChars[random.nextInt(allowedChars.length)]);
-    }
-
-    //Mix up your password so that you don't always have mandatory characters at the beginning
-    password.shuffle();
-
-    //convert a list of strings into a single string.
-    return password.join();
-  }
-
-  String getRandomUpperCaseLetter(){
-    const String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    Random random = Random();
-    return letters[random.nextInt(letters.length)];
-  }
-
-  String getRandomSpecialCharacter(){
-    const String specialChars = "!@#\$%^&*()_-+=<>?/{}[]|";
-    Random random = Random();
-    return specialChars[random.nextInt(specialChars.length)];
-  }
-
-  int getRandomNumberBetween(int min, int max){
-    Random random = Random();
-    return min + random.nextInt(max - min + 1);
-  }
-
 
 } //Class SignUpScreen

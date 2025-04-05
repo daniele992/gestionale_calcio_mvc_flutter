@@ -12,6 +12,8 @@ class SignUpController extends GetxController{
   final showPassword = false.obs;
   final isGoogleLoading = false.obs;
   final isFacebookLoading = false.obs;
+  var acceptPrivacyPolicy = false.obs;
+  var acceptTerms = false.obs;
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
   // TextField Controllers to get data from TextFields
@@ -30,7 +32,7 @@ class SignUpController extends GetxController{
   // the change and call _setScreen() to switch screens
 
   /// Register New User using either [EmailAndPassword] OR [PhoneNumber] authentication
-  Future<void> createUser(bool privacyPolicy, bool termsCondtions) async {
+  Future<void> createUser() async {
     try {
       isLoading.value = true;
       if (!signupFormKey.currentState!.validate()) {
@@ -48,23 +50,17 @@ class SignUpController extends GetxController{
         password: password.text.trim(),
         fullName: fullName.text.trim(),
         phoneNo: phoneNo.text.trim(),
-        privacyPolicy: privacyPolicy,
-        conditions: termsCondtions,
+        privacyPolicy: acceptPrivacyPolicy.value,
+        conditions: acceptTerms.value,
       );
 
-      if(privacyPolicy == false || termsCondtions == false){
-        print("errore");
-      }
+        // Authenticate User first
+        final auth = AuthenticationRepository.instance;
+        await auth.registerWithEmailAndPassword(user.email, user.password!);
+        await UserRepository.instance.createUser(user);
+        auth.setInitialScreen(auth.firebaseUser);
 
-      else{
-        print("Ok");
-      }
 
-      // Authenticate User first
-      final auth = AuthenticationRepository.instance;
-      await auth.registerWithEmailAndPassword(user.email, user.password!);
-      await UserRepository.instance.createUser(user);
-      auth.setInitialScreen(auth.firebaseUser);
     } catch (e) {
         isLoading.value = false;
         Get.snackbar(

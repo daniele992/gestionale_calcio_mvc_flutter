@@ -9,6 +9,8 @@ class TPrimaryButton extends StatelessWidget {
     this.isLoading = false,
     this.isFullWidth = true,
     this.width = 100.0,
+    this.privacyPolicy,
+    this.acceptTerms,
   });
 
   final String text;
@@ -16,13 +18,15 @@ class TPrimaryButton extends StatelessWidget {
   final bool isLoading;
   final bool isFullWidth;
   final double width;
+  final bool? privacyPolicy;
+  final bool? acceptTerms;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
         width: isFullWidth ? double.infinity : width,
         child: ElevatedButton(
-            onPressed: onPressed,
+            onPressed: privacyPolicy == false || acceptTerms == false ? null : onPressed,
             child: isLoading
                 ? const ButtonLoadingWidget()
                 : Text(text.toUpperCase()),
