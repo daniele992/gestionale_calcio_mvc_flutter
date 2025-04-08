@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/common_widgets/buttons/primary_button.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/controllers/signup_controller.dart';
@@ -22,33 +21,46 @@ class SignUpFormWidget extends StatefulWidget {
 class _SignUpFormWidgetState extends State<SignUpFormWidget> {
 
   late TextEditingController savePwGenerate;
+  late Color strengthColor = Colors.grey;
+  late double strengthPercent = 0.0;
+  late String strengthLabel = '';
 
   @override
   void initState() {
     super.initState();
     savePwGenerate = TextEditingController(text: "Valore iniziale");
+    Color strengthColor = Colors.grey;
+    double strengthPercent = 0.0;
+    String strengthLabel = '';
   }
 
   @override
   void dispose() {
-    savePwGenerate.dispose(); //Frees memory when widget is removed
+    savePwGenerate.dispose();  //Frees memory when widget is removed
     super.dispose();
+  }
+
+  void updateStrength(String pwd) {
+    final result = PasswordsUtils.calculateStrengthPassword(pwd);
+    setState(() {
+      strengthLabel = result['label']!;
+      strengthColor = result['color']!;
+      strengthPercent = result['percent']!;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
 
     const double fontSize = 12;
-    Random random = Random.secure();
     int randomLength = 12; //initial length
     String pwGenerate = "";
+    Map<String, dynamic> result;
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    String randomSpecialCharacter = "";
-    String randomUpperLetter = "";
-    String randomNumber = "";
 
     final controller = Get.put(SignUpController());
+
     return Container(
       padding: const EdgeInsets.only(top: tFormHeight - 15, bottom: tFormHeight),
       child: Form(
@@ -155,10 +167,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                                       onPressed: () {
                                         setState(() {
                                           randomLength = PasswordsUtils.getRandomNumberBetween(9, 14);//random number between 9/13
-                                          randomSpecialCharacter = PasswordsUtils.getRandomSpecialCharacter(); //random special character
-                                          randomUpperLetter = PasswordsUtils.getRandomUpperCaseLetter(); //random Upper letter
-                                          randomNumber = PasswordsUtils.getRandomNumberBetween(1, 100).toString();
-                                          pwGenerate = PasswordsUtils.generatePassword(randomLength, requiredChars: "$randomUpperLetter$randomSpecialCharacter$randomNumber");
+                                          pwGenerate = PasswordsUtils.generateStrongPassword(randomLength);
                                           savePwGenerate.text = pwGenerate;
                                         });
                                       },
@@ -170,17 +179,24 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                                     ),
                                   ),
                                   const SizedBox(height: 20),
+
                                   TextField(
                                     readOnly: true,
                                     controller: savePwGenerate,
                                   ),
+
                                   const SizedBox(height: 20),
+
                                   SizedBox(
                                     width: double.infinity,
                                     child: ElevatedButton(
                                       onPressed: (){
                                         setState(() {
-
+                                          result = PasswordsUtils.calculateStrengthPassword(pwGenerate);
+                                          strengthPercent = result['percent']!;
+                                          strengthColor = result['color']!;
+                                          strengthLabel = result['label']!;
+                                          print(result['label']!);
                                         });
                                       },
                                       child: Text("Salva"),
@@ -194,6 +210,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                     ); //End ShowDialog
                   },
                   controller: controller.password,
+                  onChanged: updateStrength,
                   validator: Helper.validatePassword,
                   obscureText: controller.showPassword.value ? false : true,
                   decoration: InputDecoration(
@@ -215,15 +232,27 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                 ),
             ),
 
+
             const SizedBox(height: tFormHeight - 20),
 
+            ///Indicator Strength Password
             LinearProgressIndicator(
               value: strengthPercent,
               backgroundColor: Colors.grey.shade300,
               color: strengthColor,
               minHeight: 10,
               borderRadius: BorderRadius.circular(10),
-            )
+            ),
+
+            const SizedBox(height: tFormHeight - 10),
+
+            ///Text Strength Password
+            Text(
+              strengthLabel,
+              style: TextStyle(
+                color: strengthColor,
+                fontWeight: FontWeight.bold,)
+            ),
 
             const SizedBox(height: tFormHeight - 10),
 
