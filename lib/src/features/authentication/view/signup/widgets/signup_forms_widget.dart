@@ -127,111 +127,44 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
             const SizedBox(height: tFormHeight - 20),
 
             ///TextFormField For insert password
-            Obx(
-                () => TextFormField(
-                  onTap: () {
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return Dialog(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
+            Row(
+              children: [
+                // Espande il campo testo per occupare tutto lo spazio disponibile
+                Expanded(
+                  child: Obx(
+                        () => TextFormField(
+                          controller: controller.password,
+                          onChanged: updateStrength,
+                          validator: Helper.validatePassword,
+                          obscureText: controller.showPassword.value ? false : true,
+                          decoration: InputDecoration(
+                            label: const Text(tPassword),
+                            hintText: 'Please enter your password',
+                            hintStyle: TextStyle(
+                              fontSize: fontSize,
+                              fontStyle: FontStyle.italic,
                             ),
-                            backgroundColor: Colors.cyanAccent,
-                            child: Container(
-                              width: screenWidth * 0.75,
-                              height: screenHeight * 0.45,
-                              padding: EdgeInsets.all(16),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                      "Do you want to speed up password creation?",
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                      )
-                                  ),
-                                  const SizedBox(height: 20),
-                                  Text(
-                                    "Click the button below to create a random password",
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.normal
-                                    ),
-                                  ),
-                                  const SizedBox(height: 20),
-                                  SizedBox(
-                                    width: double.infinity,
-                                    child: ElevatedButton(
-                                      onPressed: () {
-                                        setState(() {
-                                          randomLength = PasswordsUtils.getRandomNumberBetween(9, 14);//random number between 9/13
-                                          pwGenerate = PasswordsUtils.generateStrongPassword(randomLength);
-                                          savePwGenerate.text = pwGenerate;
-                                        });
-                                      },
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.blue, //Color background
-                                        foregroundColor: Colors.green, //Color text and icon
-                                      ),
-                                      child: Text("RANDOM"),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 20),
-
-                                  TextField(
-                                    readOnly: true,
-                                    controller: savePwGenerate,
-                                  ),
-
-                                  const SizedBox(height: 20),
-
-                                  SizedBox(
-                                    width: double.infinity,
-                                    child: ElevatedButton(
-                                      onPressed: (){
-                                        setState(() {
-                                          result = PasswordsUtils.calculateStrengthPassword(pwGenerate);
-                                          strengthPercent = result['percent']!;
-                                          strengthColor = result['color']!;
-                                          strengthLabel = result['label']!;
-                                          print(result['label']!);
-                                        });
-                                      },
-                                      child: Text("Salva"),
-                                    )
-                                  )
-                                ],
-                              ),
-                            ),
-                          );
-                        }
-                    ); //End ShowDialog
-                  },
-                  controller: controller.password,
-                  onChanged: updateStrength,
-                  validator: Helper.validatePassword,
-                  obscureText: controller.showPassword.value ? false : true,
-                  decoration: InputDecoration(
-                    label: const Text(tPassword),
-                    hintText: 'Please enter your password',
-                    hintStyle: TextStyle(
-                        fontSize: fontSize,
-                        fontStyle: FontStyle.italic,
-                    ),
-                    prefixIcon: const Icon(Icons.fingerprint),
-                    suffixIcon: IconButton(
-                        icon: controller.showPassword.value
-                            ? const Icon(LineAwesomeIcons.eye)
-                            : const Icon(LineAwesomeIcons.eye_slash),
-                      onPressed: () => controller.showPassword.value = !controller.showPassword.value,
+                        prefixIcon: const Icon(Icons.fingerprint),
+                        suffixIcon: IconButton(
+                          icon: controller.showPassword.value
+                              ? const Icon(LineAwesomeIcons.eye)
+                              : const Icon(LineAwesomeIcons.eye_slash),
+                          onPressed: () => controller.showPassword.value = !controller.showPassword.value,
+                        ),
+                      ),
                     ),
                   ),
-
                 ),
-            ),
 
+                const SizedBox(width: 8), // Spazio tra campo e bottone
+                ElevatedButton(
+                  onPressed: () {
+                    // Azione del bottone
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            ),
 
             const SizedBox(height: tFormHeight - 20),
 
