@@ -53,11 +53,9 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
   Widget build(BuildContext context) {
 
     const double fontSize = 12;
-    int randomLength = 12; //initial length
     String pwGenerate = "";
     Map<String, dynamic> result;
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    //double screenHeight = MediaQuery.of(context).size.height;
 
     final controller = Get.put(SignUpController());
 
@@ -129,7 +127,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
             ///TextFormField For insert password
             Row(
               children: [
-                // Espande il campo testo per occupare tutto lo spazio disponibile
+                //Expands the text field to fill all available space
                 Expanded(
                   child: Obx(
                         () => TextFormField(
@@ -155,13 +153,28 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                     ),
                   ),
                 ),
+                const SizedBox(width: 8), // Space between field and button
 
-                const SizedBox(width: 8), // Spazio tra campo e bottone
-                ElevatedButton(
+                ///Button generate casual Password
+                ElevatedButton.icon(
                   onPressed: () {
-                    // Azione del bottone
+                    int _randomNumber = PasswordsUtils.getRandomNumberBetween(9,14);
+                    pwGenerate = PasswordsUtils.generateStrongPassword(_randomNumber);
+                    controller.password.text = pwGenerate;
+                    updateStrength(pwGenerate);
                   },
-                  child: Text('OK'),
+                  icon: const Icon(Icons.auto_awesome),
+                  label: Text(""),
+                  style: ElevatedButton.styleFrom(
+                    //minimumSize: Size(60, 10),
+                    backgroundColor: Colors.green,       //Background Button
+                    foregroundColor: Colors.white,       // Primary Color
+                    shadowColor: Colors.purpleAccent,    // Shadow Color
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -169,25 +182,54 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
             const SizedBox(height: tFormHeight - 20),
 
             ///Indicator Strength Password
-            LinearProgressIndicator(
-              value: strengthPercent,
-              backgroundColor: Colors.grey.shade300,
-              color: strengthColor,
-              minHeight: 10,
-              borderRadius: BorderRadius.circular(10),
+            Row(
+              children: [
+                Expanded(
+                    child:
+                    TweenAnimationBuilder<double>(
+                      tween: Tween<double>(begin: 0, end: strengthPercent),
+                      duration: Duration(milliseconds: 300),
+                      builder: (context, value, _) {
+                        return ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child: LinearProgressIndicator(
+                            value: strengthPercent,
+                            minHeight: 10,
+                            backgroundColor: Colors.grey.shade300,
+                            valueColor: AlwaysStoppedAnimation<Color>(strengthColor),
+                          ),
+                        );
+                      },
+                    ),
+                ),
+                //const SizedBox(height: tFormHeight - 20),
+                Tooltip(
+                  message: '.',
+                  waitDuration: Duration(milliseconds: 500),
+                  showDuration: Duration(seconds: 2),
+                  child: Container(
+                    padding: EdgeInsets.all(8),
+                    child: Icon(
+                      Icons.info_outline,
+                      color: Colors.grey.shade600,
+                      size: 30,
+                    ),
+                  ),
+                ),
+              ],
             ),
 
-            const SizedBox(height: tFormHeight - 10),
+            const SizedBox(height: tFormHeight - 25),
 
             ///Text Strength Password
             Text(
-              strengthLabel,
-              style: TextStyle(
-                color: strengthColor,
-                fontWeight: FontWeight.bold,)
+                'Strength Password: {$strengthLabel}',
+                style: TextStyle(
+                  color: strengthColor,
+                  fontWeight: FontWeight.bold,)
             ),
 
-            const SizedBox(height: tFormHeight - 10),
+            const SizedBox(height: tFormHeight - 25),
 
             ///CheckboxListTile for accept privacy
             Obx(() => CheckboxListTile(
@@ -243,7 +285,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
               ),
             )),
 
-            const SizedBox(height: tFormHeight - 10),
+            const SizedBox(height: tFormHeight - 20),
 
             ///Primary Button for SignUp
             Obx(

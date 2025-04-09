@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 class PasswordsUtils {
 
+  ///Funcrion for generare a casual strong password
   static String generateStrongPassword(int length) {
     const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     const numbers = '0123456789';
@@ -31,7 +32,6 @@ class PasswordsUtils {
     return min + random.nextInt(max - min + 1);
   }
 
-
   ///Function for count the UpperCase Letter present in the password
   static int countUpperCaseLetter(String password) {
     int countUpperCase = password.runes.map(
@@ -40,20 +40,21 @@ class PasswordsUtils {
     return countUpperCase;
   }
 
-
   ///Function for count the Special Char present in the password
   static int countSpecialChar(String password) {
     int countChar = password.split('').where((c) => c.contains(RegExp(r'[A-Z]'))).length;
     return countChar;
   }
 
-
+  ///Function for count strength password
   static Map<String, dynamic> calculateStrengthPassword(String password){
-    int score = 0;
-    if(password.length >= 8) score ++;
-    if(password.contains(RegExp(r'[A-Z]'))) score ++;
-    if(password.contains(RegExp(r'[0-9]'))) score ++;
-    if (password.contains(RegExp(r'[!@#\$%^&*(),.?":{}|<>]'))) score++;
+    double score = 0;
+    if(password.length >= 8) score += 0.5;
+    if(password.contains(RegExp(r'[A-Z]'))) score += 0.5;
+    if(password.contains(RegExp(r'[0-9]'))) score += 0.5;
+    if(password.contains(RegExp(r'[!@#\$%^&*(),.?":{}|<>]'))) score += 0.5;
+    if(countUpperCaseLetter(password) >= 2) score += 0.5;
+    if(countSpecialChar(password) >= 2) score += 0.5;
 
     if (score <= 1) {
       return {
