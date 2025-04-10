@@ -65,6 +65,7 @@ dependencies:
   dropdown_button2: ^2.3.9
   country_flags: ^3.2.0
   shared_preferences: ^2.5.2
+  rive: ^0.13.20
 
 
 dev_dependencies:
