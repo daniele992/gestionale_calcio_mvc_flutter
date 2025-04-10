@@ -85,6 +85,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
               ),
             ),
 
+            ///Space Between widget
             const SizedBox(height: tFormHeight - 20),
 
             ///TextFormField for insert E-Mail
@@ -122,6 +123,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
               ),
             ),
 
+            ///Space Between widget
             const SizedBox(height: tFormHeight - 20),
 
             ///TextFormField For insert password
@@ -179,6 +181,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
               ],
             ),
 
+            ///Space Between widget
             const SizedBox(height: tFormHeight - 20),
 
             ///Indicator Strength Password
@@ -219,6 +222,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
               ],
             ),
 
+            ///Space Between widget
             const SizedBox(height: tFormHeight - 25),
 
             ///Text Strength Password
@@ -229,6 +233,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                   fontWeight: FontWeight.bold,)
             ),
 
+            ///Space Between widget
             const SizedBox(height: tFormHeight - 25),
 
             ///CheckboxListTile for accept privacy
@@ -285,6 +290,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
               ),
             )),
 
+            ///Space Between widget
             const SizedBox(height: tFormHeight - 20),
 
             ///Primary Button for SignUp
