@@ -58,24 +58,36 @@ class PasswordsUtils {
 
     if (score <= 1) {
       return {
-        'label': 'Weak',
+        'label': 'VERY WEAK',
         'color': Colors.red,
-        'percent': 0.33,
+        'percent': 0.20,
       };
-    } else if (score == 2) {
+    } else if (score == 1.5) {
       return {
-        'label': 'Medium',
+        'label': 'WEAK',
         'color': Colors.orange,
-        'percent': 0.66,
+        'percent': 0.40,
       };
-    } else {
+    } else if (score == 2){
       return {
-        'label': 'Strong',
+        'label': 'MEDIUM',
+        'color': Colors.yellow,
+        'percent': 0.60,
+      };
+    } else if (score == 2.5){
+      return {
+        'label': 'STRONG',
+        'color': Colors.lightGreenAccent,
+        'percent': 0.80,
+      };
+    }
+    else {
+      return {
+        'label': 'VERY STRONG',
         'color': Colors.green,
         'percent': 1.0,
       };
     }
-
   }
 
   static void updateStrength(String pwd, Color strengthColor, double strengthPercent, String strengthLabel) {

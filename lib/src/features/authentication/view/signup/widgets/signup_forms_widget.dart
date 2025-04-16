@@ -233,7 +233,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
 
             ///Text Strength Password
             Text(
-                'Strength Password: {$strengthLabel}',
+                'Strength Password: $strengthLabel',
                 style: TextStyle(
                   color: strengthColor,
                   fontWeight: FontWeight.bold,)
