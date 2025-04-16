@@ -6,6 +6,7 @@ import 'package:gestionale_calcio_mvc_flutter/src/utils/helper/helper_controller
 import 'package:gestionale_calcio_mvc_flutter/src/utils/password_utils.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:rive/rive.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
 
@@ -24,10 +25,15 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
   late Color strengthColor = Colors.grey;
   late double strengthPercent = 0.0;
   late String strengthLabel = '';
+  late RiveAnimationController _controllerAnimationButton;
 
   @override
   void initState() {
     super.initState();
+    _controllerAnimationButton = OneShotAnimation(
+      '',
+      autoplay: false
+    );
     savePwGenerate = TextEditingController(text: "Valore iniziale");
     Color strengthColor = Colors.grey;
     double strengthPercent = 0.0;
