@@ -4,10 +4,17 @@ import "package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart";
 import "package:gestionale_calcio_mvc_flutter/src/features/core/view/dashboard/widgets/appbar.dart";
 import "../../../../constants/image_strings.dart";
 
+
 ///Dashboard Application - Firs page after login
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
+
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
 
   @override
   Widget build(BuildContext context) {
@@ -16,10 +23,22 @@ class Dashboard extends StatelessWidget {
     final isDark = MediaQuery.of(context).platformBrightness ==
         Brightness.dark; //Dark mode
 
+    int _selectedIndex = 0;
+
+    void _onItemTapped(int index) {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
+
+    void _onPlusButtonPressed() {
+      // Aggiungi qui la logica per creare qualcosa
+      print('Cliccato il pulsante +');
+    }
+
     return SafeArea(
       child: Scaffold(
         appBar: DashboardAppBar(isDark: isDark),
-
         ///Create a new Header
         drawer: Drawer(
           child: ListView(
@@ -44,7 +63,42 @@ class Dashboard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                
+
+              ],
+            ),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _onPlusButtonPressed,
+          tooltip: 'Crea',
+          child: Icon(Icons.add),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: BottomAppBar(
+          shape: CircularNotchedRectangle(),
+          notchMargin: 6.0,
+          child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                IconButton(
+                    icon: Icon(Icons.home, color: _selectedIndex == 0 ? Colors.blue : Colors.grey,),
+                    onPressed: () => _onItemTapped(0),
+                ),
+                IconButton(
+                  icon: Icon(Icons.search, color: _selectedIndex == 1 ? Colors.blue : Colors.grey,),
+                  onPressed: () => _onItemTapped(1),
+                ),
+                SizedBox(width: 40),//spazio per il FAB
+                IconButton(
+                  icon: Icon(Icons.home, color: _selectedIndex == 2 ? Colors.blue : Colors.grey,),
+                  onPressed: () => _onItemTapped(2),
+                ),
+                IconButton(
+                  icon: Icon(Icons.home, color: _selectedIndex == 3 ? Colors.blue : Colors.grey,),
+                  onPressed: () => _onItemTapped(3),
+                ),
               ],
             ),
           ),
