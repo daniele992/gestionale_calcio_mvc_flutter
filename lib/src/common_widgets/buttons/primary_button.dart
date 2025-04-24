@@ -24,13 +24,13 @@ class TPrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: isFullWidth ? double.infinity : width,
-        child: ElevatedButton(
-            onPressed: privacyPolicy == false || acceptTerms == false ? null : onPressed,
-            child: isLoading
-                ? const ButtonLoadingWidget()
-                : Text(text.toUpperCase()),
-        ),
+      width: isFullWidth ? double.infinity : width,
+      child: ElevatedButton(
+        onPressed:
+            privacyPolicy == false || acceptTerms == false ? null : onPressed,
+        child:
+            isLoading ? const ButtonLoadingWidget() : Text(text.toUpperCase()),
+      ),
     );
   }
 }

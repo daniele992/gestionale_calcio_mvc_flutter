@@ -3,7 +3,7 @@ import '../../../constants/colors.dart';
 import '../../../constants/sizes.dart';
 
 /* --- Light e Dark Elevated Button Themes ---*/
-class TOutlinedButtonTheme{
+class TOutlinedButtonTheme {
   TOutlinedButtonTheme._(); //To avoid creating instances
 
   /* --- Light Theme --- */
@@ -12,7 +12,8 @@ class TOutlinedButtonTheme{
       foregroundColor: tSecondaryColor,
       side: const BorderSide(color: tSecondaryColor),
       padding: const EdgeInsets.symmetric(vertical: tButtonHeight),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(tBorderRadius)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(tBorderRadius)),
     ),
   );
 
@@ -22,8 +23,8 @@ class TOutlinedButtonTheme{
       foregroundColor: tWhiteColor,
       side: const BorderSide(color: tWhiteColor),
       padding: const EdgeInsets.symmetric(vertical: tButtonHeight),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(tBorderRadius)),
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(tBorderRadius)),
     ),
   );
-
 }

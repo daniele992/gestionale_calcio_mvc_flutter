@@ -10,12 +10,13 @@ import '../../../../utils/animations/fade_in_animation/fade_in_animation_model.d
 import '../../../../utils/animations/fade_in_animation/fade_in_animation_controller.dart';
 import '../signup/signup_screen.dart';
 
-class WelcomeScreen extends StatelessWidget{
+///Page that opens immediately with login and registration
+
+class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context){
-
+  Widget build(BuildContext context) {
     final controller = Get.put(FadeInAnimationController());
     controller.animationIn();
 
@@ -49,13 +50,18 @@ class WelcomeScreen extends StatelessWidget{
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Hero(
-                      tag: 'welcome-image-tag',
-                      child: Image(image: const AssetImage(tWelcomeScreenImage), width: width * 0.7, height: height * 0.6)
-                    ),
+                        tag: 'welcome-image-tag',
+                        child: Image(
+                            image: const AssetImage(tWelcomeScreenImage),
+                            width: width * 0.7,
+                            height: height * 0.6)),
                     Column(
                       children: [
-                        Text(tWelcomeTitle, style: Theme.of(context).textTheme.displayMedium),
-                        Text(tWelcomeSubTitle, style: Theme.of(context).textTheme.bodyLarge, textAlign: TextAlign.center),
+                        Text(tWelcomeTitle,
+                            style: Theme.of(context).textTheme.displayMedium),
+                        Text(tWelcomeSubTitle,
+                            style: Theme.of(context).textTheme.bodyLarge,
+                            textAlign: TextAlign.center),
                       ],
                     ),
                     Row(

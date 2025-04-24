@@ -2,15 +2,20 @@
 
 // -- Splash Screen Images
 const String tSplashTopIcon = "assets/images/splash_images/splash-top-icon.png";
-const String tSplashImage = "assets/images/splash_images/splash-screen-image.png";
+const String tSplashImage =
+    "assets/images/splash_images/splash-screen-image.png";
 
 /* --- OnBoarding Screen Image --- */
-const String tOnBoardingImage1 = "assets/images/on_boarding_images/on-boarding-image-1.png";
-const String tOnBoardingImage2 = "assets/images/on_boarding_images/on-boarding-image-2.png";
-const String tOnBoardingImage3 = "assets/images/on_boarding_images/on-boarding-image-3.png";
+const String tOnBoardingImage1 =
+    "assets/images/on_boarding_images/on-boarding-image-1.png";
+const String tOnBoardingImage2 =
+    "assets/images/on_boarding_images/on-boarding-image-2.png";
+const String tOnBoardingImage3 =
+    "assets/images/on_boarding_images/on-boarding-image-3.png";
 
 /* --- Welcome Screen Images [Used in Login e SignUp]--- */
-const String tWelcomeScreenImage = "assets/images/welcome_images/welcome-screen-image.png";
+const String tWelcomeScreenImage =
+    "assets/images/welcome_images/welcome-screen-image.png";
 const String tLogoImage = "assets/images/welcome_images/logo.png";
 
 // -- SOCIAL Images
@@ -18,7 +23,8 @@ const String tFacebookLogo = "assets/logo/facebook-logo.png";
 const String tGoogleLogo = "assets/logo/google-logo.png";
 
 /* -- Forget Password Images --- */
-const String tForgetPasswordImage = "assets/images/forget_password/forget-password.png";
+const String tForgetPasswordImage =
+    "assets/images/forget_password/forget-password.png";
 
 /* --- Dashboard Images --- */
 const String tUserProfileImage = "assets/images/dashboard/dash-person.png";
@@ -30,6 +36,3 @@ const String tTopCourseImage2 = "assets/images/dashboard/dash-04.png";
 
 /* -- Profile Images -- */
 const String tProfileImage = "assets/images/profile/profile-pic.png";
-
-
-

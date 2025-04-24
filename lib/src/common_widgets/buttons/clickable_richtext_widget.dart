@@ -15,23 +15,28 @@ class ClickableRichTextWidget extends StatelessWidget {
   final VoidCallback onPressed;
 
   @override
-    Widget build(BuildContext context) {
-      return GestureDetector(
-          onTap: onPressed,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-              child: Text.rich(
-                  TextSpan(
-                      children:[
-                        TextSpan(text: '${text1.tr}? ', style: Theme.of(context).textTheme.bodyMedium),
-                        TextSpan(
-                          text: text2.tr,
-                          style: Theme.of(context).textTheme.titleLarge!.apply(color: tFacebookBgColor),
-                        ),
-                      ],
-                  ),
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPressed,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
+                  text: '${text1.tr}? ',
+                  style: Theme.of(context).textTheme.bodyMedium),
+              TextSpan(
+                text: text2.tr,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .apply(color: tFacebookBgColor),
               ),
+            ],
           ),
-      );
-    }
+        ),
+      ),
+    );
   }
+}

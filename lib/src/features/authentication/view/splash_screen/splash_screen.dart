@@ -8,12 +8,11 @@ import '../../../../utils/animations/fade_in_animation/animation_design.dart';
 import '../../../../utils/animations/fade_in_animation/fade_in_animation_model.dart';
 import '../../../../utils/animations/fade_in_animation/fade_in_animation_controller.dart';
 
-
 class SplashScreen extends StatelessWidget {
   SplashScreen({super.key});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     final controller = Get.put(FadeInAnimationController());
     controller.startSplashAnimation();
 
@@ -33,12 +32,12 @@ class SplashScreen extends StatelessWidget {
             ),
             TFadeInAnimation(
               durationInMs: 1600,
-                animate: TAnimatePosition(
-                  topBefore: 100,
-                  topAfter: 100,
-                  leftAfter: tDefaultSpace,
-                  leftBefore: -100,
-                ),
+              animate: TAnimatePosition(
+                topBefore: 100,
+                topAfter: 100,
+                leftAfter: tDefaultSpace,
+                leftBefore: -100,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -64,15 +63,13 @@ class SplashScreen extends StatelessWidget {
                   bottomBefore: 0,
                   bottomAfter: 60,
                   rightBefore: tDefaultSpace,
-                  rightAfter: tDefaultSpace
-              ),
+                  rightAfter: tDefaultSpace),
               child: Container(
                 width: tSplashContainerSize,
                 height: tSplashContainerSize,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(100),
-                      color: tPrimaryColor
-                  ),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: tPrimaryColor),
               ),
             ),
           ],
@@ -81,4 +78,3 @@ class SplashScreen extends StatelessWidget {
     );
   }
 }
-

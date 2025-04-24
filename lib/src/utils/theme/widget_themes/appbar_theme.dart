@@ -9,8 +9,7 @@ class TAppBarTheme {
       centerTitle: true,
       backgroundColor: Colors.transparent,
       iconTheme: IconThemeData(color: tDarkColor, size: 18.0),
-      actionsIconTheme: IconThemeData(color: tDarkColor, size: 18.0)
-  );
+      actionsIconTheme: IconThemeData(color: tDarkColor, size: 18.0));
 
   static const darkAppBarTheme = AppBarTheme(
     elevation: 0,

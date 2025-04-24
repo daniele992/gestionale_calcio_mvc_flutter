@@ -38,16 +38,20 @@ const String tAppTagLine = "Learn To Code. \nFree For Everyone";
 const String tOnBoardingTitle1 = "Build Awesome Apps";
 const String tOnBoardingTitle2 = "Learn from YouTube";
 const String tOnBoardingTitle3 = "Get Code e Resources";
-const String tOnBoardingSubTitle1 = "Let's start your journey with us on this amazing and easy";
-const String tOnBoardingSubTitle2 = "Get Video Tutorials of each topic to learn things easily";
-const String tOnBoardingSubTitle3 = "Save time by just copy pasting complete apps learn from video";
+const String tOnBoardingSubTitle1 =
+    "Let's start your journey with us on this amazing and easy";
+const String tOnBoardingSubTitle2 =
+    "Get Video Tutorials of each topic to learn things easily";
+const String tOnBoardingSubTitle3 =
+    "Save time by just copy pasting complete apps learn from video";
 const String tOnBoardingCounter1 = "1/3";
 const String tOnBoardingCounter2 = "2/3";
 const String tOnBoardingCounter3 = "3/3";
 
 /* --- Welcome Screen Text --- */
 const String tWelcomeTitle = "Build Awesome Apps";
-const String tWelcomeSubTitle = "Let's put your creativity on the development highway.";
+const String tWelcomeSubTitle =
+    "Let's put your creativity on the development highway.";
 
 /* --- Login Screen Text --- */
 const String tLoginTitle = "Welcome Back,";
@@ -66,23 +70,28 @@ const String tConditions = "I accept the terms and conditions";
 
 /* --- Sign Up Screen Text --- */
 const String tSignUpTitle = "Get On Board";
-const String tSignUpSubTitle = "Create your profile to start your Journey with us...";
+const String tSignUpSubTitle =
+    "Create your profile to start your Journey with us...";
 const String tAlreadyHaveAnAccount = "Already have an Account?";
-const String tNoticeErrorConditions = "Please accept the conditions to continue";
-const String tNoticeErrorPrivacy = "Please accept the privacy policy to continue";
-
+const String tNoticeErrorConditions =
+    "Please accept the conditions to continue";
+const String tNoticeErrorPrivacy =
+    "Please accept the privacy policy to continue";
 
 /* --- Forget Password Text --- */
 const String tForgetPasswordTitle = "Make Selection";
-const String tForgetPasswordSubTitle = "Select one of the options given below to reset your password.";
+const String tForgetPasswordSubTitle =
+    "Select one of the options given below to reset your password.";
 const String tResetViaEmail = "Reset via E-Mail Verification.";
 const String tResetViaPhone = "Reset via Phone Verification.";
 
 /* --- Forget Password Via Phone --- */
-const String tForgetPhoneSubTitle = "Enter your registered Phone No to receive OTP";
+const String tForgetPhoneSubTitle =
+    "Enter your registered Phone No to receive OTP";
 
 /* --- Forget Password Via E-Mail --- */
-const String tForgetMailSubTitle = "Enter your registered E-Mail No to receive OTP ";
+const String tForgetMailSubTitle =
+    "Enter your registered E-Mail No to receive OTP ";
 
 /* --- OTP Screen - Text --- */
 const String tOtpTitle = "CO\nDE";
@@ -91,7 +100,8 @@ const String tOtpMessage = "Enter the verification code sent at ";
 
 // -- Email Verification
 const String tEmailVerificationTitle = "Verify your email address";
-const String tEmailVerificationSubTitle = "We have just send email verification link on your email. Please check email and click on that link to verify your Email address. \n\n If not auto redirected after verification, click on the Continue button.";
+const String tEmailVerificationSubTitle =
+    "We have just send email verification link on your email. Please check email and click on that link to verify your Email address. \n\n If not auto redirected after verification, click on the Continue button.";
 const String tResendEmailLink = "Resend E-Mail Link";
 const String tBackToLogin = "Back to login";
 
@@ -125,5 +135,3 @@ const String tMenu5 = tLogout;
 const String tDelete = "Delete";
 const String tJoined = "Joined";
 const String tJoinedAt = "31 october 2022";
-
-

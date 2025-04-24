@@ -28,12 +28,17 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                  dropDownLang(
-                    colorDropDown: Colors.red,
-                    sized: 46,
-                    colorInternalDropDown: Colors.redAccent,
-                  ),
-                  FormHeaderWidget(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end, // <-- Questo lo allinea a destra
+                  children: [
+                    dropDownLang(
+                      colorDropDown: Colors.black,
+                      sized: 46,
+                      colorInternalDropDown: Colors.black,
+                    ),
+                  ],
+                ),
+                FormHeaderWidget(
                   image: tWelcomeScreenImage,
                   title: tLoginTitle,
                   // "tLoginTitle".trans(context),
@@ -46,7 +51,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     text1: tDontHaveAnAccount,
                     text2: tSignup,
                     onPressed: () => Get.off(() => const SignupScreen())),
-
               ],
             ),
           ),
@@ -55,10 +59,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
-
-
-
-
-
-

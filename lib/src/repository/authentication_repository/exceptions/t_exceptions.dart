@@ -16,15 +16,18 @@ class TExceptions implements Exception {
       case 'weak-password':
         return const TExceptions('Please enter a stronger password.');
       case 'user-disabled':
-        return const TExceptions('This user has been disabled. Please contact support for help.');
+        return const TExceptions(
+            'This user has been disabled. Please contact support for help.');
       case 'user-not-found':
         return const TExceptions('Invalid Details, please create an account.');
       case 'wrong-password':
         return const TExceptions('Incorrect password, please try again.');
       case 'too-many-requests':
-        return const TExceptions('Too many requests, Service Temporarily blocked.');
+        return const TExceptions(
+            'Too many requests, Service Temporarily blocked.');
       case 'invalid-argument':
-        return const TExceptions('An invalid argument was provided to an Authentication method.');
+        return const TExceptions(
+            'An invalid argument was provided to an Authentication method.');
       case 'invalid-password':
         return const TExceptions('Incorrect password, please try again.');
       case 'invalid-phone-number':
@@ -33,9 +36,11 @@ class TExceptions implements Exception {
         return const TExceptions(
             'The provided sign-in provider is disabled for your Firebase project.');
       case 'session-cookie-expired':
-        return const TExceptions('The provided Firebase session cookie is expired.');
+        return const TExceptions(
+            'The provided Firebase session cookie is expired.');
       case 'uid-already-exists':
-        return const TExceptions('The provided uid is already in use by an existing user.');
+        return const TExceptions(
+            'The provided uid is already in use by an existing user.');
       default:
         return const TExceptions();
     }

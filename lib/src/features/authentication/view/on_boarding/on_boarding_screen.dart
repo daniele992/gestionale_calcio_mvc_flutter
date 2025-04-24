@@ -5,11 +5,11 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../constants/colors.dart';
 import '../../controllers/on_boarding_controller.dart';
 
-class OnBoardingScreen extends StatelessWidget{
+class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     final obController = OnBoardingController();
     return Scaffold(
       body: Stack(
@@ -26,7 +26,8 @@ class OnBoardingScreen extends StatelessWidget{
           Positioned(
             bottom: 60.0,
             child: OutlinedButton(
-              onPressed: () => obController.animateToNextSlideWithLocalStorage(),
+              onPressed: () =>
+                  obController.animateToNextSlideWithLocalStorage(),
               style: ElevatedButton.styleFrom(
                 side: const BorderSide(color: Colors.black26),
                 shape: const CircleBorder(),
@@ -35,8 +36,8 @@ class OnBoardingScreen extends StatelessWidget{
               ),
               child: Container(
                 padding: const EdgeInsets.all(20.0),
-                decoration: const BoxDecoration(color: tDarkColor, shape: BoxShape.circle
-                ),
+                decoration: const BoxDecoration(
+                    color: tDarkColor, shape: BoxShape.circle),
                 child: const Icon(Icons.arrow_forward_ios),
               ),
             ),
@@ -46,24 +47,22 @@ class OnBoardingScreen extends StatelessWidget{
             right: 20,
             child: TextButton(
                 onPressed: () => obController.skip(),
-                child: const Text("Skip", style: TextStyle(color: Colors.grey))
-            ),
+                child:
+                    const Text("Skip", style: TextStyle(color: Colors.grey))),
           ),
-          Obx(
-            () => Positioned(
-            bottom: 10,
-            child: AnimatedSmoothIndicator(
-              count: 3,
-              activeIndex: obController.currentPage.value,
-              effect: const ExpandingDotsEffect(
-                activeDotColor: Color(0xff272727),
-              ),
-            ),
-          )),
+          Obx(() => Positioned(
+                bottom: 10,
+                child: AnimatedSmoothIndicator(
+                  count: 3,
+                  activeIndex: obController.currentPage.value,
+                  effect: const ExpandingDotsEffect(
+                    activeDotColor: Color(0xff272727),
+                  ),
+                ),
+              )),
         ],
       ),
-    );//Closed Scaffold
+    ); //Closed Scaffold
   }
- // Closed Widget
+// Closed Widget
 }
-

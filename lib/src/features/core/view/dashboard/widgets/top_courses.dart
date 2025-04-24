@@ -30,7 +30,8 @@ class DashboardTopCourses extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(right: 10, top: 5),
               child: Container(
-                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
                   //For Dark Color
                   color: isDark ? tSecondaryColor : tCardBgColor,
                 ),
@@ -42,21 +43,25 @@ class DashboardTopCourses extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Flexible(
-                            child: Text(
-                              list[index].title,
-                              style: txtTheme.headlineMedium,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
+                          child: Text(
+                            list[index].title,
+                            style: txtTheme.headlineMedium,
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
                         ),
-                        Flexible(child: Image(image: AssetImage(list[index].image), height: 110)),
+                        Flexible(
+                            child: Image(
+                                image: AssetImage(list[index].image),
+                                height: 110)),
                       ],
                     ),
                     Row(
                       children: [
                         ElevatedButton(
-                          style: ElevatedButton.styleFrom(shape: const CircleBorder()),
-                          onPressed: (){},
+                          style: ElevatedButton.styleFrom(
+                              shape: const CircleBorder()),
+                          onPressed: () {},
                           child: const Icon(Icons.play_arrow),
                         ),
                         const SizedBox(width: tDashBoardCardPadding),

@@ -7,17 +7,15 @@ import 'package:gestionale_calcio_mvc_flutter/src/repository/user_repository/use
 import 'package:get/get.dart';
 
 class InitialBinding extends Bindings {
-
-
   @override
-  void dependencies(){
-   Get.lazyPut(() => AuthenticationRepository(), fenix: true);
-   Get.lazyPut(() => UserRepository(), fenix: true);
+  void dependencies() {
+    Get.lazyPut(() => AuthenticationRepository(), fenix: true);
+    Get.lazyPut(() => UserRepository(), fenix: true);
 
-   Get.lazyPut(() => OnBoardingController(), fenix: true);
+    Get.lazyPut(() => OnBoardingController(), fenix: true);
 
-   Get.lazyPut(() => LoginController(), fenix: true);
-   Get.lazyPut(() => SignUpController(), fenix: true);
-   Get.lazyPut(() => OTPController(), fenix: true);
+    Get.lazyPut(() => LoginController(), fenix: true);
+    Get.lazyPut(() => SignUpController(), fenix: true);
+    Get.lazyPut(() => OTPController(), fenix: true);
   }
 }

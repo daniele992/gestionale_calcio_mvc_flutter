@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FormHeaderWidget extends StatelessWidget {
-  const FormHeaderWidget({ super.key,
-
+  const FormHeaderWidget({
+    super.key,
     this.imageColor,
     this.heightBetween,
     required this.image,
@@ -21,7 +21,6 @@ class FormHeaderWidget extends StatelessWidget {
   final CrossAxisAlignment crossAxisAlignment;
   final TextAlign? textAlign;
 
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -29,10 +28,14 @@ class FormHeaderWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: crossAxisAlignment,
       children: [
-        Image(image: AssetImage(image), color: imageColor, height: size.height * imageHeight),
+        Image(
+            image: AssetImage(image),
+            color: imageColor,
+            height: size.height * imageHeight),
         SizedBox(height: heightBetween),
         Text(title, style: Theme.of(context).textTheme.displayLarge),
-        Text(subTitle, textAlign: textAlign, style: Theme.of(context).textTheme.bodyLarge),
+        Text(subTitle,
+            textAlign: textAlign, style: Theme.of(context).textTheme.bodyLarge),
       ],
     );
   }

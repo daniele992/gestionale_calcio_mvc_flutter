@@ -20,5 +20,4 @@ class ButtonLoadingWidget extends StatelessWidget {
       ],
     );
   }
-
 }

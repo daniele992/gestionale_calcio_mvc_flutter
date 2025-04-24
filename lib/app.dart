@@ -13,7 +13,6 @@ class App extends StatelessWidget {
   const App({super.key});
 
   @override
-
   Widget build(BuildContext context) {
     return GetMaterialApp(
       /*
@@ -39,13 +38,13 @@ class App extends StatelessWidget {
         return supportedLocales.first;
       },
       */
+
       /// -- README(Docs[3]) -- Bindings
       initialBinding: InitialBinding(),
       themeMode: ThemeMode.system,
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
       debugShowCheckedModeBanner: false,
-      
 
       /// -- README(Docs[4]) -- use Screen Transitions here
       defaultTransition: Transition.leftToRightWithFade,

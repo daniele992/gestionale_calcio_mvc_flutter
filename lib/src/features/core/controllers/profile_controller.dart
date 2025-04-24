@@ -16,9 +16,9 @@ class ProfileController extends GetxController {
 
   /// Get User Email and pass to UserRepository to fetch user record.
   getUserData() async {
-    try{
+    try {
       final currentUserEmail = _authRepo.getUserEmail;
-      if(currentUserEmail.isNotEmpty){
+      if (currentUserEmail.isNotEmpty) {
         return await _userRepo.getUserDetails(currentUserEmail);
       } else {
         Helper.warningSnackBar(title: 'Error', message: 'No user found!');
@@ -34,11 +34,13 @@ class ProfileController extends GetxController {
 
   /// Update User Data
   updateRecord(UserModel user) async {
-    try{
+    try {
       await _userRepo.updateUserRecord(user);
+
       /// Show some message or redirect to other screen here...
-      Helper.successSnackBar(title: tCongratulations, message: 'Profile Record has been updated!');
-    } catch (e){
+      Helper.successSnackBar(
+          title: tCongratulations, message: 'Profile Record has been updated!');
+    } catch (e) {
       Helper.errorSnackBar(title: 'Error', message: e.toString());
     }
   }
@@ -54,9 +56,9 @@ class ProfileController extends GetxController {
       } else {
         Helper.successSnackBar(
             title: 'Error', message: 'User cannot be deleted!');
-        }
-      } catch (e) {
-        Helper.errorSnackBar(title: 'Error', message: e.toString());
+      }
+    } catch (e) {
+      Helper.errorSnackBar(title: 'Error', message: e.toString());
     }
   }
 }

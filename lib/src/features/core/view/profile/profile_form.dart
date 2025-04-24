@@ -7,16 +7,15 @@ import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class ProfileFormScreen extends StatelessWidget {
-  const ProfileFormScreen({
-    super.key,
-    required this.user,
-    required this.email,
-    required this.phoneNo,
-    required this.fullName,
-    required this.password,
-    required this.privacyPolicy,
-    required this.conditions
-  });
+  const ProfileFormScreen(
+      {super.key,
+      required this.user,
+      required this.email,
+      required this.phoneNo,
+      required this.fullName,
+      required this.password,
+      required this.privacyPolicy,
+      required this.conditions});
 
   final UserModel user;
   final TextEditingController email;
@@ -27,8 +26,7 @@ class ProfileFormScreen extends StatelessWidget {
   final TextEditingController conditions;
 
   @override
-  Widget build(BuildContext context){
-
+  Widget build(BuildContext context) {
     final controller = Get.put(ProfileController());
 
     return Form(
@@ -36,17 +34,23 @@ class ProfileFormScreen extends StatelessWidget {
         children: [
           TextFormField(
             controller: fullName,
-            decoration: const InputDecoration(label: Text(tFullName), prefixIcon: Icon(LineAwesomeIcons.user)),
+            decoration: const InputDecoration(
+                label: Text(tFullName),
+                prefixIcon: Icon(LineAwesomeIcons.user)),
           ),
           const SizedBox(height: tFormHeight - 20),
           TextFormField(
             controller: email,
-            decoration: const InputDecoration(label: Text(tEmail), prefixIcon: Icon(LineAwesomeIcons.envelope)),
+            decoration: const InputDecoration(
+                label: Text(tEmail),
+                prefixIcon: Icon(LineAwesomeIcons.envelope)),
           ),
           const SizedBox(height: tFormHeight - 20),
           TextFormField(
             controller: phoneNo,
-            decoration: const InputDecoration(label: Text(tPhoneNo), prefixIcon: Icon(LineAwesomeIcons.phone_solid)),
+            decoration: const InputDecoration(
+                label: Text(tPhoneNo),
+                prefixIcon: Icon(LineAwesomeIcons.phone_solid)),
           ),
           const SizedBox(height: tFormHeight),
 
@@ -54,45 +58,48 @@ class ProfileFormScreen extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-                onPressed: () async {
-                  final userData = UserModel(
-                    id: user.id,
-                    email: email.text.trim(),
-                    fullName: fullName.text.trim(),
-                    phoneNo: phoneNo.text.trim(),
-                    privacyPolicy: privacyPolicy.text.isBool,
-                    conditions: conditions.text.isBool,
-                  );
+              onPressed: () async {
+                final userData = UserModel(
+                  id: user.id,
+                  email: email.text.trim(),
+                  fullName: fullName.text.trim(),
+                  phoneNo: phoneNo.text.trim(),
+                  privacyPolicy: privacyPolicy.text.isBool,
+                  conditions: conditions.text.isBool,
+                  admin: false
+                );
 
-                  await controller.updateRecord(userData);
-                },
-                child: const Text(tEditProfile),
+                await controller.updateRecord(userData);
+              },
+              child: const Text(tEditProfile),
             ),
           ),
           const SizedBox(height: tFormHeight),
 
           /// -- Created Date and Delete Button
-           Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-               const Text.rich(
+              const Text.rich(
                 TextSpan(
                   text: tJoined,
                   style: TextStyle(fontSize: 12),
                   children: [
-                    TextSpan(text: tJoinedAt, style: TextStyle(fontWeight:FontWeight.bold, fontSize: 12))
+                    TextSpan(
+                        text: tJoinedAt,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 12))
                   ],
                 ),
               ),
               ElevatedButton(
-                  onPressed: (){},
-                  style: ElevatedButton.styleFrom(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.redAccent.withOpacity(0.1),
                     elevation: 0,
                     foregroundColor: Colors.red,
-                    side: BorderSide.none
-                  ),
-                  child: const Text(tDelete),
+                    side: BorderSide.none),
+                child: const Text(tDelete),
               ),
             ],
           )

@@ -9,7 +9,7 @@ class ForgetPasswordPhoneScreen extends StatelessWidget {
   const ForgetPasswordPhoneScreen({super.key});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     //Just In-case if you want to replace the Image Color for Dark Theme
     final brightness = MediaQuery.of(context).platformBrightness;
     final bool isDark = brightness == Brightness.dark;
@@ -37,9 +37,9 @@ class ForgetPasswordPhoneScreen extends StatelessWidget {
                     children: [
                       TextFormField(
                         decoration: const InputDecoration(
-                            label: Text(tPhoneNo),
-                            hintText: tPhoneNo,
-                            prefixIcon: Icon(Icons.numbers),
+                          label: Text(tPhoneNo),
+                          hintText: tPhoneNo,
+                          prefixIcon: Icon(Icons.numbers),
                         ),
                       ),
                       const SizedBox(height: 20.0),

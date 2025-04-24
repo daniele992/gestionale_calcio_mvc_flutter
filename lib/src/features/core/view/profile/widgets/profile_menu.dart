@@ -22,7 +22,6 @@ class ProfileMenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     var iconColor = isDark ? tPrimaryColor : tAccentColor;
 
@@ -37,16 +36,19 @@ class ProfileMenuWidget extends StatelessWidget {
         ),
         child: Icon(icon, color: iconColor),
       ),
-      title: Text(title, style: Theme.of(context).textTheme.bodyLarge?.apply(color: textColor)), //bodyText1
+      title: Text(title,
+          style: Theme.of(context)
+              .textTheme
+              .bodyLarge
+              ?.apply(color: textColor)), //bodyText1
       trailing: endIcon
-        ? const SizedBox(
-            width: 30,
-            height: 30,
-            child: Icon(
-                LineAwesomeIcons.angle_right_solid,
-                size: 18.0,
-                color: Colors.grey),
-        ) : null,
-      );
+          ? const SizedBox(
+              width: 30,
+              height: 30,
+              child: Icon(LineAwesomeIcons.angle_right_solid,
+                  size: 18.0, color: Colors.grey),
+            )
+          : null,
+    );
   }
 }

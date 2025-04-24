@@ -15,11 +15,11 @@ class DashboardCategories extends StatelessWidget {
     final list = DashboardCategoriesModel.list;
     return SizedBox(
       height: 45,
-      child: ListView.builder (
+      child: ListView.builder(
         itemCount: list.length,
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) =>  GestureDetector(
+        itemBuilder: (context, index) => GestureDetector(
           onTap: list[index].onPress,
           child: SizedBox(
             width: 170,
@@ -33,19 +33,24 @@ class DashboardCategories extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       color: tDarkColor),
                   child: Center(
-                    child: Text(list[index].title, style: txtTheme.titleLarge?.apply(color: Colors.white)),
+                    child: Text(list[index].title,
+                        style: txtTheme.titleLarge?.apply(color: Colors.white)),
                   ),
                 ),
                 const SizedBox(width: 5),
                 Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(list[index].heading, style: txtTheme.titleLarge, overflow: TextOverflow.ellipsis),
-                        Text(list[index].subHeading, style: txtTheme.bodyMedium, overflow: TextOverflow.ellipsis),
-                      ],
-                    ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(list[index].heading,
+                          style: txtTheme.titleLarge,
+                          overflow: TextOverflow.ellipsis),
+                      Text(list[index].subHeading,
+                          style: txtTheme.bodyMedium,
+                          overflow: TextOverflow.ellipsis),
+                    ],
+                  ),
                 )
               ],
             ),

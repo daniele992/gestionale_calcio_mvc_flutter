@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
-class DropDownLanguage extends StatefulWidget  {
-  const DropDownLanguage({ super.key });
+class DropDownLanguage extends StatefulWidget {
+  const DropDownLanguage({super.key});
 
   @override
   State<DropDownLanguage> createState() => _DropDownLanguage();
-
 } //End Class DropDownLanguage
 
-
 class _DropDownLanguage extends State<DropDownLanguage> {
-
   String _selected = '';
   final List<Map> _myJson = [
     {
@@ -30,41 +27,40 @@ class _DropDownLanguage extends State<DropDownLanguage> {
     },
   ];
 
-    @override
-    Widget build(BuildContext context) {
-      return Container(
-        child: DropdownButtonHideUnderline(
-          child: ButtonTheme(
-            alignedDropdown: true,
-            child: DropdownButton(
-              hint: Text('Select Language'),
-              value: _selected,
-              onChanged: (newValue) {
-                setState(() {
-                  _selected = newValue.toString();
-                });
-              },
-              items: _myJson.map((itemFlag) {
-                return DropdownMenuItem(
-                  value: itemFlag['id'].toString(),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        itemFlag['image'],
-                        width: 25,
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(left: 10),
-                        child: Text(itemFlag['name']),
-                      )
-                    ],
-                  ),
-                );
-              }).toList(),
-            ),
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: DropdownButtonHideUnderline(
+        child: ButtonTheme(
+          alignedDropdown: true,
+          child: DropdownButton(
+            hint: Text('Select Language'),
+            value: _selected,
+            onChanged: (newValue) {
+              setState(() {
+                _selected = newValue.toString();
+              });
+            },
+            items: _myJson.map((itemFlag) {
+              return DropdownMenuItem(
+                value: itemFlag['id'].toString(),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      itemFlag['image'],
+                      width: 25,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 10),
+                      child: Text(itemFlag['name']),
+                    )
+                  ],
+                ),
+              );
+            }).toList(),
           ),
         ),
-      );
-    }
-  } // END _DropDownLanguage
-
+      ),
+    );
+  }
+} // END _DropDownLanguage

@@ -21,20 +21,26 @@ class TSocialButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: double.infinity,
-        child: ElevatedButton.icon(
-            onPressed: onPressed,
-            style: ElevatedButton.styleFrom(
-              elevation: 0,
-              foregroundColor: foreground,
-              backgroundColor: background,
-              side: BorderSide.none,
-            ),
-            icon: isLoading ? const SizedBox() : Image(image: AssetImage(image), width: 24, height: 24),
-            label: isLoading
-                ? const ButtonLoadingWidget()
-                : Text(text, style: Theme.of(context).textTheme.bodyLarge!.apply(color: foreground)),
+      width: double.infinity,
+      child: ElevatedButton.icon(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          foregroundColor: foreground,
+          backgroundColor: background,
+          side: BorderSide.none,
         ),
+        icon: isLoading
+            ? const SizedBox()
+            : Image(image: AssetImage(image), width: 24, height: 24),
+        label: isLoading
+            ? const ButtonLoadingWidget()
+            : Text(text,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyLarge!
+                    .apply(color: foreground)),
+      ),
     );
   }
 }

@@ -10,7 +10,7 @@ class MailVerification extends StatelessWidget {
   const MailVerification({super.key});
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     final controller = Get.put(MailVerificationController());
     return Scaffold(
       body: SingleChildScrollView(
@@ -26,10 +26,8 @@ class MailVerification extends StatelessWidget {
             children: [
               const Icon(LineAwesomeIcons.envelope_open, size: 100),
               const SizedBox(height: tDefaultSpace * 2),
-              Text(
-                  tEmailVerificationTitle.tr,
-                  style: Theme.of(context).textTheme.headlineMedium
-              ),
+              Text(tEmailVerificationTitle.tr,
+                  style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: tDefaultSpace),
               Text(
                 tEmailVerificationSubTitle.tr,
@@ -38,11 +36,11 @@ class MailVerification extends StatelessWidget {
               ),
               const SizedBox(height: tDefaultSpace * 2),
               SizedBox(
-                width: 200,
-                child: OutlinedButton(
-                    child: Text(tContinue.tr),
-                    onPressed: () => controller.manuallyCheckEmailVerificationStatus())
-              ),
+                  width: 200,
+                  child: OutlinedButton(
+                      child: Text(tContinue.tr),
+                      onPressed: () =>
+                          controller.manuallyCheckEmailVerificationStatus())),
               const SizedBox(height: tDefaultSpace * 2),
               TextButton(
                 onPressed: () => controller.sendVerificationEmail(),

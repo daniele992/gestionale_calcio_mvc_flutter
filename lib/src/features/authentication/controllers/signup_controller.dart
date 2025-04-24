@@ -5,8 +5,7 @@ import 'package:get/get.dart';
 import '../../../repository/user_repository/user_repository.dart';
 import '../models/user_model.dart';
 
-class SignUpController extends GetxController{
-
+class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
 
   final showPassword = false.obs;
@@ -52,24 +51,20 @@ class SignUpController extends GetxController{
         phoneNo: phoneNo.text.trim(),
         privacyPolicy: acceptPrivacyPolicy.value,
         conditions: acceptTerms.value,
+        admin: false
       );
 
-        // Authenticate User first
-        final auth = AuthenticationRepository.instance;
-        await auth.registerWithEmailAndPassword(user.email, user.password!);
-        await UserRepository.instance.createUser(user);
-        auth.setInitialScreen(auth.firebaseUser);
-
-
+      // Authenticate User first
+      final auth = AuthenticationRepository.instance;
+      await auth.registerWithEmailAndPassword(user.email, user.password!);
+      await UserRepository.instance.createUser(user);
+      auth.setInitialScreen(auth.firebaseUser);
     } catch (e) {
-        isLoading.value = false;
-        Get.snackbar(
-            "Error",
-            e.toString(),
-            snackPosition: SnackPosition.BOTTOM,
-            duration: const Duration(seconds: 5));
+      isLoading.value = false;
+      Get.snackbar("Error", e.toString(),
+          snackPosition: SnackPosition.BOTTOM,
+          duration: const Duration(seconds: 5));
     }
-
   }
 
   /// [PhoneNoAuthentication]
@@ -77,7 +72,7 @@ class SignUpController extends GetxController{
     try {
       await AuthenticationRepository.instance.phoneAuthentication(phoneNo);
     } catch (e) {
-        throw e.toString();
+      throw e.toString();
     }
   }
 }

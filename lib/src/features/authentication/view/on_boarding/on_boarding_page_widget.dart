@@ -17,29 +17,27 @@ class OnBoardingPageWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(tDefaultSpace),
       color: model.bgColor,
-      child: Column( //const?
+      child: Column(
+        //const?
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Image(image: AssetImage(model.image),
-                height: size.height * 0.45
-          ),
+          Image(image: AssetImage(model.image), height: size.height * 0.45),
           Column(
             children: [
               Text(
-                  model.title,
-                  style: Theme.of(context).textTheme.displaySmall,
+                model.title,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
-              Text(
-                  model.subTitle,
-                  textAlign: TextAlign.center
-              ),
+              Text(model.subTitle, textAlign: TextAlign.center),
             ],
           ),
           Text(
-              model.counterText,
-              style: Theme.of(context).textTheme.titleLarge,
+            model.counterText,
+            style: Theme.of(context).textTheme.titleLarge,
           ),
-          const SizedBox(height: 80.0,)
+          const SizedBox(
+            height: 80.0,
+          )
         ],
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import '../../../features/authentication/view/welcome/welcome_screen.dart';
 
-class FadeInAnimationController extends GetxController{
+class FadeInAnimationController extends GetxController {
   static FadeInAnimationController get find => Get.find();
 
   RxBool animateTwoWay = false.obs;
@@ -13,10 +13,11 @@ class FadeInAnimationController extends GetxController{
     await Future.delayed(const Duration(milliseconds: 3000));
     animateTwoWay.value = false;
     await Future.delayed(const Duration(milliseconds: 2000));
-    Get.off( // Get.off Instead of Get.offAll()
-        () =>  const WelcomeScreen(),
-            duration: const Duration(milliseconds: 1000), //Transition Time
-            transition: Transition.fadeIn, //Screen Switch Transition
+    Get.off(
+      // Get.off Instead of Get.offAll()
+      () => const WelcomeScreen(),
+      duration: const Duration(milliseconds: 1000), //Transition Time
+      transition: Transition.fadeIn, //Screen Switch Transition
     );
   } //startSplashAnimation
 
@@ -31,6 +32,4 @@ class FadeInAnimationController extends GetxController{
     animateSingle.value = false;
     await Future.delayed(const Duration(milliseconds: 100));
   }
-
-
 } //Closed class

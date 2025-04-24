@@ -5,8 +5,7 @@ import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/widget_themes/outl
 import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/widget_themes/text_field_theme.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/widget_themes/text_theme.dart';
 
-class TAppTheme{
-
+class TAppTheme {
   TAppTheme._();
 
   static ThemeData lightTheme = ThemeData(
@@ -26,5 +25,4 @@ class TAppTheme{
     outlinedButtonTheme: TOutlinedButtonTheme.darkOutLinedButtonTheme,
     inputDecorationTheme: TTextFormFieldTheme.darkInputDecorationTheme,
   );
-
 } //Closed Class TAppTheme

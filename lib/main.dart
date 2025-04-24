@@ -12,6 +12,7 @@ import 'app.dart';
 
 Future<void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+
   /// -- README(Update[]) -- GetX Local Storage
   await GetStorage.init();
 
@@ -20,7 +21,7 @@ Future<void> main() async {
 
   /// -- README(Docs[2]) -- Initialize Firebase & Authentication Repository
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-    .then((_) => Get.put(AuthenticationRepository()));
+      .then((_) => Get.put(AuthenticationRepository()));
 
   /// -- Main App Starts here (app.dart) ...
   /* -- Once executed, the compiler will create an instance of the MyApp class and pass
@@ -29,5 +30,4 @@ Future<void> main() async {
   //runApp(App());
   runApp(const App());
   //runApp(GetMaterialApp(home: App()));
-
 }

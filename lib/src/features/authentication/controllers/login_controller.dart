@@ -24,16 +24,17 @@ class LoginController extends GetxController {
   Future<void> login() async {
     try {
       isLoading.value = true;
-      if(!loginFormKey.currentState!.validate()) {
+      if (!loginFormKey.currentState!.validate()) {
         isLoading.value = false;
         return;
       }
       final auth = AuthenticationRepository.instance;
-      await auth.loginWithEmailAndPassword(email.text.trim(), password.text.trim());
+      await auth.loginWithEmailAndPassword(
+          email.text.trim(), password.text.trim());
       auth.setInitialScreen(auth.firebaseUser);
     } catch (e) {
-        isLoading.value = false;
-        Helper.errorSnackBar(title: tOhSnap, message: e.toString());
+      isLoading.value = false;
+      Helper.errorSnackBar(title: tOhSnap, message: e.toString());
     }
   }
 
@@ -49,22 +50,23 @@ class LoginController extends GetxController {
       // [auth.getUserEmail] will return current LoggedIn user email.
       // If record does not exit -> Create new
       /// --  In this case or any case do not store password in the Firestore. This is just for learning purpose.
-      if(!await UserRepository.instance.recordExist(auth.getUserEmail)) {
+      if (!await UserRepository.instance.recordExist(auth.getUserEmail)) {
         UserModel user = UserModel(
-            email: auth.getUserEmail,
-            password: '',
-            fullName: auth.getDisplayName,
-            phoneNo: auth.getPhoneNo,
-            privacyPolicy: true,
-            conditions: true,
+          email: auth.getUserEmail,
+          password: '',
+          fullName: auth.getDisplayName,
+          phoneNo: auth.getPhoneNo,
+          privacyPolicy: true,
+          conditions: true,
+          admin: false,
         );
         await UserRepository.instance.createUser(user);
       }
       isGoogleLoading.value = false;
       auth.setInitialScreen(auth.firebaseUser);
     } catch (e) {
-        isGoogleLoading.value = false;
-        Helper.errorSnackBar(title: tOhSnap, message: e.toString());
+      isGoogleLoading.value = false;
+      Helper.errorSnackBar(title: tOhSnap, message: e.toString());
     }
   }
 
@@ -74,22 +76,24 @@ class LoginController extends GetxController {
       isFacebookLoading.value = true;
       final auth = AuthenticationRepository.instance;
       await auth.signInWithFacebook();
+
       /// --  In this case or any case do not store password in the Firestore. This is just for learning purpose.
-      if(!await UserRepository.instance.recordExist(auth.getUserID)) {
+      if (!await UserRepository.instance.recordExist(auth.getUserID)) {
         UserModel user = UserModel(
-            email: auth.getUserEmail,
-            password: '',
-            fullName: auth.getDisplayName,
-            phoneNo: auth.getPhoneNo,
-            privacyPolicy: true,
-            conditions: true,
+          email: auth.getUserEmail,
+          password: '',
+          fullName: auth.getDisplayName,
+          phoneNo: auth.getPhoneNo,
+          privacyPolicy: true,
+          conditions: true,
+          admin: false
         );
         await UserRepository.instance.createUser(user);
       }
       isFacebookLoading.value = false;
     } catch (e) {
-        isFacebookLoading.value = false;
-        Helper.errorSnackBar(title: tOhSnap, message: e.toString());
+      isFacebookLoading.value = false;
+      Helper.errorSnackBar(title: tOhSnap, message: e.toString());
     }
   }
 }

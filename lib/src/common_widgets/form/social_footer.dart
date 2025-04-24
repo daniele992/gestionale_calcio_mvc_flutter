@@ -20,40 +20,43 @@ class SocialFooter extends StatelessWidget {
   final VoidCallback onPressed;
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     final controller = Get.put(LoginController());
     return Container(
-      padding: const EdgeInsets.only(top: tDefaultSpace * 1.5, bottom: tDefaultSpace),
+      padding: const EdgeInsets.only(
+          top: tDefaultSpace * 1.5, bottom: tDefaultSpace),
       child: Column(
         children: [
           Obx(
-              () => TSocialButton(
-                image: tGoogleLogo,
-                background: tGoogleBgColor,
-                foreground: tGoogleForegroundColor,
-                text: '${tConnectWith.tr} ${tGoogle.tr}',
-                isLoading: controller.isGoogleLoading.value ? true : false,
-                onPressed: controller.isFacebookLoading.value || controller.isLoading.value
-                    ? () {}
-                    : controller.isGoogleLoading.value
-                      ? (){}
+            () => TSocialButton(
+              image: tGoogleLogo,
+              background: tGoogleBgColor,
+              foreground: tGoogleForegroundColor,
+              text: '${tConnectWith.tr} ${tGoogle.tr}',
+              isLoading: controller.isGoogleLoading.value ? true : false,
+              onPressed: controller.isFacebookLoading.value ||
+                      controller.isLoading.value
+                  ? () {}
+                  : controller.isGoogleLoading.value
+                      ? () {}
                       : () => controller.googleSignIn(),
-              ),
+            ),
           ),
           const SizedBox(height: 10),
           Obx(
-              () => TSocialButton(
-                  image: tFacebookLogo,
-                  foreground: tWhiteColor,
-                  background: tFacebookBgColor,
-                  text: '${tConnectWith.tr} ${tFacebook.tr}',
-                  isLoading: controller.isFacebookLoading.value ? true : false,
-                  onPressed: controller.isGoogleLoading.value || controller.isLoading.value
-                      ? (){}
+            () => TSocialButton(
+              image: tFacebookLogo,
+              foreground: tWhiteColor,
+              background: tFacebookBgColor,
+              text: '${tConnectWith.tr} ${tFacebook.tr}',
+              isLoading: controller.isFacebookLoading.value ? true : false,
+              onPressed:
+                  controller.isGoogleLoading.value || controller.isLoading.value
+                      ? () {}
                       : controller.isFacebookLoading.value
-                        ? (){}
-                        : () => controller.facebookSignIn(),
-              ),
+                          ? () {}
+                          : () => controller.facebookSignIn(),
+            ),
           ),
           const SizedBox(height: tDefaultSpace * 2),
           ClickableRichTextWidget(

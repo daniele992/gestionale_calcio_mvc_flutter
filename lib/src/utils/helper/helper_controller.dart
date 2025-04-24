@@ -6,19 +6,19 @@ import '../../constants/sizes.dart';
 import '../../constants/text_strings.dart';
 
 class Helper extends GetxController {
-
   /* -- ============= VALIDATIONS ============= -- */
 
   static String? validateEmail(value) {
-    if(value == null || value.isEmpty) return tEmailCannotEmpty;
-    if(!GetUtils.isEmail(value)) return tInvalidEmailFormat;
+    if (value == null || value.isEmpty) return tEmailCannotEmpty;
+    if (!GetUtils.isEmail(value)) return tInvalidEmailFormat;
     return null;
   }
 
   static String? validatePassword(value) {
     if (value == null || value.isEmpty) return 'Password cannot be empty';
 
-    String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+    String pattern =
+        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
     RegExp regex = RegExp(pattern);
     if (!regex.hasMatch(value)) {
       return 'Password must be 8 characters, with an uppercase letter, number and symbol';
@@ -54,7 +54,8 @@ class Helper extends GetxController {
       snackPosition: SnackPosition.BOTTOM,
       duration: const Duration(seconds: 6),
       margin: const EdgeInsets.all(tDefaultSpace - 10),
-      icon: const Icon(LineAwesomeIcons.exclamation_circle_solid, color: tWhiteColor),
+      icon: const Icon(LineAwesomeIcons.exclamation_circle_solid,
+          color: tWhiteColor),
     );
   }
 
@@ -74,7 +75,9 @@ class Helper extends GetxController {
   }
 
   static modernSnackBar({required title, message}) {
-    Get.snackbar(title, message,
+    Get.snackbar(
+      title,
+      message,
       isDismissible: true,
       colorText: tWhiteColor,
       backgroundColor: Colors.blueGrey,
@@ -83,6 +86,4 @@ class Helper extends GetxController {
       margin: const EdgeInsets.all(tDefaultSpace - 10),
     );
   }
-
-
 }

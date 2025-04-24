@@ -9,7 +9,7 @@ class MailVerificationController extends GetxController {
   late Timer? _timer;
 
   @override
-  void onInit(){
+  void onInit() {
     super.onInit();
     sendVerificationEmail();
     setTimerForAutoRedirect();
@@ -20,7 +20,7 @@ class MailVerificationController extends GetxController {
     try {
       await AuthenticationRepository.instance.sendEmailVerification();
     } catch (e) {
-        Helper.errorSnackBar(title: tOhSnap, message: e.toString());
+      Helper.errorSnackBar(title: tOhSnap, message: e.toString());
     }
   }
 
@@ -29,7 +29,7 @@ class MailVerificationController extends GetxController {
     _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
       FirebaseAuth.instance.currentUser?.reload();
       final user = FirebaseAuth.instance.currentUser;
-      if(user!.emailVerified) {
+      if (user!.emailVerified) {
         timer.cancel();
         AuthenticationRepository.instance.setInitialScreen(user);
       }
@@ -40,7 +40,7 @@ class MailVerificationController extends GetxController {
   void manuallyCheckEmailVerificationStatus() {
     FirebaseAuth.instance.currentUser?.reload();
     final user = FirebaseAuth.instance.currentUser;
-    if(user!.emailVerified) {
+    if (user!.emailVerified) {
       AuthenticationRepository.instance.setInitialScreen(user);
     }
   }

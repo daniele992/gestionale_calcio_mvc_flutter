@@ -18,12 +18,12 @@ class UpdateProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-            onPressed: () => Get.back(),
-            icon: const Icon(LineAwesomeIcons.angle_left_solid),
+          onPressed: () => Get.back(),
+          icon: const Icon(LineAwesomeIcons.angle_left_solid),
         ),
         title: Text(
-            tEditProfile,
-            style: Theme.of(context).textTheme.headlineMedium,
+          tEditProfile,
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
       ),
       body: SingleChildScrollView(
@@ -43,8 +43,10 @@ class UpdateProfileScreen extends StatelessWidget {
                   final password = TextEditingController(text: user.password);
                   final fullName = TextEditingController(text: user.fullName);
                   final phoneNo = TextEditingController(text: user.phoneNo);
-                  final privacyPolicy = TextEditingController(text: user.privacyPolicy.toString());
-                  final conditions = TextEditingController(text: user.conditions.toString());
+                  final privacyPolicy = TextEditingController(
+                      text: user.privacyPolicy.toString());
+                  final conditions =
+                      TextEditingController(text: user.conditions.toString());
 
                   //Image & Form
                   return Column(
@@ -55,24 +57,22 @@ class UpdateProfileScreen extends StatelessWidget {
 
                       /// -- Form (Get data and pass it to FormScreen)
                       ProfileFormScreen(
-                        fullName: fullName,
-                        email: email,
-                        phoneNo: phoneNo,
-                        password: password,
-                        privacyPolicy: privacyPolicy,
-                        conditions: conditions,
-
-                        user: user
-                      ),
+                          fullName: fullName,
+                          email: email,
+                          phoneNo: phoneNo,
+                          password: password,
+                          privacyPolicy: privacyPolicy,
+                          conditions: conditions,
+                          user: user),
                     ],
                   );
                 } else if (snapshot.hasError) {
                   return Center(child: Text(snapshot.error.toString()));
                 } else {
-                    return const Center(child: Text('Something went wrong'));
+                  return const Center(child: Text('Something went wrong'));
                 }
               } else {
-                  return const Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator());
               }
             },
           ),
