@@ -32,6 +32,7 @@ dependencies:
     sdk: flutter
   flutter_lints: ^5.0.0
   google_fonts: ^6.2.1
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
 
@@ -61,12 +62,16 @@ dependencies:
   cloud_firestore: ^5.4.4
   flutter_facebook_auth: ^7.1.1
   google_sign_in: ^6.2.1
+
   iconsax: ^0.0.8
   dropdown_button2: ^2.3.9
   country_flags: ^3.2.0
   shared_preferences: ^2.5.2
   rive: ^0.13.20
+
+  ## -- RIVERPOD PACKAGES
   riverpod: ^2.6.1
+  flutter_riverpod: ^2.6.1
 
 
 dev_dependencies:

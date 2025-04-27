@@ -2,33 +2,33 @@ import "package:flutter/material.dart";
 import "package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart";
 import "package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart";
 import "package:gestionale_calcio_mvc_flutter/src/features/core/view/dashboard/widgets/appbar.dart";
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import "../../../../constants/image_strings.dart";
-
 
 ///Dashboard Application - Firs page after login
 
-class Dashboard extends StatefulWidget {
+//Provider per l'indice selezionato
+final selectedIndexProvider = StateProvider<int>((ref) => 0);
+
+class Dashboard extends ConsumerStatefulWidget {
   const Dashboard({super.key});
 
   @override
-  State<Dashboard> createState() => _DashboardState();
+  ConsumerState<Dashboard> createState() => _DashboardState();
 }
 
-class _DashboardState extends State<Dashboard> {
-
+class _DashboardState extends ConsumerState<Dashboard> {
   @override
   Widget build(BuildContext context) {
     //Variables
     final txtTheme = Theme.of(context).textTheme;
     final isDark = MediaQuery.of(context).platformBrightness ==
         Brightness.dark; //Dark mode
-
-    int _selectedIndex = 0;
+    final selectedIndex =
+        ref.watch(selectedIndexProvider); //View provider selectedIndex
 
     void _onItemTapped(int index) {
-      setState(() {
-        _selectedIndex = index;
-      });
+      ref.read(selectedIndexProvider.notifier).state = index;
     }
 
     void _onPlusButtonPressed() {
@@ -39,6 +39,7 @@ class _DashboardState extends State<Dashboard> {
     return SafeArea(
       child: Scaffold(
         appBar: DashboardAppBar(isDark: isDark),
+
         ///Create a new Header
         drawer: Drawer(
           child: ListView(
@@ -62,9 +63,7 @@ class _DashboardState extends State<Dashboard> {
             padding: const EdgeInsets.all(tDashboardPadding),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-
-              ],
+              children: [],
             ),
           ),
         ),
@@ -78,25 +77,37 @@ class _DashboardState extends State<Dashboard> {
           shape: CircularNotchedRectangle(),
           notchMargin: 6.0,
           child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 IconButton(
-                    icon: Icon(Icons.home, color: _selectedIndex == 0 ? Colors.blue : Colors.grey,),
-                    onPressed: () => _onItemTapped(0),
+                  icon: Icon(
+                    Icons.home,
+                    color: selectedIndex == 0 ? Colors.blue : Colors.grey,
+                  ),
+                  onPressed: () => _onItemTapped(0),
                 ),
                 IconButton(
-                  icon: Icon(Icons.search, color: _selectedIndex == 1 ? Colors.blue : Colors.grey,),
+                  icon: Icon(
+                    Icons.search,
+                    color: selectedIndex == 1 ? Colors.blue : Colors.grey,
+                  ),
                   onPressed: () => _onItemTapped(1),
                 ),
-                SizedBox(width: 40),//spazio per il FAB
+                SizedBox(width: 40), //spazio per il FAB
                 IconButton(
-                  icon: Icon(Icons.home, color: _selectedIndex == 2 ? Colors.blue : Colors.grey,),
+                  icon: Icon(
+                    Icons.home,
+                    color: selectedIndex == 2 ? Colors.blue : Colors.grey,
+                  ),
                   onPressed: () => _onItemTapped(2),
                 ),
                 IconButton(
-                  icon: Icon(Icons.home, color: _selectedIndex == 3 ? Colors.blue : Colors.grey,),
+                  icon: Icon(
+                    Icons.home,
+                    color: selectedIndex == 3 ? Colors.blue : Colors.grey,
+                  ),
                   onPressed: () => _onItemTapped(3),
                 ),
               ],
