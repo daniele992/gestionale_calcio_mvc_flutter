@@ -74,6 +74,20 @@ class Helper extends GetxController {
     );
   }
 
+  static void errorConnectivity({required String title}) {
+    Get.snackbar(
+        'Errore',
+        title,
+        backgroundColor: Colors.red,
+        colorText: Colors.white,
+        snackPosition: SnackPosition.BOTTOM,
+        //duration: const Duration(seconds: 6),
+        margin: const EdgeInsets.all(tDefaultSpace - 10),
+        isDismissible: false,
+        duration: const Duration(days: 1),
+    );
+  }
+
   static modernSnackBar({required title, message}) {
     Get.snackbar(
       title,

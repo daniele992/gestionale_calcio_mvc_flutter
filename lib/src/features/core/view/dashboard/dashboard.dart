@@ -1,9 +1,14 @@
+import "package:connectivity_plus/connectivity_plus.dart";
 import "package:flutter/material.dart";
 import "package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart";
 import "package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart";
 import "package:gestionale_calcio_mvc_flutter/src/features/core/view/dashboard/widgets/appbar.dart";
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import "package:get/get.dart";
+import "package:get/get_core/src/get_main.dart";
+import "../../../../../providers/connectivity_provider.dart";
 import "../../../../constants/image_strings.dart";
+import "../../../../utils/helper/helper_controller.dart";
 
 ///Dashboard Application - Firs page after login
 
@@ -21,6 +26,9 @@ class _DashboardState extends ConsumerState<Dashboard> {
   @override
   Widget build(BuildContext context) {
     //Variables
+
+    //Listen for connection changes via the StreamProvider
+    final connectionStatus = ref.watch(connectivityProvider);
     final txtTheme = Theme.of(context).textTheme;
     final isDark = MediaQuery.of(context).platformBrightness ==
         Brightness.dark; //Dark mode
@@ -63,7 +71,32 @@ class _DashboardState extends ConsumerState<Dashboard> {
             padding: const EdgeInsets.all(tDashboardPadding),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [],
+              children: [
+                connectionStatus.when(
+                  data: (status) {
+                    if (status == ConnectivityResult.none) {
+                      // Mostra lo snackbar solo se non è già aperto
+                      if (!Get.isSnackbarOpen) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          Helper.errorConnectivity(
+                            title: "Connessione Assente"
+                          );
+                        });
+                      }
+                    } else {
+                      // Se la connessione torna attiva, chiudi lo snackbar
+                      if (Get.isSnackbarOpen) {
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          Get.closeAllSnackbars();
+                        });
+                      }
+                    }
+                    return const SizedBox.shrink(); // non mostra nulla nella UI
+                  },
+                  loading: () => const SizedBox.shrink(),
+                  error: (err, stack) => const SizedBox.shrink(),
+                )
+              ],
             ),
           ),
         ),

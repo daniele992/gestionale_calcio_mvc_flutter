@@ -16,8 +16,6 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    //final connectionStatus = ref.watch(connectivityProvider);
-
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
