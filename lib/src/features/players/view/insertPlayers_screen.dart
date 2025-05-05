@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_personalDate_widget.dart';
+
+import '../../authentication/view/login/widgets/login_form_widget.dart';
 
 final formKeyProvider = Provider<GlobalKey<FormState>>((ref) {
   return GlobalKey<FormState>();
@@ -33,31 +36,7 @@ class _InsertPlayersState extends ConsumerState<InsertPlayers> {
               height: MediaQuery.of(context).size.height * 0.65, // 60% height
               padding: EdgeInsets.all(16),
               child: Form(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Nome'),
-                    ),
-                    SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Cognome'),
-                    ),
-                    SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Data'),
-                    ),
-                    SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Email'),
-                    ),
-                    SizedBox(height: 12),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Email'),
-                    ),
-                    // Aggiungi altri campi qui se necessario
-                  ],
-                ),
+                child: FormPersonalDateWidget(),
               ),
             ),
           ),
