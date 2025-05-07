@@ -4,6 +4,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../constants/colors.dart';
 import '../../constants/sizes.dart';
 import '../../constants/text_strings.dart';
+import 'package:profanity_filter/profanity_filter.dart';
 
 class Helper extends GetxController {
   /* -- ============= VALIDATIONS ============= -- */
@@ -20,6 +21,12 @@ class Helper extends GetxController {
     if (!lettersOnlyRegex.hasMatch(value)) {
       return 'Solo lettere sono permesse';
     }
+
+    // Filtra le parole offensive
+    if (profanityFilter.hasProfanity(value)) {
+      return 'Il testo contiene parole inappropriate';
+    }
+
     return null; // Validazione passata
 
   }
