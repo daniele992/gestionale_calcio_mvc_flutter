@@ -1,54 +1,40 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_personalDate_widget.dart';
-import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_physicalDate_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-final formKeyProvider = Provider<GlobalKey<FormState>>((ref) {
-  return GlobalKey<FormState>();
-});
+import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_personalDate_widget.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_physicalDate_widget.dart';
+
+import '../../../../providers/page_controller_provider.dart';
 
 
-class InsertPlayers extends ConsumerStatefulWidget {
+
+class InsertPlayers extends ConsumerWidget {
   const InsertPlayers({super.key});
 
   @override
-  ConsumerState<InsertPlayers> createState() => _InsertPlayersState();
-}
-
-class _InsertPlayersState extends ConsumerState<InsertPlayers> {
-  final PageController _pageController = PageController();
-  int _currentPage = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController.addListener(() {
-      final page = _pageController.page?.round() ?? 0;
-      if (page != _currentPage) {
-        setState(() {
-          _currentPage = page;
-        });
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final formKey = ref.watch(formKeyProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    //final formKey = ref.watch(formKeyProvider);
+    final currentPage = ref.watch(pageControllerProvider);
+    final pageController = ref.read(pageControllerProvider.notifier).controller;
 
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // ⬇️ CARD WITH FORM AND PAGEVIEW
+          // ⬆️ TITOLO
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Text(
+              currentPage == 0 ? 'Dati Anagrafici' : 'Dati Fisici',
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
+          // 🟦 CARD CON FORM
           Container(
             width: MediaQuery.of(context).size.width * 0.75,
             height: MediaQuery.of(context).size.height * 0.65,
@@ -60,12 +46,12 @@ class _InsertPlayersState extends ConsumerState<InsertPlayers> {
               boxShadow: [BoxShadow(blurRadius: 4, color: Colors.black26)],
             ),
             child: Form(
-              key: formKey,
+              //key: formKey,
               child: Column(
                 children: [
                   Expanded(
                     child: PageView(
-                      controller: _pageController,
+                      controller: pageController,
                       physics: const BouncingScrollPhysics(),
                       children: const [
                         FormPersonalDateWidget(),
@@ -74,16 +60,15 @@ class _InsertPlayersState extends ConsumerState<InsertPlayers> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  // Mostra solo se siamo all'ultima pagina
-                  if (_currentPage == 1)
+                  if (currentPage == 1)
                     ElevatedButton(
                       onPressed: () {
-                        if (formKey.currentState!.validate()) {
+                        /*if (formKey.currentState!.validate()) {
                           formKey.currentState!.save();
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(content: Text('Dati salvati')),
                           );
-                        }
+                        } */
                       },
                       child: const Text('Salva'),
                     ),
@@ -91,9 +76,12 @@ class _InsertPlayersState extends ConsumerState<InsertPlayers> {
               ),
             ),
           ),
+
           const SizedBox(height: 16),
+
+          // 🔘 INDICATORE PAGINA
           SmoothPageIndicator(
-            controller: _pageController,
+            controller: pageController,
             count: 2,
             effect: WormEffect(
               dotHeight: 10,
@@ -103,7 +91,7 @@ class _InsertPlayersState extends ConsumerState<InsertPlayers> {
               dotColor: Colors.grey.shade300,
             ),
             onDotClicked: (index) {
-              _pageController.animateToPage(
+              pageController.animateToPage(
                 index,
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.easeInOut,

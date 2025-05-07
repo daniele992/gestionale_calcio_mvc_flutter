@@ -11,6 +11,9 @@ class FormPhysicalDateWidget extends ConsumerStatefulWidget {
 }
 
 class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
+
+  final TextEditingController _dateController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -29,30 +32,30 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextField(
+                TextFormField(
                   decoration: InputDecoration(labelText: 'Nome'),
                 ),
                 SizedBox(height: 12),
-                TextField(
+                TextFormField(
                   decoration: InputDecoration(labelText: 'Cognome'),
                 ),
                 SizedBox(height: 12),
-                TextField(
+                TextFormField(
                   decoration: InputDecoration(labelText: 'Data di nascita'),
                 ),
                 SizedBox(height: 12),
-                TextField(
-                  decoration: InputDecoration(labelText: 'Nazionalità'),
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Squadra appartenenza'),
                 ),
                 SizedBox(height: 12),
-                TextField(
-                  decoration: InputDecoration(labelText: 'Squadra appartenenza'),
+                TextFormField(
+                  decoration: InputDecoration(labelText: 'Nazionalità'),
                 ),
               ],
             ),
           ),
         ),
-        Positioned(
+       /* Positioned(
           left: 16,
           top: -12,
           child: Container(
@@ -63,7 +66,7 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ),
-        ),
+        ), */
       ],
     );
   }
