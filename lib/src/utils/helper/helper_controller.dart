@@ -14,6 +14,16 @@ class Helper extends GetxController {
     return null;
   }
 
+  static String? validateNameAndSurname(value){
+    if(value == null || value.isEmpty) return tNamePlayerCannotEmpty;
+    final lettersOnlyRegex = RegExp(r'^[a-zA-Z]+$');
+    if (!lettersOnlyRegex.hasMatch(value)) {
+      return 'Solo lettere sono permesse';
+    }
+    return null; // Validazione passata
+
+  }
+
   static String? validatePassword(value) {
     if (value == null || value.isEmpty) return 'Password cannot be empty';
 

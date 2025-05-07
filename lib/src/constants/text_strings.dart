@@ -135,3 +135,6 @@ const String tMenu5 = tLogout;
 const String tDelete = "Delete";
 const String tJoined = "Joined";
 const String tJoinedAt = "31 october 2022";
+
+/* -- Player Insert -- */
+const String tNamePlayerCannotEmpty = "Name Player cannot be empty";

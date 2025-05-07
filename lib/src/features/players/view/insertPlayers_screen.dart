@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_ratingDate_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_personalDate_widget.dart';
@@ -17,6 +18,8 @@ class InsertPlayers extends ConsumerWidget {
     //final formKey = ref.watch(formKeyProvider);
     final currentPage = ref.watch(pageControllerProvider);
     final pageController = ref.read(pageControllerProvider.notifier).controller;
+    final titlePage = ['Dati Anagrafici', 'Dati Fisici', 'Voto'];
+    String title = titlePage[currentPage];
 
     return Center(
       child: Column(
@@ -26,7 +29,7 @@ class InsertPlayers extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: Text(
-              currentPage == 0 ? 'Dati Anagrafici' : 'Dati Fisici',
+              title,
               style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
@@ -56,11 +59,12 @@ class InsertPlayers extends ConsumerWidget {
                       children: const [
                         FormPersonalDateWidget(),
                         FormPhysicalDateWidget(),
+                        FormRateDateWidget(),
                       ],
                     ),
                   ),
                   const SizedBox(height: 16),
-                  if (currentPage == 1)
+                  if (currentPage == 2)
                     ElevatedButton(
                       onPressed: () {
                         /*if (formKey.currentState!.validate()) {
@@ -82,7 +86,7 @@ class InsertPlayers extends ConsumerWidget {
           // 🔘 INDICATORE PAGINA
           SmoothPageIndicator(
             controller: pageController,
-            count: 2,
+            count: 3,
             effect: WormEffect(
               dotHeight: 10,
               dotWidth: 10,
