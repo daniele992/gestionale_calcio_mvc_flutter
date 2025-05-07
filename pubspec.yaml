@@ -75,6 +75,7 @@ dependencies:
 
   ## -- CONNECTIVTY PACKAGES
   connectivity_plus: ^6.1.4
+  profanity_filter: ^2.0.0
 
 
 dev_dependencies:
