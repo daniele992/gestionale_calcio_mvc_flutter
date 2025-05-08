@@ -4,7 +4,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../constants/colors.dart';
 import '../../constants/sizes.dart';
 import '../../constants/text_strings.dart';
-import 'package:profanity_filter/profanity_filter.dart';
+import 'package:bad_words/bad_words.dart';
 
 class Helper extends GetxController {
   /* -- ============= VALIDATIONS ============= -- */
@@ -16,14 +16,14 @@ class Helper extends GetxController {
   }
 
   static String? validateNameAndSurname(value){
+    final Filter _filter = Filter();
     if(value == null || value.isEmpty) return tNamePlayerCannotEmpty;
     final lettersOnlyRegex = RegExp(r'^[a-zA-Z]+$');
     if (!lettersOnlyRegex.hasMatch(value)) {
       return 'Solo lettere sono permesse';
     }
-
     // Filtra le parole offensive
-    if (profanityFilter.hasProfanity(value)) {
+    if (_filter.isProfane(value)) {
       return 'Il testo contiene parole inappropriate';
     }
 

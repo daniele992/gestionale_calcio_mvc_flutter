@@ -1,0 +1,517 @@
+[
+  {
+    "id": 1,
+    "name": "Argentina",
+    "iso2": "AR",
+    "iso3": "ARG",
+    "flag": "https://flagcdn.com/w320/ar.png",
+    "language": "Spagnolo",
+    "continent": "Sud America"
+  },
+  {
+    "id": 2,
+    "name": "Australia",
+    "iso2": "AU",
+    "iso3": "AUS",
+    "flag": "https://flagcdn.com/w320/au.png",
+    "language": "Inglese",
+    "continent": "Oceania"
+  },
+  {
+    "id": 3,
+    "name": "Brasile",
+    "iso2": "BR",
+    "iso3": "BRA",
+    "flag": "https://flagcdn.com/w320/br.png",
+    "language": "Portoghese",
+    "continent": "Sud America"
+  },
+  {
+    "id": 4,
+    "name": "Canada",
+    "iso2": "CA",
+    "iso3": "CAN",
+    "flag": "https://flagcdn.com/w320/ca.png",
+    "language": "Inglese, Francese",
+    "continent": "America del Nord"
+  },
+  {
+    "id": 5,
+    "name": "Cina",
+    "iso2": "CN",
+    "iso3": "CHN",
+    "flag": "https://flagcdn.com/w320/cn.png",
+    "language": "Cinese",
+    "continent": "Asia"
+  },
+  {
+    "id": 6,
+    "name": "Egitto",
+    "iso2": "EG",
+    "iso3": "EGY",
+    "flag": "https://flagcdn.com/w320/eg.png",
+    "language": "Arabo",
+    "continent": "Africa"
+  },
+  {
+    "id": 7,
+    "name": "Francia",
+    "iso2": "FR",
+    "iso3": "FRA",
+    "flag": "https://flagcdn.com/w320/fr.png",
+    "language": "Francese",
+    "continent": "Europa"
+  },
+  {
+    "id": 8,
+    "name": "Germania",
+    "iso2": "DE",
+    "iso3": "DEU",
+    "flag": "https://flagcdn.com/w320/de.png",
+    "language": "Tedesco",
+    "continent": "Europa"
+  },
+  {
+    "id": 9,
+    "name": "Giappone",
+    "iso2": "JP",
+    "iso3": "JPN",
+    "flag": "https://flagcdn.com/w320/jp.png",
+    "language": "Giapponese",
+    "continent": "Asia"
+  },
+  {
+    "id": 10,
+    "name": "India",
+    "iso2": "IN",
+    "iso3": "IND",
+    "flag": "https://flagcdn.com/w320/in.png",
+    "language": "Hindi, Inglese",
+    "continent": "Asia"
+  },
+  {
+    "id": 11,
+    "name": "Italia",
+    "iso2": "IT",
+    "iso3": "ITA",
+    "flag": "https://flagcdn.com/w320/it.png",
+    "language": "Italiano",
+    "continent": "Europa"
+  },
+  {
+    "id": 12,
+    "name": "Messico",
+    "iso2": "MX",
+    "iso3": "MEX",
+    "flag": "https://flagcdn.com/w320/mx.png",
+    "language": "Spagnolo",
+    "continent": "America del Nord"
+  },
+  {
+    "id": 13,
+    "name": "Regno Unito",
+    "iso2": "GB",
+    "iso3": "GBR",
+    "flag": "https://flagcdn.com/w320/gb.png",
+    "language": "Inglese",
+    "continent": "Europa"
+  },
+  {
+    "id": 14,
+    "name": "Russia",
+    "iso2": "RU",
+    "iso3": "RUS",
+    "flag": "https://flagcdn.com/w320/ru.png",
+    "language": "Russo",
+    "continent": "Europa/Asia"
+  },
+  {
+    "id": 15,
+    "name": "Stati Uniti",
+    "iso2": "US",
+    "iso3": "USA",
+    "flag": "https://flagcdn.com/w320/us.png",
+    "language": "Inglese",
+    "continent": "America del Nord"
+  },
+  {
+    "id": 16,
+    "name": "Sud Africa",
+    "iso2": "ZA",
+    "iso3": "ZAF",
+    "flag": "https://flagcdn.com/w320/za.png",
+    "language": "Afrikaans, Inglese, Zulu, Xhosa",
+    "continent": "Africa"
+  },
+  {
+    "id": 17,
+    "name": "Albania",
+    "iso2": "AL",
+    "iso3": "ALB",
+    "flag": "https://flagcdn.com/w320/al.png",
+    "language": "Albanese",
+    "continent": "Europa"
+  },
+  {
+    "id": 18,
+    "flag": "https://flagcdn.com/w320/ad.png",
+    "iso2": "AD",
+    "iso3": "AND",
+    "language": "Catalano",
+    "continent": "Europa",
+    "name": "Andorra"
+  },
+  {
+    "id": 19,
+    "name": "Armenia",
+    "iso2": "AM",
+    "iso3": "ARM",
+    "flag": "https://flagcdn.com/w320/am.png",
+    "language": "Armeno",
+    "continent": "Europa"
+  },
+  {
+    "id": 20,
+    "name": "Austria",
+    "iso2": "AT",
+    "iso3": "AUT",
+    "flag": "https://flagcdn.com/w320/at.png",
+    "language": "Tedesco",
+    "continent": "Europa"
+  },
+  {
+    "id": 21,
+    "name": "Azerbaigian",
+    "iso2": "AZ",
+    "iso3": "AZE",
+    "flag": "https://flagcdn.com/w320/az.png",
+    "language": "Azerbaigiano",
+    "continent": "Europa"
+  },
+  {
+    "id": 22,
+    "name": "Belgio",
+    "iso2": "BE",
+    "iso3": "BEL",
+    "flag": "https://flagcdn.com/w320/be.png",
+    "language": "Olandese, Francese, Tedesco",
+    "continent": "Europa"
+  },
+  {
+    "id": 23,
+    "name": "Bosnia ed Erzegovina",
+    "iso2": "BA",
+    "iso3": "BIH",
+    "flag": "https://flagcdn.com/w320/ba.png",
+    "language": "Bosniaco, Croato, Serbo",
+    "continent": "Europa"
+  },
+  {
+    "id": 24,
+    "name": "Bulgaria",
+    "iso2": "BG",
+    "iso3": "BGR",
+    "flag": "https://flagcdn.com/w320/bg.png",
+    "language": "Bulgaro",
+    "continent": "Europa"
+  },
+  {
+    "id": 25,
+    "name": "Croazia",
+    "iso2": "HR",
+    "iso3": "HRV",
+    "flag": "https://flagcdn.com/w320/hr.png",
+    "language": "Croato",
+    "continent": "Europa"
+  },
+  {
+    "id": 26,
+    "name": "Cipro",
+    "iso2": "CY",
+    "iso3": "CYP",
+    "flag": "https://flagcdn.com/w320/cy.png",
+    "language": "Greco, Turco",
+    "continent": "Europa"
+  },
+  {
+    "id": 27,
+    "name": "Czechia (Repubblica Ceca)",
+    "iso2": "CZ",
+    "iso3": "CZE",
+    "flag": "https://flagcdn.com/w320/cz.png",
+    "language": "Ceco",
+    "continent": "Europa"
+  },
+  {
+    "id": 28,
+    "name": "Danimarca",
+    "iso2": "DK",
+    "iso3": "DNK",
+    "flag": "https://flagcdn.com/w320/dk.png",
+    "language": "Danese",
+    "continent": "Europa"
+  },
+  {
+    "id": 29,
+    "name": "Estonia",
+    "iso2": "EE",
+    "iso3": "EST",
+    "flag": "https://flagcdn.com/w320/ee.png",
+    "language": "Estone",
+    "continent": "Europa"
+  },
+  {
+    "id": 30,
+    "name": "Finlandia",
+    "iso2": "FI",
+    "iso3": "FIN",
+    "flag": "https://flagcdn.com/w320/fi.png",
+    "language": "Finlandese, Svedese",
+    "continent": "Europa"
+  },
+  {
+    "id": 31,
+    "name": "Francia",
+    "iso2": "FR",
+    "iso3": "FRA",
+    "flag": "https://flagcdn.com/w320/fr.png",
+    "language": "Francese",
+    "continent": "Europa"
+  },
+  {
+    "id": 32,
+    "name": "Georgia",
+    "iso2": "GE",
+    "iso3": "GEO",
+    "flag": "https://flagcdn.com/w320/ge.png",
+    "language": "Georgiano",
+    "continent": "Europa"
+  },
+  {
+    "id": 33,
+    "name": "Germania",
+    "iso2": "DE",
+    "iso3": "DEU",
+    "flag": "https://flagcdn.com/w320/de.png",
+    "language": "Tedesco",
+    "continent": "Europa"
+  },
+  {
+    "id": 34,
+    "name": "Grecia",
+    "iso2": "GR",
+    "iso3": "GRC",
+    "flag": "https://flagcdn.com/w320/gr.png",
+    "language": "Greco",
+    "continent": "Europa"
+  },
+  {
+    "id": 35,
+    "name": "Irlanda",
+    "iso2": "IE",
+    "iso3": "IRL",
+    "flag": "https://flagcdn.com/w320/ie.png",
+    "language": "Irlandese, Inglese",
+    "continent": "Europa"
+  },
+  {
+    "id": 36,
+    "name": "Islanda",
+    "iso2": "IS",
+    "iso3": "ISL",
+    "flag": "https://flagcdn.com/w320/is.png",
+    "language": "Islandese",
+    "continent": "Europa"
+  },
+  {
+    "id": 37,
+    "name": "Italia",
+    "iso2": "IT",
+    "iso3": "ITA",
+    "flag": "https://flagcdn.com/w320/it.png",
+    "language": "Italiano",
+    "continent": "Europa"
+  },
+  {
+    "id": 38,
+    "name": "Kosovo",
+    "iso2": "XK",
+    "iso3": "XKO",
+    "flag": "https://flagcdn.com/w320/xk.png",
+    "language": "Albanese, Serbo",
+    "continent": "Europa"
+  },
+  {
+    "id": 39,
+    "name": "Lettonia",
+    "iso2": "LV",
+    "iso3": "LVA",
+    "flag": "https://flagcdn.com/w320/lv.png",
+    "language": "Lettonio",
+    "continent": "Europa"
+  },
+  {
+    "id": 40,
+    "name": "Liechtenstein",
+    "iso2": "LI",
+    "iso3": "LIE",
+    "flag": "https://flagcdn.com/w320/li.png",
+    "language": "Tedesco",
+    "continent": "Europa"
+  },
+  {
+    "id": 41,
+    "name": "Lituania",
+    "iso2": "LT",
+    "iso3": "LTU",
+    "flag": "https://flagcdn.com/w320/lt.png",
+    "language": "Lituano",
+    "continent": "Europa"
+  },
+  {
+    "id": 42,
+    "name": "Lussemburgo",
+    "iso2": "LU",
+    "iso3": "LUX",
+    "flag": "https://flagcdn.com/w320/lu.png",
+    "language": "Lussemburghese, Francese, Tedesco",
+    "continent": "Europa"
+  },
+  {
+    "id": 43,
+    "name": "Malta",
+    "iso2": "MT",
+    "iso3": "MLT",
+    "flag": "https://flagcdn.com/w320/mt.png",
+    "language": "Maltese, Inglese",
+    "continent": "Europa"
+  },
+  {
+    "id": 44,
+    "name": "Moldavia",
+    "iso2": "MD",
+    "iso3": "MDA",
+    "flag": "https://flagcdn.com/w320/md.png",
+    "language": "Rumeno",
+    "continent": "Europa"
+  },
+  {
+    "id": 45,
+    "name": "Monaco",
+    "iso2": "MC",
+    "iso3": "MCO",
+    "flag": "https://flagcdn.com/w320/mc.png",
+    "language": "Francese",
+    "continent": "Europa"
+  },
+  {
+    "id": 46,
+    "name": "Montenegro",
+    "iso2": "ME",
+    "iso3": "MNE",
+    "flag": "https://flagcdn.com/w320/me.png",
+    "language": "Montenegrino",
+    "continent": "Europa"
+  },
+  {
+    "id": 47,
+    "name": "Norvegia",
+    "iso2": "NO",
+    "iso3": "NOR",
+    "flag": "https://flagcdn.com/w320/no.png",
+    "language": "Norvegese",
+    "continent": "Europa"
+  },
+  {
+    "id": 48,
+    "name": "Paesi Bassi",
+    "iso2": "NL",
+    "iso3": "NLD",
+    "flag": "https://flagcdn.com/w320/nl.png",
+    "language": "Olandese",
+    "continent": "Europa"
+  },
+  {
+    "id": 49,
+    "name": "Polonia",
+    "iso2": "PL",
+    "iso3": "POL",
+    "flag": "https://flagcdn.com/w320/pl.png",
+    "language": "Polacco",
+    "continent": "Europa"
+  },
+  {
+    "id": 50,
+    "name": "Portogallo",
+    "iso2": "PT",
+    "iso3": "PRT",
+    "flag": "https://flagcdn.com/w320/pt.png",
+    "language": "Portoghese",
+    "continent": "Europa"
+  },
+  {
+    "id": 51,
+    "name": "Ucraina",
+    "iso2": "UA",
+    "iso3": "UKR",
+    "flag": "https://flagcdn.com/w320/ua.png",
+    "language": "Ucraino",
+    "continent": "Europa"
+  },
+  {
+    "id": 52,
+    "name": "Russia",
+    "iso2": "RU",
+    "iso3": "RUS",
+    "flag": "https://flagcdn.com/w320/ru.png",
+    "language": "Russo",
+    "continent": "Europa/Asia"
+  },
+  {
+    "id": 53,
+    "name": "Nigeria",
+    "iso2": "NG",
+    "iso3": "NGA",
+    "flag": "https://flagcdn.com/w320/ng.png",
+    "language": "Inglese",
+    "continent": "Africa"
+  },
+  {
+    "id": 54,
+    "name": "Senegal",
+    "iso2": "SN",
+    "iso3": "SEN",
+    "flag": "https://flagcdn.com/w320/sn.png",
+    "language": "Francese",
+    "continent": "Africa"
+  },
+  {
+    "id": 55,
+    "name": "Egitto",
+    "iso2": "EG",
+    "iso3": "EGY",
+    "flag": "https://flagcdn.com/w320/eg.png",
+    "language": "Arabo",
+    "continent": "Africa"
+  },
+  {
+    "id": 56,
+    "name": "Marocco",
+    "iso2": "MA",
+    "iso3": "MAR",
+    "flag": "https://flagcdn.com/w320/ma.png",
+    "language": "Arabo / Francese",
+    "continent": "Africa"
+  },
+  {
+    "id": 57,
+    "name": "Sudafrica",
+    "iso2": "ZA",
+    "iso3": "ZAF",
+    "flag": "https://flagcdn.com/w320/za.png",
+    "language": "Inglese / Zulu",
+    "continent": "Africa"
+  }
+
+
+]
