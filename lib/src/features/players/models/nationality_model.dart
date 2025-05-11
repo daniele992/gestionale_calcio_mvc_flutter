@@ -17,6 +17,7 @@ class Nationality{
     required this.continent
 });
 
+  //Factory returns an existing object or subclass and it does not necessarily return an instance
   factory Nationality.fromJson(Map<String, dynamic> json) {
     return Nationality(
       id: json['id'],

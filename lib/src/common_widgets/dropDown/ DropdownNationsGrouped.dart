@@ -54,9 +54,16 @@ class DropdownNationsWithFlags extends ConsumerWidget {
           }));
         });
 
-        return DropdownButton<Nationality>(
+        return DropdownButtonFormField<Nationality>(
           isExpanded: true,
           hint: Text("Select a country"),
+          decoration: InputDecoration(
+            labelText: 'Nation',
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12)
+            ),
+            contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+          ),
           value: nationSelected,
           onChanged: (val) {
             ref.read(nationSelectedProvider.notifier).state = val;

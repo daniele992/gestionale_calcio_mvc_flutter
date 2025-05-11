@@ -1,11 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
+import '../../../../../providers/nationality_provider.dart';
 import '../../../../common_widgets/dropDown/ DropdownNationsGrouped.dart';
 import '../../../../constants/text_strings.dart';
 import '../../../../utils/helper/helper_controller.dart';
+import '../../../authentication/controllers/login_controller.dart';
+import '../../controller/insertPlayers_controller.dart';
 
 // Provider per gestire la nazionalità selezionata
 final nationalityProvider = StateProvider<String?>((ref) => null);
@@ -22,7 +27,8 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
   @override
   Widget build(BuildContext context) {
 
-    //final controller = Get.put(LoginController());
+    final nation = ref.watch(nationSelectedProvider);
+    final controller = Get.put(InsertPlayersController());
 
     return Stack(
       clipBehavior: Clip.none,
@@ -43,7 +49,7 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 ///TextFormField for Name
                 TextFormField(
                   validator: Helper.validateNameAndSurname,
-                  //controller: controller.email,
+                  controller: controller.name,
                   decoration: const InputDecoration(
                       labelText: 'Nome',
                       prefixIcon: Icon(LineAwesomeIcons.user),
@@ -91,15 +97,17 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
 
                 SizedBox(height: 12),
 
-                ///TextFormField for Nationality
+                ///Dropdown for Nationality
                 DropdownNationsWithFlags(),
 
                 SizedBox(height: 12),
 
                 ///TextFormField for Continent
                 TextFormField(
-                  validator: Helper.validateEmail,
-                  //controller: ,
+                  enabled: false,
+                  controller: TextEditingController(
+                    text: nation?.continent ?? '',
+                  ),
                   decoration: const InputDecoration(
                       labelText: 'Continente',
                       prefixIcon: Icon(LineAwesomeIcons.user),
