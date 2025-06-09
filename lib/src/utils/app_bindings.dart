@@ -6,9 +6,14 @@ import 'package:gestionale_calcio_mvc_flutter/src/repository/authentication_repo
 import 'package:gestionale_calcio_mvc_flutter/src/repository/user_repository/user_repository.dart';
 import 'package:get/get.dart';
 
+///It extends the Bindings class from GetX, a Flutter library for state and dependency management.
+///It is used to define which dependencies (controllers, repositories, services) should be loaded and made automatically and centrally available when the app starts. It centralizes the registration of dependencies.
 class InitialBinding extends Bindings {
   @override
   void dependencies() {
+
+    //With lazyPut, the dependency is created only on first use and not at startup.
+    //With fenix, if the dependency is removed from memory, it is automatically recreated when requested again.
     Get.lazyPut(() => AuthenticationRepository(), fenix: true);
     Get.lazyPut(() => UserRepository(), fenix: true);
 
