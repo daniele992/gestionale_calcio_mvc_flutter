@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'button_loading_widget.dart';
 
+
+///It is a full-width button with: An icon on the left (image from assets). A text label. It can show a loading indicator instead of the text and icon.
+///It has custom colors for the text/icon and background. The function is executed when the button is pressed.
 class TSocialButton extends StatelessWidget {
   const TSocialButton({
     super.key,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+///This class displays a row with a small loading circle and the text 'Loading...'.
 class ButtonLoadingWidget extends StatelessWidget {
   const ButtonLoadingWidget({
     super.key,

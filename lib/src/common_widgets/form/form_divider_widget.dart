@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 import '../../constants/text_strings.dart';
 
+
+///It is a widget that creates a horizontal row composed of two dividing lines (Divider) with the text "OR" (or tOR) in the center.
+///It is used to visually separate sections of a form, for example between two login methods.
 class TFormDividerWidget extends StatelessWidget {
   const TFormDividerWidget({
     super.key,

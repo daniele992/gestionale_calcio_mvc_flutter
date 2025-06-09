@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+///It displays an image above a title and a subtitle, with customizable parameters for colors, sizes, and alignments.
+///It is useful for creating visual headers in forms or login and registration pages.
 class FormHeaderWidget extends StatelessWidget {
   const FormHeaderWidget({
     super.key,

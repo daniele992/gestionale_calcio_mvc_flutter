@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../constants/colors.dart';
 
+///Displays a line of text with two parts: The first part (text1) in normal style. The second part (text2) highlighted and colored. When you click on this text, the onPressed function is called.
 class ClickableRichTextWidget extends StatelessWidget {
   const ClickableRichTextWidget({
     required this.text1,

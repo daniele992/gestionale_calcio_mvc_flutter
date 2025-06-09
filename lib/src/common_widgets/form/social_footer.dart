@@ -8,6 +8,8 @@ import '../../constants/text_strings.dart';
 import '../../features/authentication/controllers/login_controller.dart';
 import '../buttons/clickable_richtext_widget.dart';
 
+///Typical footer for login pages with: Buttons to sign in via Google and Facebook, which show loading indicators and automatically disable to prevent multiple clicks.
+///A clickable text for other actions (e.g., navigating to the registration page).
 class SocialFooter extends StatelessWidget {
   const SocialFooter({
     super.key,
