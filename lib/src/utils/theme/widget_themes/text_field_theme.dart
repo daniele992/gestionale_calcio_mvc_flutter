@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/colors.dart';
 import '../../../constants/sizes.dart';
 
+///This class defines the styles for text input fields (TextFormField) in the app, separating light and dark themes.
 class TTextFormFieldTheme {
   TTextFormFieldTheme._();
 

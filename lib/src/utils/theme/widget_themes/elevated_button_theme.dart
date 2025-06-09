@@ -3,6 +3,8 @@ import '../../../constants/colors.dart';
 import '../../../constants/sizes.dart';
 
 /* --- Light e Dark Elevated Button Themes ---*/
+///Defines a consistent and centralized style for all elevated buttons (ElevatedButton) of the app, separating the style into light and dark themes.
+///Example: elevatedButtonTheme: TElevatedButtonTheme.lightElevatedButtonTheme
 class TElevatedButtonTheme {
   TElevatedButtonTheme._(); //To avoid creating instances
 

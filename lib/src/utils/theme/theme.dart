@@ -5,6 +5,7 @@ import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/widget_themes/outl
 import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/widget_themes/text_field_theme.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/utils/theme/widget_themes/text_theme.dart';
 
+///Defines the light and dark themes of your Flutter app in a centralized way.
 class TAppTheme {
   TAppTheme._();
 

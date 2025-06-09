@@ -3,6 +3,7 @@ import '../../../constants/colors.dart';
 import '../../../constants/sizes.dart';
 
 /* --- Light e Dark Elevated Button Themes ---*/
+///This class defines the styles for all outline buttons (OutlinedButton) in the app, with two distinct variants for light and dark themes.
 class TOutlinedButtonTheme {
   TOutlinedButtonTheme._(); //To avoid creating instances
 

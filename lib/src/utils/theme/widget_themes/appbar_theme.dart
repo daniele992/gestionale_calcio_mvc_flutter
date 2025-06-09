@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../constants/colors.dart';
 
+///Defines the style of the top bar (AppBar) of the app, for both light and dark modes. Example: appBarTheme: TAppBarTheme.lightAppBarTheme
 class TAppBarTheme {
   TAppBarTheme._();
 
