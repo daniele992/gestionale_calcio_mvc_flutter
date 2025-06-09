@@ -9,6 +9,7 @@ class DropdownNationsWithFlags extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncNation = ref.watch(nationalityProvider);
+    final nationSelectedProvider = StateProvider<Nationality?>((ref) => null);
     final nationSelected = ref.watch(nationSelectedProvider);
 
     return asyncNation.when(

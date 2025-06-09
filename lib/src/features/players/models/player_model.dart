@@ -66,6 +66,15 @@ class PlayerModel{
     required this.rating
   });
 
+  /* toJson(){
+    return {
+      "Name": name,
+      "Surname": surname,
+      "DateOfBirthday": dateOfBirth,
+      ""
+    };
+  } */
+
 }
 
 

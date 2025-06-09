@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_ratingDate_widget.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_personalDate_widget.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_physicalDate_widget.dart';
 
 import '../../../../providers/page_controller_provider.dart';
+import '../../authentication/controllers/login_controller.dart';
+import '../controller/insertPlayers_controller.dart';
 
 
 
@@ -19,13 +23,14 @@ class InsertPlayers extends ConsumerWidget {
     final currentPage = ref.watch(pageControllerProvider);
     final pageController = ref.read(pageControllerProvider.notifier).controller;
     final titlePage = ['Dati Anagrafici', 'Dati Fisici', 'Voto'];
+    final controller = Get.put(InsertPlayersController());
     String title = titlePage[currentPage];
 
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // ⬆️ TITOLO
+          // ⬆️ TITLE
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: Text(
@@ -49,7 +54,7 @@ class InsertPlayers extends ConsumerWidget {
               boxShadow: [BoxShadow(blurRadius: 4, color: Colors.black26)],
             ),
             child: Form(
-              //key: formKey,
+              key: controller.playersFormKey,
               child: Column(
                 children: [
                   Expanded(

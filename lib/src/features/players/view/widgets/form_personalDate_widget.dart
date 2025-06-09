@@ -4,16 +4,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-
 import '../../../../../providers/nationality_provider.dart';
 import '../../../../common_widgets/dropDown/ DropdownNationsGrouped.dart';
 import '../../../../constants/text_strings.dart';
 import '../../../../utils/helper/helper_controller.dart';
-import '../../../authentication/controllers/login_controller.dart';
 import '../../controller/insertPlayers_controller.dart';
+import '../../models/nationality_model.dart';
 
 // Provider per gestire la nazionalità selezionata
-final nationalityProvider = StateProvider<String?>((ref) => null);
+final nationalityProvider = StateProvider<Nationality?>((ref) => null);
+final TextEditingController continentController = TextEditingController();
 
 class FormPersonalDateWidget extends ConsumerStatefulWidget {
   const FormPersonalDateWidget({super.key});
@@ -23,12 +23,36 @@ class FormPersonalDateWidget extends ConsumerStatefulWidget {
       _FormPersonalDateWidget();
 }
 
+
 class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
+  bool _isListenerInitialized = false;
+
+
+  @override
+  void initState(){
+    super.initState();
+    //Inizializzazione di base, ref non può essere usato qui perchè qui non è ancora completamente inizializzato
+  }
+
+
   @override
   Widget build(BuildContext context) {
 
-    final nation = ref.watch(nationSelectedProvider);
     final controller = Get.put(InsertPlayersController());
+    final nation = ref.watch(nationSelectedProvider);
+
+    // ✅ Esegui il listener una sola volta
+    if (!_isListenerInitialized) {
+      _isListenerInitialized = true;
+
+      // Ascolta i cambiamenti della nazione selezionata
+      ref.listen<Nationality?>(nationSelectedProvider, (previous, next) {
+        continentController.text = next?.continent ?? '';
+      });
+
+      // Imposta il valore iniziale
+      continentController.text = nation?.continent ?? '';
+    }
 
     return Stack(
       clipBehavior: Clip.none,
@@ -51,7 +75,7 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                   validator: Helper.validateNameAndSurname,
                   controller: controller.name,
                   decoration: const InputDecoration(
-                      labelText: 'Nome',
+                      labelText: tName,
                       prefixIcon: Icon(LineAwesomeIcons.user),
                       hintText: tEmail),
                 ),
@@ -61,9 +85,9 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 ///TextFormField for Surname
                 TextFormField(
                   validator: Helper.validateNameAndSurname,
-                  //controller: ,
+                  controller: controller.surname,
                   decoration: const InputDecoration(
-                      labelText: 'Cognome',
+                      labelText: tSurname,
                       prefixIcon: Icon(LineAwesomeIcons.user),
                       hintText: tEmail
                   ),
@@ -74,10 +98,10 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 ///TextFormField for date of birthday
                 TextFormField(
                   validator: Helper.validateEmail,
-                  //controller: ,
+                  controller: controller.dateOfBirthday,
                   decoration: const InputDecoration(
-                      labelText: 'Data di nascita',
-                      prefixIcon: Icon(LineAwesomeIcons.user),
+                      labelText: tDateOfBirthday,
+                      prefixIcon: Icon(LineAwesomeIcons.birthday_cake_solid),
                       hintText: tEmail
                   ),
                 ),
@@ -87,9 +111,9 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 ///TextFormField for Team
                 TextFormField(
                   validator: Helper.validateEmail,
-                  //controller: ,
+                  controller: controller.team,
                   decoration: const InputDecoration(
-                      labelText: 'Squadra',
+                      labelText: tTeam,
                       prefixIcon: Icon(LineAwesomeIcons.user),
                       hintText: tEmail
                   ),
@@ -105,12 +129,10 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 ///TextFormField for Continent
                 TextFormField(
                   enabled: false,
-                  controller: TextEditingController(
-                    text: nation?.continent ?? '',
-                  ),
+                  controller: continentController,
                   decoration: const InputDecoration(
-                      labelText: 'Continente',
-                      prefixIcon: Icon(LineAwesomeIcons.user),
+                      labelText: tContinent,
+                      prefixIcon: Icon(LineAwesomeIcons.globe_solid),
                       hintText: tEmail
                   ),
                 ),

@@ -139,3 +139,9 @@ const String tJoinedAt = "31 october 2022";
 /* -- Player Insert -- */
 const String tNamePlayerCannotEmpty = "Name Player cannot be empty";
 const String tInvalidNameFormat = "Invalid format";
+const String tNameTeamCannotEmpty = "Name Team cannot be empty";
+const String tTeam = "Team";
+const String tSurname = "Surname";
+const String tName = "Name";
+const String tDateOfBirthday = "Date of Birthday";
+const String tContinent = "Continent";

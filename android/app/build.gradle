@@ -10,7 +10,7 @@ plugins {
 
 android {
     namespace = "me.DanieleMorani.gestionale_calcio_mvc_flutter"
-    compileSdk = flutter.compileSdkVersion
+    compileSdk = flutter.compileSdkVersion //variables provided by Flutter
     //ndkVersion = flutter.ndkVersion
     ndkVersion = "27.0.12077973"
 
@@ -35,7 +35,7 @@ android {
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         //minSdk = flutter.minSdkVersion
         minSdk = 23
-        targetSdk = flutter.targetSdkVersion
+        targetSdk = flutter.targetSdkVersion //variables provided by Flutter
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }

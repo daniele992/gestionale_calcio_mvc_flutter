@@ -15,6 +15,14 @@ class HelperPlayer extends GetxController {
 
   }
 
+  static String? validateTeam(value) {
+    final filter = Filter();
+    if(value == null || value.isEmpty) return tNameTeamCannotEmpty;
+    if(filter.isProfane(value)) return tNameTeamCannotEmpty;
+
+    return null;
+  }
+
 
 
 }
