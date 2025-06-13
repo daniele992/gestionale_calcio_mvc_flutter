@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../../../../providers/nationality_provider.dart';
+import '../../../../common_widgets/datePicker/DatePickerTextField_DateBirthday.dart';
 import '../../../../common_widgets/dropDown/ DropdownNationsGrouped.dart';
 import '../../../../constants/text_strings.dart';
 import '../../../../utils/helper/helper_controller.dart';
@@ -96,14 +97,8 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 SizedBox(height: 12),
 
                 ///TextFormField for date of birthday
-                TextFormField(
-                  validator: Helper.validateEmail,
+                DatePickerTextField(
                   controller: controller.dateOfBirthday,
-                  decoration: const InputDecoration(
-                      labelText: tDateOfBirthday,
-                      prefixIcon: Icon(LineAwesomeIcons.birthday_cake_solid),
-                      hintText: tEmail
-                  ),
                 ),
 
                 SizedBox(height: 12),
@@ -144,3 +139,5 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
     );
   }
 }
+
+

@@ -4,15 +4,10 @@ import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_personalDate_widget.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_physicalDate_widget.dart';
-
 import '../../../../providers/page_controller_provider.dart';
-import '../../authentication/controllers/login_controller.dart';
 import '../controller/insertPlayers_controller.dart';
-
-
 
 class InsertPlayers extends ConsumerWidget {
   const InsertPlayers({super.key});
