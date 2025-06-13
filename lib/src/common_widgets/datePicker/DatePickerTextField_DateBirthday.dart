@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final selectedDateProvider = StateProvider<DateTime?>((ref) => null);
 
+///This class creates a TextFormField that opens a date picker when clicked.
 class DatePickerTextField extends ConsumerWidget {
   const DatePickerTextField(
       {Key? key,
@@ -13,6 +14,7 @@ class DatePickerTextField extends ConsumerWidget {
   final TextEditingController controller;
 
   //WidgetRef it allows you to interact with providers inside a widget.
+  ///Function for creation datePicker
   Future<void> _selectDate(BuildContext context, WidgetRef ref) async{
     DateTime initialDate = DateTime.now();
 
