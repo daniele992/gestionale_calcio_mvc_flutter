@@ -1,7 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 
-//This class contains the logic for checking the network connection
-
+///This class contains the logic for checking the network connection
 class ConnectivityService {
 
   static final ConnectivityService _instance = ConnectivityService._internal();
@@ -24,7 +23,7 @@ class ConnectivityService {
   // Modify to get the first value of the list.
   Future<ConnectivityResult> checkConnectivity() async {
     final connectivity = Connectivity();
-    final resultList = await connectivity.checkConnectivity(); // Restituisce una lista
-    return resultList.isNotEmpty ? resultList.first : ConnectivityResult.none; // Ottieni il primo risultato della lista
+    final resultList = await connectivity.checkConnectivity(); //It returns a list.
+    return resultList.isNotEmpty ? resultList.first : ConnectivityResult.none; //Get the first item of the list.
   }
 }

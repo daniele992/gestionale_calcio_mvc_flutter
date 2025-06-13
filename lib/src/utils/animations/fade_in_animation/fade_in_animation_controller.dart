@@ -1,12 +1,14 @@
 import 'package:get/get.dart';
 import '../../../features/authentication/view/welcome/welcome_screen.dart';
 
+///This class controls when to start and stop fade-in/fade-out animations and manages screen transitions with animations.
 class FadeInAnimationController extends GetxController {
   static FadeInAnimationController get find => Get.find();
 
   RxBool animateTwoWay = false.obs;
   RxBool animateSingle = false.obs;
 
+  ///It starts an animation after 500ms, activates animateTwoWay, waits 3 seconds, then deactivates it. After 2 seconds, it changes the screen with a fade-in transition to WelcomeScreen.
   Future startSplashAnimation() async {
     await Future.delayed(const Duration(milliseconds: 500));
     animateTwoWay.value = true;

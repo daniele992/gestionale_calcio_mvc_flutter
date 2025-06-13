@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'fade_in_animation_model.dart';
 import 'fade_in_animation_controller.dart';
 
+///A class that makes the widget appear or disappear by smoothly moving it from one position to another with a fading effect.
 class TFadeInAnimation extends StatelessWidget {
   TFadeInAnimation({
     super.key,

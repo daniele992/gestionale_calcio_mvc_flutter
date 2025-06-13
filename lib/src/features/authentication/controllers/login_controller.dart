@@ -6,6 +6,8 @@ import '../../../repository/user_repository/user_repository.dart';
 import '../../../utils/helper/helper_controller.dart';
 import '../models/user_model.dart';
 
+
+///This class handles all the login logic, performs validations, shows loading indicators, interacts with authentication and user repositories, and displays error messages in case of issues.
 class LoginController extends GetxController {
   static LoginController get instance => Get.find();
 
