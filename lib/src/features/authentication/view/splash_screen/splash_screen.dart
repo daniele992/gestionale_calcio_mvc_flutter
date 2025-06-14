@@ -8,6 +8,7 @@ import '../../../../utils/animations/fade_in_animation/animation_design.dart';
 import '../../../../utils/animations/fade_in_animation/fade_in_animation_model.dart';
 import '../../../../utils/animations/fade_in_animation/fade_in_animation_controller.dart';
 
+///It is an animated splash screen that displays the logo, title, slogan, and images with fade-in and smooth movements, providing an elegant visual introduction to the app.
 class SplashScreen extends StatelessWidget {
   SplashScreen({super.key});
 

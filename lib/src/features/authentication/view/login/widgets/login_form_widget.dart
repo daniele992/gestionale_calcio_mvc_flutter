@@ -8,6 +8,8 @@ import '../../../../../utils/helper/helper_controller.dart';
 import '../../../controllers/login_controller.dart';
 import '../../forget_password/forget_password_options/forget_password_model_bottom_sheet.dart';
 
+///This widget is an interactive login form with email and password fields, validation, an option to show or hide the password,
+///password recovery via a bottom sheet, and a login button that responds to loading state. It is built using GetX for state management.
 class LoginFormWidget extends StatefulWidget {
   const LoginFormWidget({
     super.key,

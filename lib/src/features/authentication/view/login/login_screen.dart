@@ -10,6 +10,7 @@ import "package:gestionale_calcio_mvc_flutter/src/features/authentication/view/s
 import "package:get/get.dart";
 import "../../../../common_widgets/settings/dropDownLang.dart";
 
+///This class is a complete login screen. It uses SafeArea to avoid unsafe areas of the screen (such as notches or system bars).
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 

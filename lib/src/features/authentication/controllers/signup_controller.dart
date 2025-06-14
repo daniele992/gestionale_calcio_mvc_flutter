@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gestionale_calcio_mvc_flutter/main.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/repository/authentication_repository/authentication_repository.dart';
 import 'package:get/get.dart';
 import '../../../repository/user_repository/user_repository.dart';
 import '../models/user_model.dart';
 
+///This class handles user registration and can: Validate the input data, Create a new user, Use email or phone for authentication, Save the user in the database, Dynamically update the interface thanks to Rx. It is a complete and central controller for managing the registration flow.
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
 

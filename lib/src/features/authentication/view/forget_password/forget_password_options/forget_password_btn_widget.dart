@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../../constants/colors.dart';
 
+///This class is a widget that represents a visual button with an icon and text, used to provide a password recovery option.
 class ForgetPasswordBtnWidget extends StatelessWidget {
   const ForgetPasswordBtnWidget({
     required this.btnIcon,

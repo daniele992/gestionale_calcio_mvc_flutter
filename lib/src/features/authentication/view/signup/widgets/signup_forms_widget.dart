@@ -6,9 +6,9 @@ import 'package:gestionale_calcio_mvc_flutter/src/utils/helper/helper_controller
 import 'package:gestionale_calcio_mvc_flutter/src/utils/password_utils.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:rive/rive.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
+
 
 class SignUpFormWidget extends StatefulWidget {
   const SignUpFormWidget({

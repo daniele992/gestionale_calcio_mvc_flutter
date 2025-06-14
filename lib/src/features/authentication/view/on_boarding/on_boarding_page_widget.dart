@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../constants/sizes.dart';
 import '../../models/model_on_boarding.dart';
 
+///It represents a single page of an app’s onboarding flow. This widget is designed to be used inside a PageView or similar widget to show step-by-step welcome or introduction information.
 class OnBoardingPageWidget extends StatelessWidget {
   const OnBoardingPageWidget({
     //super.key,

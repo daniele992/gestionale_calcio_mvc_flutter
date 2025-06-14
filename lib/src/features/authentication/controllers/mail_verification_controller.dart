@@ -5,6 +5,7 @@ import '../../../constants/text_strings.dart';
 import '../../../repository/authentication_repository/authentication_repository.dart';
 import '../../../utils/helper/helper_controller.dart';
 
+///This class: Sends (or resends) the verification email to the user, Checks every 3 seconds whether the email has been verified. Also allows for a manual verification check. Automatically redirects the user to the correct screen once the email is verified. It is an essential controller for managing the email verification flow after registration.
 class MailVerificationController extends GetxController {
   late Timer? _timer;
 

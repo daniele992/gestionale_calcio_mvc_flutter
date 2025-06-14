@@ -8,6 +8,7 @@ import '../models/model_on_boarding.dart';
 import '../view/on_boarding/on_boarding_page_widget.dart';
 import '../view/welcome/welcome_screen.dart';
 
+///This class is used to manage the behavior of the onboarding screen in a Flutter app. It uses GetX for state management and LiquidSwipe for page animations.
 class OnBoardingController extends GetxController {
   //Variables
   final userStorage = GetStorage(); // Use for local Storage

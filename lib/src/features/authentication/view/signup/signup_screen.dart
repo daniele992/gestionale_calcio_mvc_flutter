@@ -9,7 +9,7 @@ import "package:gestionale_calcio_mvc_flutter/src/features/authentication/view/l
 import "package:gestionale_calcio_mvc_flutter/src/features/authentication/view/signup/widgets/signup_forms_widget.dart";
 import "package:get/get.dart";
 
-
+///This class is a Flutter screen for user registration (signup), built as a stateless widget. It uses SafeArea to avoid unsafe areas of the screen (notch, status bar).
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
 

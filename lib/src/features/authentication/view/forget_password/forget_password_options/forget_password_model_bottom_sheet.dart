@@ -5,7 +5,10 @@ import '../../../../../constants/text_strings.dart';
 import '../forget_password_mail/forget_password_mail.dart';
 import 'forget_password_btn_widget.dart';
 
+///This class displays a bottom sliding panel with two options: Reset password via email and Reset password via phone.
 class ForgetPasswordScreen {
+  /*It is a panel that slides up from the bottom of the screen (similar to a dialog window), commonly used in mobile apps,
+  and useful for letting the user choose an option without fully switching screens. */
   static Future<dynamic> buildShowModalBottomSheet(BuildContext context) {
     return showModalBottomSheet(
       context: context,

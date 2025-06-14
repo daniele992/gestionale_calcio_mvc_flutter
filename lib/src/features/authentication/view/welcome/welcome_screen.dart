@@ -10,8 +10,9 @@ import '../../../../utils/animations/fade_in_animation/fade_in_animation_model.d
 import '../../../../utils/animations/fade_in_animation/fade_in_animation_controller.dart';
 import '../signup/signup_screen.dart';
 
-///Page that opens immediately with login and registration
-
+///This class defines an animated welcome screen that opens immediately when the app starts.
+///It displays a main image, a title, a subtitle, and two buttons: one to access the login and one to go to the registration.
+///The animation is managed using TFadeInAnimation, which makes the content appear with a fade-in and smooth movement effect.
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 

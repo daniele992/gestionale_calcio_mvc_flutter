@@ -6,6 +6,7 @@ import '../../../../constants/text_strings.dart';
 import '../../../../repository/authentication_repository/authentication_repository.dart';
 import '../../controllers/mail_verification_controller.dart';
 
+///This class is an email verification screen, built as a stateless widget and integrated with GetX for state management.
 class MailVerification extends StatelessWidget {
   const MailVerification({super.key});
 

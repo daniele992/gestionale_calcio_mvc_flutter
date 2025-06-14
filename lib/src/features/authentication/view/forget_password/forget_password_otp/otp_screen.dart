@@ -5,6 +5,7 @@ import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/authentication/controllers/otp_controller.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+///This screen is a simple interface for entering an OTP code and verifying it, both immediately after finishing typing and by pressing a button. The actual verification of the code’s validity is delegated to the OTPController.
 class OTPScreen extends StatelessWidget {
   const OTPScreen({super.key});
 

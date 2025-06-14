@@ -5,6 +5,7 @@ import '../../../../../constants/image_strings.dart';
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';
 
+///It’s a widget that represents a screen for password recovery via phone number. It’s a StatelessWidget, so the content does not change dynamically.
 class ForgetPasswordPhoneScreen extends StatelessWidget {
   const ForgetPasswordPhoneScreen({super.key});
 

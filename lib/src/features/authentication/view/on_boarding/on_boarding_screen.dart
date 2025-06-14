@@ -5,6 +5,9 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../../../constants/colors.dart';
 import '../../controllers/on_boarding_controller.dart';
 
+
+///This class is a Flutter screen that manages a multi-page onboarding flow with smooth animations and page indicators, using the liquid_swipe and smooth_page_indicator packages.
+///The OnBoardingController maintains the current onboarding state, handles the pages, and controls actions like advancing or skipping.
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
 

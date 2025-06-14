@@ -5,6 +5,7 @@ import 'package:gestionale_calcio_mvc_flutter/src/constants/sizes.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
 import '../../../../../constants/colors.dart';
 
+///"This class is a Flutter widget that displays a screen for password recovery via email."
 class ForgetPasswordMailScreen extends StatelessWidget {
   const ForgetPasswordMailScreen({super.key});
 
