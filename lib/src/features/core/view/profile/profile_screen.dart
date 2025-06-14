@@ -11,7 +11,6 @@ import '../../../../repository/authentication_repository/authentication_reposito
 import 'all_users.dart';
 
 ///Page that opens from the icon at the top right of the first page. It is used to manage the profile
-
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 

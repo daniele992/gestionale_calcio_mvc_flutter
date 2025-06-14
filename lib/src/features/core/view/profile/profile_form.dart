@@ -6,6 +6,8 @@ import 'package:gestionale_calcio_mvc_flutter/src/features/core/controllers/prof
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
+///It displays a profile edit form for a user, with editable fields for name, email, and phone number.
+///When the submit button is pressed, it updates the user data by calling the updateRecord method of the GetX ProfileController.
 class ProfileFormScreen extends StatelessWidget {
   const ProfileFormScreen(
       {super.key,

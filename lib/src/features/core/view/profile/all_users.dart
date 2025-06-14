@@ -6,6 +6,7 @@ import '../../../../constants/sizes.dart';
 import '../../../authentication/models/user_model.dart';
 import '../../controllers/profile_controller.dart';
 
+///It shows a screen with a list of all users. It uses a GetX controller called ProfileController to fetch the user data. When the data is loaded, it displays a vertical list with each user.
 class AllUsers extends StatelessWidget {
   AllUsers({super.key});
 

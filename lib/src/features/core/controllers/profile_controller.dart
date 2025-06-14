@@ -5,10 +5,11 @@ import '../../../constants/text_strings.dart';
 import '../../../utils/helper/helper_controller.dart';
 import '../../authentication/models/user_model.dart';
 
+///It’s a GetX controller that manages user data and profile operations.
 class ProfileController extends GetxController {
   static ProfileController get instance => Get.find();
 
-  /// Repositories
+  //Repositories
   /* final _authRepo = Get.put(AuthenticationRepository());
   final _userRepo = Get.put(UserRepository()); */
   final _authRepo = AuthenticationRepository.instance;

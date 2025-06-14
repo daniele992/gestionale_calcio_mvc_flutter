@@ -8,6 +8,7 @@ import '../../../../constants/text_strings.dart';
 import '../../../authentication/models/user_model.dart';
 import '../../controllers/profile_controller.dart';
 
+///The screen is responsible for loading the user’s data, displaying it in an editable form, and allowing the user to update their profile information.
 class UpdateProfileScreen extends StatelessWidget {
   UpdateProfileScreen({super.key});
 
