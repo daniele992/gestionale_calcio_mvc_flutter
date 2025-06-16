@@ -18,6 +18,19 @@ class Helper extends GetxController {
     return null;
   }
 
+  static String? validateHeightOrWeight(value) {
+    final Filter _filter = Filter();
+    if(value == null || value.isEmpty) return tHeightEmpty;
+    if (RegExp(r'[!@#\$%^&*(),?":{}|<>]').hasMatch(value)) {
+      return 'Caratteri speciali non consentiti';
+    }
+    // Filters offensive words.
+    if (_filter.isProfane(value)) {
+      return 'Il testo contiene parole inappropriate';
+    }
+    return null; // all ok
+  }
+
   ///Checks that the name is not empty. Verifies it contains only letters (a-z, A-Z). Uses the bad_words library to filter offensive words and returns an error if any are found.
   static String? validateNameAndSurname(value){
     final Filter _filter = Filter();

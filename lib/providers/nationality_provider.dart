@@ -5,15 +5,15 @@ import 'package:gestionale_calcio_mvc_flutter/src/features/players/models/nation
 
 //Step-by-step explanation
 //nationalityProvider: Provides a list of Nationality objects loaded from a local JSON
-//rootBundle.loadString('assets/nationalities/nationalities.json'): Reads the JSON file as a string from the assets package.
+//rootBundle.loadString('assets/json/json.json'): Reads the JSON file as a string from the assets package.
 //jsonDecode: Decodes the JSON string into a list of generic objects.
 //list.map((e) => Nationality.fromJson(e)).toList(): Transforms each JSON element into an instance of the Nationality class using the fromJson method.
 //StateProvider: Keeps track of the selected nationality.
 
 
-///Loads the list of nationalities from a JSON asynchronously.
+///Loads the list of json from a JSON asynchronously.
 final nationalityProvider = FutureProvider<List<Nationality>> ((ref) async {
-  final jsonStr = await rootBundle.loadString('assets/nationalities/nationalities.json');
+  final jsonStr = await rootBundle.loadString('assets/json/json.json');
   final List list = jsonDecode(jsonStr);
   return list.map((e) => Nationality.fromJson(e)).toList();
 });

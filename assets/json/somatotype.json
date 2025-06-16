@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Ectomorfo",
+    "description": "Nervous Mass Index",
+    "abbreviation": "EC"
+  },
+  {
+    "id": 2,
+    "name": "Mesomorfo",
+    "description": "Muscle Mass Index",
+    "abbreviation": "ME"
+  },
+  {
+    "id": 3,
+    "name": "Endomorfo",
+    "description": "Fat Mass Index",
+    "abbreviation": "EN"
+  },
+  {
+    "id": 4,
+    "name": "Ecto-mesomorfo",
+    "description": "The prefix indicates a predominance of nervous mass",
+    "abbreviation": "EC-ME"
+  },
+  {
+    "id": 5,
+    "name": "Meso-ectomorfo",
+    "description": "The prefix indicates a predominance of muscle mass",
+    "abbreviation": "ME-EC"
+  },
+  {
+    "id": 6,
+    "name": "Meso-endomorfo",
+    "description": "The prefix indicates a predominance of muscle mass",
+    "abbreviation": "ME-EN"
+  },
+  {
+    "id": 7,
+    "name": "Endo-mesomorfo",
+    "description": "The prefix indicates a predominance of fat mass",
+    "abbreviation": "EN-ME"
+  }
+]

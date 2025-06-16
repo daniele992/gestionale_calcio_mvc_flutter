@@ -8,10 +8,21 @@ import '../models/player_model.dart';
 class InsertPlayersController extends GetxController {
   static InsertPlayersController get instance => Get.find();
 
+  // --- PERSONAL DATE INSERT PLAYERS --- //
   final name = TextEditingController();
   final surname = TextEditingController();
   final dateOfBirthday = TextEditingController();
   final team = TextEditingController();
+  final continent = TextEditingController();
+
+  // --- PHYSICAL DATE INSERT PLAYERS --- //
+  final height = TextEditingController();
+  final weight = TextEditingController();
+  final somatotype = TextEditingController();
+  final biotype =  TextEditingController();
+  final preferredFoot = RxnString();
+
+
   final isLoading = false.obs;
   GlobalKey<FormState> playersFormKey = GlobalKey<FormState>();
 

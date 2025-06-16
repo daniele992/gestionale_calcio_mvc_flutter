@@ -1,6 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gestionale_calcio_mvc_flutter/main.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import '../../../../constants/text_strings.dart';
+import '../../../../utils/helper/helper_controller.dart';
+import '../../controller/insertPlayers_controller.dart';
 
 class FormPhysicalDateWidget extends ConsumerStatefulWidget {
   const FormPhysicalDateWidget({super.key});
@@ -12,10 +19,13 @@ class FormPhysicalDateWidget extends ConsumerStatefulWidget {
 
 class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
 
-  final TextEditingController _dateController = TextEditingController();
+  final List<String> preferredFoot = ['Right', 'Left', 'Ambidextrous'];
+
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(InsertPlayersController());
+
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -32,41 +42,112 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+
+                //TextFormField for Height
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Nome'),
+                  validator: Helper.validateHeightOrWeight,
+                  controller: controller.height,
+                  decoration: const InputDecoration(
+                      labelText: tHeight,
+                      prefixIcon: Icon(Icons.straighten),
+                      hintText: tHintHeight),
                 ),
+
                 SizedBox(height: 12),
+
+                //TextFormField for Weight
                 TextFormField(
-                  decoration: InputDecoration(labelText: 'Cognome'),
+                  validator: Helper.validateHeightOrWeight,
+                  controller: controller.weight,
+                  decoration: const InputDecoration(
+                    labelText: tWeight,
+                    prefixIcon: Icon(LineAwesomeIcons.weight_solid),
+                    hintText: tHintWeight,
+                  ),
                 ),
+
                 SizedBox(height: 12),
-                TextFormField(
-                  decoration: InputDecoration(labelText: 'Data di nascita'),
+
+                //DropDown for Somatotype
+                Obx(
+                      () => DropdownButtonFormField<String>(
+                    items: preferredFoot.map((foot){
+                      return DropdownMenuItem(
+                        value: foot,
+                        child: Text(foot),
+                      );
+                    }).toList(),
+                    onChanged: controller.preferredFoot,
+                    value: controller.preferredFoot.value,
+                    validator: (value){
+                      if(value == null || value.isEmpty){
+                        return 'Seleziona un\'opzione valida';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      labelText: 'Seleziona un\'opzione',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
                 ),
+
                 SizedBox(height: 12),
-                TextFormField(
-                  decoration: InputDecoration(labelText: 'Squadra appartenenza'),
+
+                //TextFormField for BioType
+                Obx(
+                      () => DropdownButtonFormField<String>(
+                    items: preferredFoot.map((foot){
+                      return DropdownMenuItem(
+                        value: foot,
+                        child: Text(foot),
+                      );
+                    }).toList(),
+                    onChanged: controller.preferredFoot,
+                    value: controller.preferredFoot.value,
+                    validator: (value){
+                      if(value == null || value.isEmpty){
+                        return 'Seleziona un\'opzione valida';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                      labelText: 'Seleziona un\'opzione',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
                 ),
+
                 SizedBox(height: 12),
-                TextFormField(
-                  decoration: InputDecoration(labelText: 'Nazionalità'),
+
+                //TextFormField for  Preferred Foot
+                Obx(
+                    () => DropdownButtonFormField<String>(
+                      items: preferredFoot.map((foot){
+                        return DropdownMenuItem(
+                          value: foot,
+                          child: Text(foot),
+                        );
+                      }).toList(),
+                      onChanged: controller.preferredFoot,
+                      value: controller.preferredFoot.value,
+                      validator: (value){
+                        if(value == null || value.isEmpty){
+                          return 'Seleziona un\'opzione valida';
+                        }
+                        return null;
+                      },
+                      decoration: InputDecoration(
+                        labelText: 'Seleziona un\'opzione',
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
                 ),
+
               ],
             ),
           ),
         ),
-       /* Positioned(
-          left: 16,
-          top: -12,
-          child: Container(
-            color: Colors.white,
-            padding: EdgeInsets.symmetric(horizontal: 8),
-            child: Text(
-              'Dati Fisici',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ),
-        ), */
       ],
     );
   }

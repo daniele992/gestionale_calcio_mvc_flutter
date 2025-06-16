@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Brevitipo o Brevilineo",
+    "description": "Legs shorter than the torso",
+    "abbreviation": "B"
+  },
+  {
+    "id": 2,
+    "name": "Normotipo o Normolineo",
+    "description": "Harmonious trunk, arms, and legs",
+    "abbreviation": "N"
+  },
+  {
+    "id": 3,
+    "name": "Longitipo o Longilineo",
+    "description": "Arms and legs longer than the torso",
+    "abbreviation": "L"
+  },
+  {
+    "id": 4,
+    "name": "Brevitipo tendende al normotipo",
+    "description": "",
+    "abbreviation": "BN"
+  },
+  {
+    "id": 5,
+    "name": "Normotipo tendente al brevitipo",
+    "description": "",
+    "abbreviation": "NB"
+  },
+  {
+    "id": 6,
+    "name": "Normotipo tendente al longitipo",
+    "description": "",
+    "abbreviation": "NL"
+  },
+  {
+    "id": 7,
+    "name": "Longitipo tendente al normotipo",
+    "description": "",
+    "abbreviation": "LN"
+  }
+]

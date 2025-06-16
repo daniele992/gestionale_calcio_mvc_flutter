@@ -71,6 +71,7 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+
                 ///TextFormField for Name
                 TextFormField(
                   validator: Helper.validateNameAndSurname,
