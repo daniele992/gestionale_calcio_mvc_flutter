@@ -18,8 +18,7 @@ class OnBoardingController extends GetxController {
   //Functions to trigger Skip, Next and onPageChange Events
   skip() => controller.jumpToPage(page: 2);
 
-  animateToNextSlide() =>
-      controller.animateToPage(page: controller.currentPage + 1);
+  animateToNextSlide() => controller.animateToPage(page: controller.currentPage + 1);
 
   animateToNextSlideWithLocalStorage() {
     if (controller.currentPage == 2) {
@@ -36,6 +35,8 @@ class OnBoardingController extends GetxController {
 
   //Three Onboarding Pages
   final pages = [
+
+    //First OnBoardingPage
     OnBoardingPageWidget(
       model: OnBoardingModel(
         image: tOnBoardingImage1,
@@ -45,6 +46,8 @@ class OnBoardingController extends GetxController {
         bgColor: tOnBoardingPage1Color,
       ),
     ),
+
+    //Second OnBoardingPage
     OnBoardingPageWidget(
       model: OnBoardingModel(
         image: tOnBoardingImage2,
@@ -54,6 +57,8 @@ class OnBoardingController extends GetxController {
         bgColor: tOnBoardingPage2Color,
       ),
     ),
+
+    //Thirst OnBoardingPage
     OnBoardingPageWidget(
       model: OnBoardingModel(
         image: tOnBoardingImage3,

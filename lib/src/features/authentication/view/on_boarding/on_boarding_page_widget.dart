@@ -26,8 +26,8 @@ class OnBoardingPageWidget extends StatelessWidget {
           Column(
             children: [
               Text(
-                model.title,
-                style: Theme.of(context).textTheme.displaySmall,
+                model.title.toUpperCase(),
+                style: Theme.of(context).textTheme.displaySmall?.copyWith(fontWeight: FontWeight.bold),
               ),
               Text(model.subTitle, textAlign: TextAlign.center),
             ],

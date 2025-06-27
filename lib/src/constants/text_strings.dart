@@ -40,23 +40,19 @@ const String tAppName = "/appable:";
 const String tAppTagLine = "Learn To Code. \nFree For Everyone";
 
 /* --- On Boarding Text --- */
-const String tOnBoardingTitle1 = "Build Awesome Apps";
-const String tOnBoardingTitle2 = "Learn from YouTube";
-const String tOnBoardingTitle3 = "Get Code e Resources";
-const String tOnBoardingSubTitle1 =
-    "Let's start your journey with us on this amazing and easy";
-const String tOnBoardingSubTitle2 =
-    "Get Video Tutorials of each topic to learn things easily";
-const String tOnBoardingSubTitle3 =
-    "Save time by just copy pasting complete apps learn from video";
+const String tOnBoardingTitle1 = "L'app per osservatori che mette ordine";
+const String tOnBoardingTitle2 = "Calciatori";
+const String tOnBoardingTitle3 = "Partite";
+const String tOnBoardingSubTitle1 = "Tutti i tuoi appunti, organizzati in un unico posto.";
+const String tOnBoardingSubTitle2 = "Inserisci e visualizza i giocatori che reputi da seguire";
+const String tOnBoardingSubTitle3 = "Inserisci e visualizza le partite che hai visionato";
 const String tOnBoardingCounter1 = "1/3";
 const String tOnBoardingCounter2 = "2/3";
 const String tOnBoardingCounter3 = "3/3";
 
 /* --- Welcome Screen Text --- */
-const String tWelcomeTitle = "Build Awesome Apps";
-const String tWelcomeSubTitle =
-    "Let's put your creativity on the development highway.";
+const String tWelcomeTitle = "Ordina i tuoi pensieri, organizza i tuoi appunti";
+const String tWelcomeSubTitle = "Valorizziamo il tuo occhio attento per i dettagli. Potenzia il tuo talento nell’osservare ciò che conta.";
 
 /* --- Login Screen Text --- */
 const String tLoginTitle = "Welcome Back,";
@@ -69,6 +65,7 @@ const String tOR = "OR";
 const String tConnectWith = "Connect With";
 const String tFacebook = "Facebook";
 const String tGoogle = "Google";
+
 //const String tPrivacy = "I accept Privacy Policy and ackknowledge that my data will be collected and processed in compliance with it";
 const String tPrivacy = "I accept Privacy Policy";
 const String tConditions = "I accept the terms and conditions";

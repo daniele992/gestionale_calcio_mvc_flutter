@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:gestionale_calcio_mvc_flutter/main.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -141,6 +139,7 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
                         labelText: 'Seleziona un\'opzione',
                         border: OutlineInputBorder(),
                       ),
+
                     ),
                 ),
 
