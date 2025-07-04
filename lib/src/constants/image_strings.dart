@@ -10,7 +10,7 @@ const String tOnBoardingImage2 = "assets/images/on_boarding_images/AllacciaScarp
 const String tOnBoardingImage3 = "assets/images/on_boarding_images/CampoDaCalcio.png";
 
 /* --- Welcome Screen Images [Used in Login e SignUp]--- */
-const String tWelcomeScreenImage = "assets/images/welcome_images/welcome.png";
+const String tWelcomeScreenImage = "assets/images/welcome_images/welcome_no_bg.png";
 const String tLogoImage = "assets/images/welcome_images/logo.png";
 
 // -- SOCIAL Images

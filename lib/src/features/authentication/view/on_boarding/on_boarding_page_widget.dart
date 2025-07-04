@@ -25,11 +25,14 @@ class OnBoardingPageWidget extends StatelessWidget {
           Image(image: AssetImage(model.image), height: size.height * 0.45),
           Column(
             children: [
-              Text(
-                model.title.toUpperCase(),
-                style: Theme.of(context).textTheme.displaySmall?.copyWith(fontWeight: FontWeight.bold),
-              ),
+                  Text(
+                    model.title.toUpperCase(),
+                    style: Theme.of(context).textTheme.displaySmall?.copyWith(fontWeight: FontWeight.bold),
+                  ),
+
+              const SizedBox(height: tDefaultSpace), // ⬅️ Vertical space between title and subtitle
               Text(model.subTitle, textAlign: TextAlign.center),
+
             ],
           ),
           Text(
