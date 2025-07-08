@@ -20,7 +20,10 @@ class InsertPlayersController extends GetxController {
   final weight = TextEditingController();
   final somatotype = TextEditingController();
   final biotype =  TextEditingController();
-  final preferredFoot = RxnString();
+  final preferredFoot = TextEditingController();
+
+  // --- RATE DATE INSERT PLAYERS ---//
+  final dateObservation = TextEditingController();
 
 
   final isLoading = false.obs;

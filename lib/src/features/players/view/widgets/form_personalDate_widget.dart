@@ -10,49 +10,43 @@ import '../../../../common_widgets/dropDown/ DropdownNationsGrouped.dart';
 import '../../../../constants/text_strings.dart';
 import '../../../../utils/helper/helper_controller.dart';
 import '../../controller/insertPlayers_controller.dart';
-import '../../models/nationality_model.dart';
 
 // Provider per gestire la nazionalità selezionata
-final nationalityProvider = StateProvider<Nationality?>((ref) => null);
+//final nationalityProvider = StateProvider<Nationality?>((ref) => null);
 final TextEditingController continentController = TextEditingController();
 
 class FormPersonalDateWidget extends ConsumerStatefulWidget {
   const FormPersonalDateWidget({super.key});
 
   @override
-  ConsumerState<FormPersonalDateWidget> createState() =>
-      _FormPersonalDateWidget();
+  ConsumerState<FormPersonalDateWidget> createState() => _FormPersonalDateWidget();
 }
 
-
 class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
-  bool _isListenerInitialized = false;
-
+  late final TextEditingController continentController;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    //Inizializzazione di base, ref non può essere usato qui perchè qui non è ancora completamente inizializzato
+    continentController = TextEditingController();
   }
 
+  @override
+  void dispose() {
+    continentController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-
     final controller = Get.put(InsertPlayersController());
     final nation = ref.watch(nationSelectedProvider);
 
-    // ✅ Esegui il listener una sola volta
-    if (!_isListenerInitialized) {
-      _isListenerInitialized = true;
-
-      // Ascolta i cambiamenti della nazione selezionata
-      ref.listen<Nationality?>(nationSelectedProvider, (previous, next) {
-        continentController.text = next?.continent ?? '';
-      });
-
-      // Imposta il valore iniziale
-      continentController.text = nation?.continent ?? '';
+    // ✅ Aggiorna il controller nel build
+    if (nation != null && continentController.text != nation.continent) {
+      continentController.text = nation.continent;
+    } else if (nation == null && continentController.text.isNotEmpty) {
+      continentController.clear();
     }
 
     return Stack(
@@ -65,16 +59,16 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
             side: BorderSide(color: Colors.black),
           ),
           child: Container(
-            width: MediaQuery.of(context).size.width * 0.75, // 60% height
-            height: MediaQuery.of(context).size.height * 0.65, // 60% height
+            width: MediaQuery.of(context).size.width * 0.75,
+            height: MediaQuery.of(context).size.height * 0.65,
             padding: EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
 
-                ///TextFormField for Name
+                //TextFormField for name player
                 TextFormField(
-                  validator: Helper.validateNameAndSurname,
+                  validator: Helper.validateNameSurnameFoot,
                   controller: controller.name,
                   decoration: const InputDecoration(
                       labelText: tName,
@@ -84,52 +78,47 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
 
                 SizedBox(height: 12),
 
-                ///TextFormField for Surname
+                //TextFormField for surname player
                 TextFormField(
-                  validator: Helper.validateNameAndSurname,
+                  validator: Helper.validateNameSurnameFoot,
                   controller: controller.surname,
                   decoration: const InputDecoration(
                       labelText: tSurname,
                       prefixIcon: Icon(LineAwesomeIcons.user),
-                      hintText: tEmail
-                  ),
+                      hintText: tEmail),
                 ),
 
                 SizedBox(height: 12),
 
-                ///TextFormField for date of birthday
-                DatePickerTextField(
-                  controller: controller.dateOfBirthday,
-                ),
+                //DataPicker for date of birthday
+                DatePickerTextField(controller: controller.dateOfBirthday),
 
                 SizedBox(height: 12),
 
-                ///TextFormField for Team
+                //TextFormField for team player
                 TextFormField(
                   validator: Helper.validateEmail,
                   controller: controller.team,
                   decoration: const InputDecoration(
                       labelText: tTeam,
                       prefixIcon: Icon(LineAwesomeIcons.user),
-                      hintText: tEmail
-                  ),
+                      hintText: tTeam),
                 ),
 
                 SizedBox(height: 12),
 
-                ///Dropdown for Nationality
+                //Dropdown for select nation player
                 DropdownNationsWithFlags(),
 
                 SizedBox(height: 12),
 
-                ///TextFormField for Continent
+                //TextFormField for continent
                 TextFormField(
                   enabled: false,
                   controller: continentController,
                   decoration: const InputDecoration(
-                      labelText: tContinent,
-                      prefixIcon: Icon(LineAwesomeIcons.globe_solid),
-                      hintText: tEmail
+                    labelText: tContinent,
+                    prefixIcon: Icon(LineAwesomeIcons.globe_solid),
                   ),
                 ),
               ],
@@ -140,5 +129,4 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
     );
   }
 }
-
 

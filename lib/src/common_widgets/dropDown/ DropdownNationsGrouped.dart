@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../providers/nationality_provider.dart';
@@ -9,8 +10,7 @@ class DropdownNationsWithFlags extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncNation = ref.watch(nationalityProvider);
-    final nationSelectedProvider = StateProvider<Nationality?>((ref) => null);
-    final nationSelected = ref.watch(nationSelectedProvider);
+    final nationSelected = ref.watch(nationSelectedProvider); // ✅ Usa quello globale
 
     return asyncNation.when(
       loading: () => CircularProgressIndicator(),
@@ -61,16 +61,17 @@ class DropdownNationsWithFlags extends ConsumerWidget {
           decoration: InputDecoration(
             labelText: 'Nation',
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12)
+                borderRadius: BorderRadius.circular(12)
             ),
             contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
           ),
           value: nationSelected,
           onChanged: (val) {
-            ref.read(nationSelectedProvider.notifier).state = val;
+            ref.read(nationSelectedProvider.notifier).state = val; // ✅ aggiorna quello globale
           },
           items: items,
         );
       },
     );
-  }}
+  }
+}

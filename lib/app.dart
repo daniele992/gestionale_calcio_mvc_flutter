@@ -15,29 +15,6 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      /*
-      supportedLocales: const [
-        Locale('en'),
-        Locale('it'),
-      ],
-      localizationsDelegates: const [
-      AppLocalizations.delegate,
-      GlobalMaterialLocalizations.delegate,
-      GlobalWidgetsLocalizations.delegate,
-      GlobalCupertinoLocalizations.delegate
-      ],
-
-      localeResolutionCallback: (deviceLocale, supportedLocales) {
-        for (var locale in supportedLocales) {
-          if (deviceLocale != null &&
-              deviceLocale.languageCode == locale.languageCode) {
-            return deviceLocale;
-          }
-        }
-
-        return supportedLocales.first;
-      },
-      */
 
       /// -- README(Docs[3]) -- Bindings
       initialBinding: InitialBinding(),

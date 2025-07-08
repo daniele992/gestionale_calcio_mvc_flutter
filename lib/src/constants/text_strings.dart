@@ -16,10 +16,7 @@ const String tFullName = "Full Name";
 const String tGetStarted = "Get Started";
 const String tForgetPassword = "Forget Password?";
 const String tSignInWithGoogle = "Sign-In with Google";
-const String tHeight = "Height";
-const String tWeight = "Weight";
-const String tSomatotype = "Somatotype";
-const String tBiotype = "Biotype";
+
 
 // -- Validation
 const String tEmailCannotEmpty = "Email cannot be empty";
@@ -147,9 +144,24 @@ const String tSurname = "Surname";
 const String tName = "Name";
 const String tDateOfBirthday = "Date of Birthday";
 const String tContinent = "Continent";
+const String tHeight = "Altezza";
+const String tWeight = "Peso";
+const String tFavoriteFoot = "Piede naturale";
+const String tSomatotype = "Somatotipo";
+const String tBiotype = "Biotipo";
+const String tTechnique = "Tecnica";
+const String tIntelligence = "Intelligenza";
+const String tPersonality = "Personalità";
+const String tSpeed = "Velocità";
+const String tStructure = "Struttura";
+const String tTotalTipss = "Totale Tipss";
+
 
 /* -- Hint Text -- */
 const String tHintHeight = "Please enter the height";
 const String tHintWeight = "Please enter the weight";
+const String tHintRating= "Inserisci un valore";
+const String tHintFavoriteFoot = "Please enter the favorite foot";
+const String tHintContinent = "Nessun continente selezionato";
 const String tHintSomatotype = "";
 const String tHintBiotype = "";

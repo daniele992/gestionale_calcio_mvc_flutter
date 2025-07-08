@@ -13,7 +13,7 @@ import 'package:gestionale_calcio_mvc_flutter/src/features/players/models/nation
 
 ///Loads the list of json from a JSON asynchronously.
 final nationalityProvider = FutureProvider<List<Nationality>> ((ref) async {
-  final jsonStr = await rootBundle.loadString('assets/json/json.json');
+  final jsonStr = await rootBundle.loadString('assets/json/nationalities.json');
   final List list = jsonDecode(jsonStr);
   return list.map((e) => Nationality.fromJson(e)).toList();
 });

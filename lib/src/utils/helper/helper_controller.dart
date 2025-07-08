@@ -32,7 +32,7 @@ class Helper extends GetxController {
   }
 
   ///Checks that the name is not empty. Verifies it contains only letters (a-z, A-Z). Uses the bad_words library to filter offensive words and returns an error if any are found.
-  static String? validateNameAndSurname(value){
+  static String? validateNameSurnameFoot(value){
     final Filter _filter = Filter();
     if(value == null || value.isEmpty) return tNamePlayerCannotEmpty;
     final lettersOnlyRegex = RegExp(r'^[a-zA-Z]+$');
@@ -47,6 +47,8 @@ class Helper extends GetxController {
     return null; //Validation passed.
 
   }
+
+
 
   ///Checks that the password is not empty and matches a pattern: at least 8 characters long, with at least one uppercase letter, one lowercase letter, one number, and one special symbol.
   static String? validatePassword(value) {
