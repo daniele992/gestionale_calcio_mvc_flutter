@@ -2,7 +2,7 @@
 
 /* --- Global Texts --- */
 const String tNo = "No";
-const String tYes = "Yes";
+const String tYes = "Si";
 const String tNext = "Next";
 const String tLogin = "Login";
 const String tEmail = "E-Mail";
@@ -117,8 +117,8 @@ const String emailSupport = "moranidaniele129@yahoo.it";
 //const String tBookmarkIcon = "";
 
 /* -- Profile Screen - Text -- */
-const String tProfile = "Profile";
-const String tEditProfile = "Edit Profile";
+const String tProfile = "Profilo";
+const String tEditProfile = "Modifica profilo";
 const String tLogoutDialogHeading = "Logout";
 const String tProfileHeading = "Coding with T";
 const String tProfileSubHeading = "superAdmin@codingwitht.com";
@@ -139,11 +139,11 @@ const String tJoinedAt = "31 october 2022";
 const String tNamePlayerCannotEmpty = "Name Player cannot be empty";
 const String tInvalidNameFormat = "Invalid format";
 const String tNameTeamCannotEmpty = "Name Team cannot be empty";
-const String tTeam = "Team";
-const String tSurname = "Surname";
-const String tName = "Name";
-const String tDateOfBirthday = "Date of Birthday";
-const String tContinent = "Continent";
+const String tTeam = "Squadra";
+const String tSurname = "Cognome";
+const String tName = "Nome";
+const String tDateOfBirthday = "Data di nascita";
+const String tContinent = "Continente";
 const String tHeight = "Altezza";
 const String tWeight = "Peso";
 const String tFavoriteFoot = "Piede naturale";
@@ -155,13 +155,18 @@ const String tPersonality = "Personalità";
 const String tSpeed = "Velocità";
 const String tStructure = "Struttura";
 const String tTotalTipss = "Totale Tipss";
+const List<String> tListTechnique = ["Passaggio", "Conduzione", "Tiro", "Cross / Traversone", "1 vs 1", "Gioco di testa", "Ricezione"];
+const List<String> tListIntelligence =  ["Decision Making", "Abilità di combinare", "Visione", "Smarcamento", "Pressione", "Marcamento", "Transizioni", "Lettura del gioco", "Velocità di pensiero"];
+const List<String> tListPersonality = ["Presenza e Carisma", "Gioco sotto pressione", "Motivazione", "Concentrazione", "Creatività", "Leadership", "Mentalità vincente"];
+const List<String> tListSpeed = ["Velocità", "Mobilità", "Intensità"];
+const List<String> tListStructure = ["Fisicità", "Forza"];
 
 
 /* -- Hint Text -- */
-const String tHintHeight = "Please enter the height";
-const String tHintWeight = "Please enter the weight";
+const String tHintHeight = "Per favore inserisci l'altezza";
+const String tHintWeight = "Per favore inserisci il peso";
 const String tHintRating= "Inserisci un valore";
-const String tHintFavoriteFoot = "Please enter the favorite foot";
+const String tHintFavoriteFoot = "Per favore inserisci il piede preferito";
 const String tHintContinent = "Nessun continente selezionato";
 const String tHintSomatotype = "";
 const String tHintBiotype = "";

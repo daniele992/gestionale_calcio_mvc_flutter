@@ -24,6 +24,7 @@ class InsertPlayersController extends GetxController {
 
   // --- RATE DATE INSERT PLAYERS ---//
   final dateObservation = TextEditingController();
+  final comment = TextEditingController();
 
 
   final isLoading = false.obs;
