@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../providers/somatotype_provider.dart';
+import '../../../providers/physicalDate_provider.dart';
 import '../../constants/text_strings.dart';
 import '../../features/players/models/somatotype_model.dart';
 

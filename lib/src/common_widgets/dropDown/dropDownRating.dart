@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../constants/text_strings.dart';
 
@@ -37,10 +38,21 @@ class DropdownRating extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
-                  title: Text('Informazioni'),
+                  title: Align(
+                    alignment: Alignment.center,
+                    child: Text('INFORMAZIONI'),
+                  ),
                   content: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text('Dettagli sull’intelligenza'),
+                      ...textDialog.map((item) => Text(
+                            item,
+                            style: GoogleFonts.montserrat(
+                              fontSize: 8,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                          )),
                     ],
                   ),
                   actions: [
@@ -52,8 +64,7 @@ class DropdownRating extends StatelessWidget {
                 ),
               );
             },
-          )
-      ),
+          )),
       items: values.map((value) {
         return DropdownMenuItem<double>(
             value: value, child: Text(value.toStringAsFixed(1)));

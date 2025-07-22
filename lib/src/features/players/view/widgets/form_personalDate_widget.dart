@@ -5,8 +5,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../../../../providers/nationality_provider.dart';
+import '../../../../../providers/personalDate_provider.dart';
 import '../../../../common_widgets/datePicker/DatePickerTextField_DateBirthday.dart';
-import '../../../../common_widgets/dropDown/ DropdownNationsGrouped.dart';
+import '../../../../common_widgets/dropDown/dropdownNationsGrouped.dart';
 import '../../../../constants/text_strings.dart';
 import '../../../../utils/helper/helper_controller.dart';
 import '../../controller/insertPlayers_controller.dart';
@@ -42,6 +43,7 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
     final controller = Get.put(InsertPlayersController());
     final nation = ref.watch(nationSelectedProvider);
 
+
     // ✅ Aggiorna il controller nel build
     if (nation != null && continentController.text != nation.continent) {
       continentController.text = nation.continent;
@@ -69,7 +71,8 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 //TextFormField for name player
                 TextFormField(
                   validator: Helper.validateNameSurnameFoot,
-                  controller: controller.name,
+                  initialValue: ref.watch(namePlayerProvider),
+                  onChanged: (value) => ref.read(namePlayerProvider.notifier).state = value,
                   decoration: const InputDecoration(
                       labelText: tName,
                       prefixIcon: Icon(LineAwesomeIcons.user),
@@ -81,7 +84,8 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 //TextFormField for surname player
                 TextFormField(
                   validator: Helper.validateNameSurnameFoot,
-                  controller: controller.surname,
+                  initialValue: ref.watch(surnamePlayerProvider),
+                  onChanged: (value) => ref.read(surnamePlayerProvider.notifier).state = value,
                   decoration: const InputDecoration(
                       labelText: tSurname,
                       prefixIcon: Icon(LineAwesomeIcons.user),
@@ -91,14 +95,15 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 SizedBox(height: 12),
 
                 //DataPicker for date of birthday
-                DatePickerTextField(controller: controller.dateOfBirthday),
+                DatePickerTextField(dateProvider: dateOfBirthdayProvider),
 
                 SizedBox(height: 12),
 
                 //TextFormField for team player
                 TextFormField(
                   validator: Helper.validateEmail,
-                  controller: controller.team,
+                  initialValue: ref.watch(teamPlayProvider),
+                  onChanged: (value) => ref.read(teamPlayProvider.notifier).state = value,
                   decoration: const InputDecoration(
                       labelText: tTeam,
                       prefixIcon: Icon(LineAwesomeIcons.user),

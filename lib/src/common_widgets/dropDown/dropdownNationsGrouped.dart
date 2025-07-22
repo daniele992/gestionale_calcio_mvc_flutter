@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../providers/nationality_provider.dart';
+import '../../constants/text_strings.dart';
 import '../../features/players/models/nationality_model.dart';
 
 class DropdownNationsWithFlags extends ConsumerWidget {
@@ -57,9 +58,9 @@ class DropdownNationsWithFlags extends ConsumerWidget {
 
         return DropdownButtonFormField<Nationality>(
           isExpanded: true,
-          hint: Text("Select a country"),
+          hint: Text(tSelectCountry),
           decoration: InputDecoration(
-            labelText: 'Nation',
+            labelText: tNation,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12)
             ),

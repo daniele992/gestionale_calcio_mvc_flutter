@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:gestionale_calcio_mvc_flutter/main.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_ratingDate_widget.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -7,6 +8,9 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_personalDate_widget.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/features/players/view/widgets/form_physicalDate_widget.dart';
 import '../../../../providers/page_controller_provider.dart';
+import '../../../../providers/personalDate_provider.dart';
+import '../../../../providers/physicalDate_provider.dart';
+import '../../../../providers/ratingDate_provider.dart';
 import '../controller/insertPlayers_controller.dart';
 
 class InsertPlayers extends ConsumerWidget {
@@ -67,12 +71,26 @@ class InsertPlayers extends ConsumerWidget {
                   if (currentPage == 2)
                     ElevatedButton(
                       onPressed: () {
-                        /*if (formKey.currentState!.validate()) {
-                          formKey.currentState!.save();
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text('Dati salvati')),
-                          );
-                        } */
+                        print(
+                          Text("Nome: ${ref.watch(namePlayerProvider)}"
+                              "Nascita: ${ref.watch(dateOfBirthdayProvider)}"
+                              "Team: ${ref.watch(teamPlayProvider)}"
+                              "peso: ${ref.watch(weightPlayerProvider)}"
+                              "Somatotipo: ${ref.watch(somatotypeSelectedProvider)?.name}"
+                              "Biotipo: ${ref.watch(biotypeSelectedProvider)?.name}"
+                              "Structure: ${ref.watch(buildSelectedProvider)?.name}"
+                              "Piede: ${ref.watch(preferredFootProvider)}"
+                              "data oss.: ${ref.watch(dateObservationProvider)}"
+                              "tecnica: ${ref.watch(ratingTechniqueProvider)}"
+                              "intelligenza: ${ref.watch(ratingIntelligenceProvider)}"
+                              "personalità: ${ref.watch(ratingPersonalityProvider)}"
+                              "velocita: ${ref.watch(ratingSpeedProvider)}"
+                              "struttura: ${ref.watch(buildSelectedProvider)}"
+                              "tipss: ${ref.watch(totalRating)}"
+                              "altezza: ${ref.watch(heightPlayerProvider)}"
+                              "cognome: ${ref.watch(surnamePlayerProvider)}"
+                          )
+                        );
                       },
                       child: const Text('Salva'),
                     ),

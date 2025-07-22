@@ -1,62 +1,53 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
-final selectedDateProvider = StateProvider<DateTime?>((ref) => null);
-
-///This class creates a TextFormField that opens a date picker when clicked.
 class DatePickerTextField extends ConsumerWidget {
-  const DatePickerTextField(
-      {Key? key,
-        required this.controller
-      }) : super(key: key);
+  final StateProvider<DateTime?> dateProvider;
 
-  final TextEditingController controller;
+  const DatePickerTextField({
+    Key? key,
+    required this.dateProvider,
+  }) : super(key: key);
 
-  //WidgetRef it allows you to interact with providers inside a widget.
-  ///Function for creation datePicker
-  Future<void> _selectDate(BuildContext context, WidgetRef ref) async{
-    DateTime initialDate = DateTime.now();
-
-    if(controller.text.isNotEmpty){
-      try{
-        initialDate = DateTime.parse(controller.text);
-      } catch(_){}
-    }
+  Future<void> _selectDate(BuildContext context, WidgetRef ref) async {
+    final currentDate = ref.read(dateProvider) ?? DateTime.now();
 
     final DateTime? picked = await showDatePicker(
-      context:  context,
-      initialDate: initialDate,
+      context: context,
+      initialDate: currentDate,
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
 
-    if(picked != null){
-      final formatted = "${picked.day}/${picked.month}/${picked.year}";
-      controller.text = formatted;
-      
-      //Update the provider if you want other widgets to read this date.
-      ref.read(selectedDateProvider.notifier).state = picked;
+    if (picked != null) {
+      ref.read(dateProvider.notifier).state = picked;
     }
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref){
-    return TextFormField(
-      controller: controller,
-      readOnly: true, //Important to open only the date picker.
-      decoration: InputDecoration(
-        labelText: 'Data di nascita',
-        prefixIcon: Icon(Icons.cake),
-        hintText: 'Seleziona la data',
-      ),
+  Widget build(BuildContext context, WidgetRef ref) {
+    final selectedDate = ref.watch(dateProvider);
+
+    return GestureDetector(
       onTap: () => _selectDate(context, ref),
-      validator: (value){
-        if(value == null || value.isEmpty){
-          return 'per favore seleziona una data';
-        }
-        return null;
-      },
+      child: InputDecorator(
+        decoration: InputDecoration(
+          labelText: 'Data di nascita',
+          prefixIcon: Icon(Icons.cake),
+          border: OutlineInputBorder(),
+          contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 12.0),
+        ),
+        child: Text(
+          selectedDate != null
+              ? '${selectedDate.day}/${selectedDate.month}/${selectedDate.year}'
+              : 'Seleziona una data',
+          style: TextStyle(
+            color: selectedDate != null ? Colors.black : Colors.grey,
+            fontSize: 16,
+          ),
+        ),
+      ),
     );
   }
 }

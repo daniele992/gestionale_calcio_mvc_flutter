@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Esile",
+    "description": "Corporatura snella, arti lunghi e sottili, massa muscolare e grassa ridotta",
+    "advantage": "Agilità elevata, resistenza alla fatica, velocità e capacità di accellerazione",
+    "disadvantages": "Minor forza nei contrasti fisici e difficoltà nei duelli aerei o spalla a spalla",
+    "abbreviation": "ES"
+  },
+  {
+    "id": 2,
+    "name": "Media",
+    "description": "Fisico atletico e proporzionato, spalle larghe, vita stretta, muscolatura naturale ben sviluppata",
+    "advantage": "forza, velocità e resistenza ben bilanciate",
+    "disadvantages": "nessun svantaggio marcato, si deve tenere costanza negli allenamenti",
+    "abbreviation": "ME"
+  },
+  {
+    "id": 3,
+    "name": "Robusta",
+    "description": "Corpo massiccio, spalle larghe e torace ampio",
+    "advantage": "Forza fisica elevata, stabilità e potenza, resistenza nei contrasti",
+    "disadvantages": "Minor rapidità nei movimenti laterali, cambi di direzione e velocità di reazione",
+    "abbreviation": "RO"
+  }
+]

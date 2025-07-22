@@ -4,33 +4,34 @@
 const String tNo = "No";
 const String tYes = "Si";
 const String tNext = "Next";
-const String tLogin = "Login";
+const String tLogin = "Accedi";
 const String tEmail = "E-Mail";
-const String tSignup = "Signup";
-const String tLogout = "logout";
-const String tSuccess = "Success";
+const String tSignup = "Registrati";
+const String tLogout = "Disconnetti";
+const String tSuccess = "Successo";
 const String tPhoneNo = "Phone No";
-const String tContinue = "Continue";
+const String tContinue = "Continua";
 const String tPassword = "Password";
 const String tFullName = "Full Name";
-const String tGetStarted = "Get Started";
-const String tForgetPassword = "Forget Password?";
-const String tSignInWithGoogle = "Sign-In with Google";
+const String tGetStarted = "Iniziamo";
+const String tForgetPassword = "Hai dimenticato la password?";
+const String tSignInWithGoogle = "Accedi con Google";
+const String tError= "Errore:";
 
 
 // -- Validation
-const String tEmailCannotEmpty = "Email cannot be empty";
-const String tInvalidEmailFormat = "Invalid email format";
-const String tNoRecordFound = "No record found";
-const String tHeightEmpty = "Height cannot be empty";
+const String tEmailCannotEmpty = "L'email non può essere vuota";
+const String tInvalidEmailFormat = "Formato email invalido";
+const String tNoRecordFound = "Nessun record trovato";
+const String tHeightEmpty = "L'altezza non può essere vuota";
 
 // -- SnackBar --
-const String tAlert = "Alert";
-const String tOhSnap = "Oh Snap";
-const String tEmailSent = "Hurray!!! Email is on its way.";
-const String tCongratulations = "Congratulations";
-const String tEmailLinkToResetPassword = "Email Link To Reset Password";
-const String tAccountCreateVerifyEmail = "Account Create Verify Email";
+const String tAlert = "Allerta";
+const String tOhSnap = "Caspita";
+const String tEmailSent = "Evviva!!! L'email è in arrivo.";
+const String tCongratulations = "Congratulazioni";
+const String tEmailLinkToResetPassword = "Link inviato via email per reimpostare la password";
+const String tAccountCreateVerifyEmail = "Account creato. Verifica l'email.";
 
 // -- Splash Screen Text
 const String tAppName = "/appable:";
@@ -52,57 +53,50 @@ const String tWelcomeTitle = "Ordina i tuoi pensieri, organizza i tuoi appunti";
 const String tWelcomeSubTitle = "Valorizziamo il tuo occhio attento per i dettagli. Potenzia il tuo talento nell’osservare ciò che conta.";
 
 /* --- Login Screen Text --- */
-const String tLoginTitle = "Welcome Back,";
-const String tLoginSubTitle = "Make it work, make it right, make it fast.";
-const String tRememberMe = "Remember Me?";
-const String tDontHaveAnAccount = "Don't have an Account?";
+const String tLoginTitle = "Bentornato,";
+const String tLoginSubTitle = "Fallo funzionare, fallo bene, fallo in fretta.";
+const String tRememberMe = "Ricordami?";
+const String tDontHaveAnAccount = "Non hai un account?";
 const String tEnterYour = "Enter your";
-const String tResetPassword = "Reset Password";
-const String tOR = "OR";
-const String tConnectWith = "Connect With";
+const String tResetPassword = "Reimposta password";
+const String tOR = "Oppure";
+const String tConnectWith = "Connetti con";
 const String tFacebook = "Facebook";
 const String tGoogle = "Google";
 
 //const String tPrivacy = "I accept Privacy Policy and ackknowledge that my data will be collected and processed in compliance with it";
-const String tPrivacy = "I accept Privacy Policy";
-const String tConditions = "I accept the terms and conditions";
+const String tPrivacy = "Accetto l'informativa sulla privacy.";
+const String tConditions = "Accetto i termini e le condizioni.";
 
 /* --- Sign Up Screen Text --- */
-const String tSignUpTitle = "Get On Board";
-const String tSignUpSubTitle =
-    "Create your profile to start your Journey with us...";
-const String tAlreadyHaveAnAccount = "Already have an Account?";
-const String tNoticeErrorConditions =
-    "Please accept the conditions to continue";
-const String tNoticeErrorPrivacy =
-    "Please accept the privacy policy to continue";
+const String tSignUpTitle = "Unisciti a noi";
+const String tSignUpSubTitle = "Crea il tuo profilo per iniziare il tuo viaggio con noi...";
+const String tAlreadyHaveAnAccount = "Hai già un account?";
+const String tNoticeErrorConditions = "Per favore, accetta le condizioni per continuare.";
+const String tNoticeErrorPrivacy = "Per favore, accetta l'informativa sulla privacy per continuare.";
 
 /* --- Forget Password Text --- */
-const String tForgetPasswordTitle = "Make Selection";
-const String tForgetPasswordSubTitle =
-    "Select one of the options given below to reset your password.";
-const String tResetViaEmail = "Reset via E-Mail Verification.";
-const String tResetViaPhone = "Reset via Phone Verification.";
+const String tForgetPasswordTitle = "Seleziona";
+const String tForgetPasswordSubTitle = "Seleziona una delle opzioni riportate di seguito per reimpostare la tua password.";
+const String tResetViaEmail = "Reimposta tramite verifica via email.";
+const String tResetViaPhone = "Reimposta tramite verifica via telefono.";
 
 /* --- Forget Password Via Phone --- */
-const String tForgetPhoneSubTitle =
-    "Enter your registered Phone No to receive OTP";
+const String tForgetPhoneSubTitle = "Inserisci il tuo numero di telefono registrato per ricevere l'OTP.";
 
 /* --- Forget Password Via E-Mail --- */
-const String tForgetMailSubTitle =
-    "Enter your registered E-Mail No to receive OTP ";
+const String tForgetMailSubTitle = "Inserisci la tua email registrata per ricevere l'OTP.";
 
 /* --- OTP Screen - Text --- */
 const String tOtpTitle = "CO\nDE";
-const String tOtpSubTitle = "verification";
-const String tOtpMessage = "Enter the verification code sent at ";
+const String tOtpSubTitle = "Verifica";
+const String tOtpMessage = "Inserisci il codice di verifica inviato a ";
 
 // -- Email Verification
-const String tEmailVerificationTitle = "Verify your email address";
-const String tEmailVerificationSubTitle =
-    "We have just send email verification link on your email. Please check email and click on that link to verify your Email address. \n\n If not auto redirected after verification, click on the Continue button.";
-const String tResendEmailLink = "Resend E-Mail Link";
-const String tBackToLogin = "Back to login";
+const String tEmailVerificationTitle = "Verifica il tuo indirizzo email.";
+const String tEmailVerificationSubTitle = "Abbiamo appena inviato un link di verifica al tuo indirizzo email. Controlla la tua casella di posta e clicca sul link per verificare il tuo indirizzo email. Se non vieni reindirizzato automaticamente dopo la verifica, clicca sul pulsante Continua.";
+const String tResendEmailLink = "Reinvia il link via email.";
+const String tBackToLogin = "Torna all'accesso";
 
 /* --- DashBoard Screen - Text --- */
 const String tDashboardTitle = "Hey, Coding With ?";
@@ -124,10 +118,10 @@ const String tProfileHeading = "Coding with T";
 const String tProfileSubHeading = "superAdmin@codingwitht.com";
 
 /* -- Menu -- */
-const String tMenu1 = "Settings";
+const String tMenu1 = "Impostazioni";
 const String tMenu2 = "Billing Details";
 const String tMenu3 = "User Management";
-const String tMenu4 = "Information";
+const String tMenu4 = "Informazioni";
 const String tMenu5 = tLogout;
 
 /* -- Update Profile Screen - Text -- */
@@ -136,10 +130,14 @@ const String tJoined = "Joined";
 const String tJoinedAt = "31 october 2022";
 
 /* -- Player Insert -- */
-const String tNamePlayerCannotEmpty = "Name Player cannot be empty";
-const String tInvalidNameFormat = "Invalid format";
-const String tNameTeamCannotEmpty = "Name Team cannot be empty";
+const String tNamePlayerCannotEmpty = "Il nome del giocatore non può essere vuoto";
+const String tSelectCountry = "Seleziona la nazione";
+const String tNation = "'Nazione";
+const String tInvalidNameFormat = "Formato invalido";
+const String tNameTeamCannotEmpty = "Il nome della squadra non può essere vuoto";
 const String tTeam = "Squadra";
+const String tSelBuild = "Seleziona la corporatura";
+const String tSelBiotype = "Seleziona il biotipo";
 const String tSurname = "Cognome";
 const String tName = "Nome";
 const String tDateOfBirthday = "Data di nascita";
@@ -149,6 +147,7 @@ const String tWeight = "Peso";
 const String tFavoriteFoot = "Piede naturale";
 const String tSomatotype = "Somatotipo";
 const String tBiotype = "Biotipo";
+const String tBuild = "Coorporatura";
 const String tTechnique = "Tecnica";
 const String tIntelligence = "Intelligenza";
 const String tPersonality = "Personalità";
