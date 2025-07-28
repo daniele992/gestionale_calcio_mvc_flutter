@@ -163,6 +163,8 @@ const List<String> tListStructure = ["Fisicità", "Forza"];
 
 /* -- Hint Text -- */
 const String tHintHeight = "Per favore inserisci l'altezza";
+const String tHintName = "Nome giocatore";
+const String tHintSurname = "Cognome giocatore";
 const String tHintWeight = "Per favore inserisci il peso";
 const String tHintRating= "Inserisci un valore";
 const String tHintFavoriteFoot = "Per favore inserisci il piede preferito";

@@ -2,13 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gestionale_calcio_mvc_flutter/src/constants/text_strings.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../../../../providers/ratingDate_provider.dart';
 import '../../../../common_widgets/datePicker/DatePickerTextField_DateBirthday.dart';
 import '../../../../common_widgets/dropDown/dropDownRating.dart';
-import '../../controller/insertPlayers_controller.dart';
+
 
 class FormRateDateWidget extends ConsumerStatefulWidget {
   const FormRateDateWidget({super.key});
@@ -22,13 +20,13 @@ class _FormRateDateWidget extends ConsumerState<FormRateDateWidget> {
   @override
   Widget build(BuildContext context) {
 
-    final controller = Get.put(InsertPlayersController());
     final selectedValueTechnique = ref.watch(ratingTechniqueProvider);
     final selectedValueIntelligence = ref.watch(ratingIntelligenceProvider);
     final selectedValuePersonality = ref.watch(ratingPersonalityProvider);
     final selectedValueSpeed = ref.watch(ratingSpeedProvider);
     final selectedValueStructure = ref.watch(ratingStructureProvider);
     final totalTipss = ref.watch(totalRating);
+    final comment = ref.watch(commentTextProvider);
     final List<double> values = List.generate(21, (i) => i * 0.5); //da 0.0 a 10.0
 
     return Stack(
@@ -48,6 +46,7 @@ class _FormRateDateWidget extends ConsumerState<FormRateDateWidget> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+
                     DatePickerTextField(dateProvider: dateObservationProvider),
                     SizedBox(height: 12),
 
@@ -123,7 +122,8 @@ class _FormRateDateWidget extends ConsumerState<FormRateDateWidget> {
 
                     //TextFormField for comment
                     TextFormField(
-                      controller: controller.comment,
+                      initialValue: ref.watch(commentTextProvider),
+                      onChanged: (value) => ref.read(commentTextProvider.notifier).state = value,
                       decoration: InputDecoration(
                         labelText: 'Inserisci commento',
                         contentPadding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),

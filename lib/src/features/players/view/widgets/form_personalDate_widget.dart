@@ -1,16 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import '../../../../../providers/nationality_provider.dart';
 import '../../../../../providers/personalDate_provider.dart';
 import '../../../../common_widgets/datePicker/DatePickerTextField_DateBirthday.dart';
 import '../../../../common_widgets/dropDown/dropdownNationsGrouped.dart';
 import '../../../../constants/text_strings.dart';
 import '../../../../utils/helper/helper_controller.dart';
-import '../../controller/insertPlayers_controller.dart';
 
 // Provider per gestire la nazionalità selezionata
 //final nationalityProvider = StateProvider<Nationality?>((ref) => null);
@@ -24,32 +20,11 @@ class FormPersonalDateWidget extends ConsumerStatefulWidget {
 }
 
 class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
-  late final TextEditingController continentController;
-
-  @override
-  void initState() {
-    super.initState();
-    continentController = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    continentController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(InsertPlayersController());
-    final nation = ref.watch(nationSelectedProvider);
 
-
-    // ✅ Aggiorna il controller nel build
-    if (nation != null && continentController.text != nation.continent) {
-      continentController.text = nation.continent;
-    } else if (nation == null && continentController.text.isNotEmpty) {
-      continentController.clear();
-    }
+    final continent = ref.watch(continentProvider);
 
     return Stack(
       clipBehavior: Clip.none,
@@ -72,11 +47,12 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 TextFormField(
                   validator: Helper.validateNameSurnameFoot,
                   initialValue: ref.watch(namePlayerProvider),
+                  //controller: ,
                   onChanged: (value) => ref.read(namePlayerProvider.notifier).state = value,
                   decoration: const InputDecoration(
                       labelText: tName,
                       prefixIcon: Icon(LineAwesomeIcons.user),
-                      hintText: tEmail),
+                      hintText: tName),
                 ),
 
                 SizedBox(height: 12),
@@ -89,7 +65,7 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                   decoration: const InputDecoration(
                       labelText: tSurname,
                       prefixIcon: Icon(LineAwesomeIcons.user),
-                      hintText: tEmail),
+                      hintText: tSurname),
                 ),
 
                 SizedBox(height: 12),
@@ -120,7 +96,7 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 //TextFormField for continent
                 TextFormField(
                   enabled: false,
-                  controller: continentController,
+                  initialValue: continent ?? '',
                   decoration: const InputDecoration(
                     labelText: tContinent,
                     prefixIcon: Icon(LineAwesomeIcons.globe_solid),

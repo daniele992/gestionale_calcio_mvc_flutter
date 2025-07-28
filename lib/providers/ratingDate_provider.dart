@@ -6,6 +6,7 @@ final ratingIntelligenceProvider = StateProvider<double?>((ref) => null);
 final ratingPersonalityProvider = StateProvider<double?>((ref) => null);
 final ratingSpeedProvider = StateProvider<double?>((ref) => null);
 final ratingStructureProvider = StateProvider<double?>((ref) => null);
+final commentTextProvider = StateProvider<String?>((ref) => null);
 
 
 final totalRating = Provider<double>((ref) {

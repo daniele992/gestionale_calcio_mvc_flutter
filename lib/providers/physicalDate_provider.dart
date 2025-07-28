@@ -8,7 +8,6 @@ import '../src/features/players/models/somatotype_model.dart';
 final heightPlayerProvider = StateProvider<String?>((ref) => null);
 final weightPlayerProvider = StateProvider<String?>((ref) => null);
 final preferredFootProvider = StateProvider<String?>((ref) => null);
-//final build = Provider<List<String?>>((ref){return ['Esile', 'Media', 'Robusta']; });
 
 final somatotypeProvider = FutureProvider<List<Somatotype>> ((ref) async {
   final jsonStr = await rootBundle.loadString('assets/json/somatotype.json');

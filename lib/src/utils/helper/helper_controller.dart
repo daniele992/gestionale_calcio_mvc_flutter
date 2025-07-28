@@ -81,6 +81,7 @@ class Helper extends GetxController {
     );
   }
 
+
   ///Warning message with an orange background and a warning icon.
   static warningSnackBar({required title, message}) {
     Get.snackbar(

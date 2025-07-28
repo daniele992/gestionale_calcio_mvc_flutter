@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../providers/nationality_provider.dart';
+import '../../../providers/personalDate_provider.dart';
 import '../../constants/text_strings.dart';
 import '../../features/players/models/nationality_model.dart';
 

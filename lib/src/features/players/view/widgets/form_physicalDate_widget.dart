@@ -9,7 +9,6 @@ import '../../../../common_widgets/dropDown/dropdownSomatotype.dart';
 import '../../../../common_widgets/dropDown/dropdownBuild.dart';
 import '../../../../constants/text_strings.dart';
 import '../../../../utils/helper/helper_controller.dart';
-import '../../controller/insertPlayers_controller.dart';
 
 class FormPhysicalDateWidget extends ConsumerStatefulWidget {
   const FormPhysicalDateWidget({super.key});
@@ -22,7 +21,6 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(InsertPlayersController());
 
     return Stack(
       clipBehavior: Clip.none,
@@ -48,7 +46,7 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
                   decoration: const InputDecoration(
                       labelText: tHeight,
                       prefixIcon: Icon(Icons.straighten),
-                      hintText: tHintHeight),
+                      hintText: tHeight),
                 ),
 
                 SizedBox(height: 12),
@@ -61,7 +59,7 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
                   decoration: const InputDecoration(
                     labelText: tWeight,
                     prefixIcon: Icon(LineAwesomeIcons.weight_solid),
-                    hintText: tHintWeight,
+                    hintText: tWeight,
                   ),
                 ),
 
@@ -90,7 +88,7 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
                   decoration: const InputDecoration(
                       labelText: tFavoriteFoot,
                       prefixIcon: Icon(LineAwesomeIcons.weight_solid),
-                      hintText: tHintFavoriteFoot
+                      hintText: tFavoriteFoot
                   ),
                 ),
 
