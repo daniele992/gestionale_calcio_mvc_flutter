@@ -21,6 +21,26 @@ class FormPersonalDateWidget extends ConsumerStatefulWidget {
 
 class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
 
+  late final TextEditingController _nameController;
+  late final TextEditingController _surnameController;
+  late final TextEditingController _teamController;
+
+  @override
+  void initState() {
+    super.initState();
+    _nameController = TextEditingController(text: ref.read(namePlayerProvider));
+    _surnameController = TextEditingController(text: ref.read(surnamePlayerProvider));
+    _teamController = TextEditingController(text: ref.read(teamPlayProvider));
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _surnameController.dispose();
+    _teamController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -46,8 +66,7 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 //TextFormField for name player
                 TextFormField(
                   validator: Helper.validateNameSurnameFoot,
-                  initialValue: ref.watch(namePlayerProvider),
-                  //controller: ,
+                  controller: _nameController,
                   onChanged: (value) => ref.read(namePlayerProvider.notifier).state = value,
                   decoration: const InputDecoration(
                       labelText: tName,
@@ -60,7 +79,7 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 //TextFormField for surname player
                 TextFormField(
                   validator: Helper.validateNameSurnameFoot,
-                  initialValue: ref.watch(surnamePlayerProvider),
+                  controller: _surnameController,
                   onChanged: (value) => ref.read(surnamePlayerProvider.notifier).state = value,
                   decoration: const InputDecoration(
                       labelText: tSurname,
@@ -78,7 +97,7 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
                 //TextFormField for team player
                 TextFormField(
                   validator: Helper.validateEmail,
-                  initialValue: ref.watch(teamPlayProvider),
+                  controller: _teamController,
                   onChanged: (value) => ref.read(teamPlayProvider.notifier).state = value,
                   decoration: const InputDecoration(
                       labelText: tTeam,

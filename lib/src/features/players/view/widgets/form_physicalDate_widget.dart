@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../../../../providers/physicalDate_provider.dart';
 import '../../../../common_widgets/dropDown/dropdownBiotype.dart';
@@ -18,6 +16,26 @@ class FormPhysicalDateWidget extends ConsumerStatefulWidget {
 }
 
 class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
+
+  late final TextEditingController _heightController;
+  late final TextEditingController _weightController;
+  late final TextEditingController _footController;
+
+  @override
+  void initState() {
+    super.initState();
+    _heightController = TextEditingController(text: ref.read(heightPlayerProvider));
+    _weightController = TextEditingController(text: ref.read(weightPlayerProvider));
+    _footController = TextEditingController(text: ref.read(preferredFootProvider));
+  }
+
+  @override
+  void dispose() {
+    _heightController.dispose();
+    _weightController.dispose();
+    _footController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +59,7 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
                 //TextFormField for Height
                 TextFormField(
                   validator: Helper.validateHeightOrWeight,
-                  initialValue: ref.watch(heightPlayerProvider),
+                  controller: _heightController,
                   onChanged: (value) => ref.read(heightPlayerProvider.notifier).state = value,
                   decoration: const InputDecoration(
                       labelText: tHeight,
@@ -54,7 +72,7 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
                 //TextFormField for Weight
                 TextFormField(
                   validator: Helper.validateHeightOrWeight,
-                  initialValue: ref.watch(weightPlayerProvider),
+                  controller: _weightController,
                   onChanged: (value) => ref.read(weightPlayerProvider.notifier).state = value,
                   decoration: const InputDecoration(
                     labelText: tWeight,
@@ -83,7 +101,7 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
                 //TextFormField for  Preferred Foot
                 TextFormField(
                   validator: Helper.validateNameSurnameFoot,
-                  initialValue: ref.watch(preferredFootProvider),
+                  controller: _footController,
                   onChanged: (value) => ref.read(preferredFootProvider.notifier).state = value,
                   decoration: const InputDecoration(
                       labelText: tFavoriteFoot,

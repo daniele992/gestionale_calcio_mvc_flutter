@@ -147,8 +147,7 @@ class _InsertPlayersState extends ConsumerState<InsertPlayers> {
                                       Get.snackbar('Errore', 'Controlla i dati inseriti');
                                       return;
                                     }
-                                    final controller = ref
-                                        .read(insertPlayersControllerProvider);
+                                    final controller = ref.read(insertPlayersControllerProvider);
 
                                     try {
                                       await controller.submitPlayer();
