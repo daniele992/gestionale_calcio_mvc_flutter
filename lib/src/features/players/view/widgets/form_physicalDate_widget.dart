@@ -40,24 +40,24 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
   @override
   Widget build(BuildContext context) {
     return Form(
-        key: widget.formKey,
-        child: Stack(
-          clipBehavior: Clip.none,
-          children: [
-            Card(
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-                side: BorderSide(color: Colors.black),
-              ),
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.75, // 60% height
-                height: MediaQuery.of(context).size.height * 0.65, // 60% height
-                padding: EdgeInsets.all(16),
+      key: widget.formKey,
+      child: Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Card(
+            elevation: 4,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+              side: BorderSide(color: Colors.black),
+            ),
+            child: Container(
+              width: MediaQuery.of(context).size.width * 0.75,
+              height: MediaQuery.of(context).size.height * 0.65,
+              padding: EdgeInsets.all(16),
+              child: SingleChildScrollView(  // <-- Qui aggiungo lo scroll
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    //TextFormField for Height
                     TextFormField(
                       validator: (value) => Helper.validateHeightOrWeight(value, field: 'Altezza'),
                       controller: _heightController,
@@ -67,10 +67,7 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
                           prefixIcon: Icon(Icons.straighten),
                           hintText: tHeight),
                     ),
-
                     SizedBox(height: 12),
-
-                    //TextFormField for Weight
                     TextFormField(
                       validator: (value) => Helper.validateHeightOrWeight(value, field: 'Peso'),
                       controller: _weightController,
@@ -81,25 +78,13 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
                         hintText: tWeight,
                       ),
                     ),
-
                     SizedBox(height: 12),
-
-                    //DropDown for Somatotype
                     SomatotypeDropDown(),
-
                     SizedBox(height: 12),
-
-                    //TextFormField for BioType
                     BiotypeDropDown(),
-
                     SizedBox(height: 12),
-
-                    //Structure
                     BuildDropDown(),
-
                     SizedBox(height: 12),
-
-                    //TextFormField for  Preferred Foot
                     TextFormField(
                       validator: Helper.validateNameSurnameFoot,
                       controller: _footController,
@@ -113,7 +98,9 @@ class _FormPhysicalDateWidget extends ConsumerState<FormPhysicalDateWidget> {
                 ),
               ),
             ),
-          ],
-        ));
+          ),
+        ],
+      ),
+    );
   }
 }

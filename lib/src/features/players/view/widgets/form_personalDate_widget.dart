@@ -15,7 +15,8 @@ class FormPersonalDateWidget extends ConsumerStatefulWidget {
   const FormPersonalDateWidget({required this.formKey, super.key});
 
   @override
-  ConsumerState<FormPersonalDateWidget> createState() => _FormPersonalDateWidget();
+  ConsumerState<FormPersonalDateWidget> createState() =>
+      _FormPersonalDateWidget();
 }
 
 class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
@@ -52,67 +53,66 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
               elevation: 4,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
-                side: const BorderSide(color: Colors.black),
+                side: BorderSide(color: Colors.black),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: SingleChildScrollView(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.75,
+                height: MediaQuery.of(context).size.height * 0.65,
+                padding: EdgeInsets.all(16),
+                child: SingleChildScrollView( // <-- Qui aggiungo lo scroll
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Nome
+                      //TextFormField for name player
                       TextFormField(
                         validator: Helper.validateNameSurnameFoot,
                         controller: _nameController,
                         onChanged: (value) => ref.read(namePlayerProvider.notifier).state = value,
                         decoration: const InputDecoration(
-                          labelText: tName,
-                          prefixIcon: Icon(LineAwesomeIcons.user),
-                          hintText: tName,
-                        ),
+                            labelText: tName,
+                            prefixIcon: Icon(LineAwesomeIcons.user),
+                            hintText: tName),
                       ),
 
-                      const SizedBox(height: 12),
+                      SizedBox(height: 12),
 
-                      // Cognome
+                      //TextFormField for surname player
                       TextFormField(
                         validator: Helper.validateNameSurnameFoot,
                         controller: _surnameController,
                         onChanged: (value) => ref.read(surnamePlayerProvider.notifier).state = value,
                         decoration: const InputDecoration(
-                          labelText: tSurname,
-                          prefixIcon: Icon(LineAwesomeIcons.user),
-                          hintText: tSurname,
-                        ),
+                            labelText: tSurname,
+                            prefixIcon: Icon(LineAwesomeIcons.user),
+                            hintText: tSurname),
                       ),
 
-                      const SizedBox(height: 12),
+                      SizedBox(height: 12),
 
-                      // Data di nascita
+                      //DataPicker for date of birthday
                       DatePickerTextField(dateProvider: dateOfBirthdayProvider),
 
-                      const SizedBox(height: 12),
+                      SizedBox(height: 12),
 
-                      // Squadra
+                      //TextFormField for team player
                       TextFormField(
                         validator: Helper.validateEmail,
                         controller: _teamController,
                         onChanged: (value) => ref.read(teamPlayProvider.notifier).state = value,
                         decoration: const InputDecoration(
-                          labelText: tTeam,
-                          prefixIcon: Icon(LineAwesomeIcons.user),
-                          hintText: tTeam,
-                        ),
+                            labelText: tTeam,
+                            prefixIcon: Icon(LineAwesomeIcons.user),
+                            hintText: tTeam),
                       ),
 
-                      const SizedBox(height: 12),
+                      SizedBox(height: 12),
 
-                      // Nazione
-                      const DropdownNationsWithFlags(),
+                      //Dropdown for select nation player
+                      DropdownNationsWithFlags(),
 
-                      const SizedBox(height: 12),
+                      SizedBox(height: 12),
 
-                      // Continente
+                      //TextFormField for continent
                       TextFormField(
                         enabled: false,
                         initialValue: continent ?? '',
