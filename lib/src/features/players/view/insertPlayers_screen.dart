@@ -14,6 +14,8 @@ import '../../../../providers/physicalDate_provider.dart';
 import '../../../../providers/ratingDate_provider.dart';
 import '../../../common_widgets/player_snackbar_widgets.dart';
 
+typedef FormKey = GlobalKey<FormState>;
+
 class InsertPlayers extends ConsumerStatefulWidget {
   const InsertPlayers({super.key});
 
@@ -22,10 +24,9 @@ class InsertPlayers extends ConsumerStatefulWidget {
 }
 
 class _InsertPlayersState extends ConsumerState<InsertPlayers> {
-  final _formKey = GlobalKey<FormState>(); // <-- QUI è persistente
-  final _personalKey = GlobalKey<FormState>();
-  final _physicalKey = GlobalKey<FormState>();
-  final _ratingKey = GlobalKey<FormState>();
+  final FormKey _personalKey = FormKey();
+  final FormKey _physicalKey = FormKey();
+  final FormKey _ratingKey = FormKey();
 
   @override
   Widget build(BuildContext context) {
@@ -147,15 +148,19 @@ class _InsertPlayersState extends ConsumerState<InsertPlayers> {
                                         !_physicalKey.currentState!.validate() ||
                                         !_ratingKey.currentState!.validate()) {
                                       Get.snackbar('Errore', 'Controlla i dati inseriti');
+                                      print("entro 1");
                                       return;
                                     }
+                                    print("entro 2");
                                     final controller = ref.read(insertPlayersControllerProvider);
                                     try {
+                                      print("entro 3");
                                       await controller.submitPlayer();
                                       if(!mounted) return; //A good practice to avoid context errors. Always check if (!mounted) return; before calling Navigator.of(context).
                                       Get.snackbar('Successo', 'Giocatore salvato');
                                       Navigator.of(context).pop(); //Closed current page
                                     } catch (e) {
+                                      print("entro 4");
                                       Get.snackbar('Errore', 'Errore nel salvataggio');
                                     }
                                   },

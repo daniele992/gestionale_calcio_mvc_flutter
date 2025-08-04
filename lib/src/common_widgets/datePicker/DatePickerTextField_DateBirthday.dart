@@ -28,25 +28,28 @@ class DatePickerTextField extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedDate = ref.watch(dateProvider);
+    final textController = TextEditingController(
+      text: selectedDate != null
+          ? '${selectedDate.day}/${selectedDate.month}/${selectedDate.year}'
+          : '',
+    );
 
-    return GestureDetector(
+    return TextFormField(
+      readOnly: true,
+      controller: textController,
       onTap: () => _selectDate(context, ref),
-      child: InputDecorator(
-        decoration: InputDecoration(
-          labelText: 'Data di nascita',
-          prefixIcon: Icon(Icons.cake),
-          border: OutlineInputBorder(),
-          contentPadding: EdgeInsets.symmetric(vertical: 16.0, horizontal: 12.0),
-        ),
-        child: Text(
-          selectedDate != null
-              ? '${selectedDate.day}/${selectedDate.month}/${selectedDate.year}'
-              : 'Seleziona una data',
-          style: TextStyle(
-            color: selectedDate != null ? Colors.black : Colors.grey,
-            fontSize: 16,
-          ),
-        ),
+      validator: (_) {
+        final date = ref.read(dateProvider);
+        if(date == null) return 'Seleziona una data';
+        return null;
+      },
+      decoration: const InputDecoration(
+        labelText: 'Data di nascita',
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        prefixIcon: Icon(Icons.cake),
+        border: OutlineInputBorder(),
+        //isDense: true,
+        contentPadding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 12.0),
       ),
     );
   }

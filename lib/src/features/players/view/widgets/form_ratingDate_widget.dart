@@ -46,8 +46,7 @@ class _FormRateDateWidget extends ConsumerState<FormRateDateWidget> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        DatePickerTextField(
-                            dateProvider: dateObservationProvider),
+                        DatePickerTextField(dateProvider: dateObservationProvider),
                         SizedBox(height: 12),
 
                         //Dropdown rating Technique

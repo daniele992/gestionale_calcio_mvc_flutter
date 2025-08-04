@@ -44,7 +44,7 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
     final continent = ref.watch(continentProvider);
 
     return Form(
-        key: widget.key,
+        key: widget.formKey,
         child: Stack(
           clipBehavior: Clip.none,
           children: [
