@@ -52,74 +52,77 @@ class _FormPersonalDateWidget extends ConsumerState<FormPersonalDateWidget> {
               elevation: 4,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
-                side: BorderSide(color: Colors.black),
+                side: const BorderSide(color: Colors.black),
               ),
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.75,
-                height: MediaQuery.of(context).size.height * 0.65,
-                padding: EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    //TextFormField for name player
-                    TextFormField(
-                      validator: Helper.validateNameSurnameFoot,
-                      controller: _nameController,
-                      onChanged: (value) => ref.read(namePlayerProvider.notifier).state = value,
-                      decoration: const InputDecoration(
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Nome
+                      TextFormField(
+                        validator: Helper.validateNameSurnameFoot,
+                        controller: _nameController,
+                        onChanged: (value) => ref.read(namePlayerProvider.notifier).state = value,
+                        decoration: const InputDecoration(
                           labelText: tName,
                           prefixIcon: Icon(LineAwesomeIcons.user),
-                          hintText: tName),
-                    ),
+                          hintText: tName,
+                        ),
+                      ),
 
-                    SizedBox(height: 12),
+                      const SizedBox(height: 12),
 
-                    //TextFormField for surname player
-                    TextFormField(
-                      validator: Helper.validateNameSurnameFoot,
-                      controller: _surnameController,
-                      onChanged: (value) => ref.read(surnamePlayerProvider.notifier).state = value,
-                      decoration: const InputDecoration(
+                      // Cognome
+                      TextFormField(
+                        validator: Helper.validateNameSurnameFoot,
+                        controller: _surnameController,
+                        onChanged: (value) => ref.read(surnamePlayerProvider.notifier).state = value,
+                        decoration: const InputDecoration(
                           labelText: tSurname,
                           prefixIcon: Icon(LineAwesomeIcons.user),
-                          hintText: tSurname),
-                    ),
+                          hintText: tSurname,
+                        ),
+                      ),
 
-                    SizedBox(height: 12),
+                      const SizedBox(height: 12),
 
-                    //DataPicker for date of birthday
-                    DatePickerTextField(dateProvider: dateOfBirthdayProvider),
+                      // Data di nascita
+                      DatePickerTextField(dateProvider: dateOfBirthdayProvider),
 
-                    SizedBox(height: 12),
+                      const SizedBox(height: 12),
 
-                    //TextFormField for team player
-                    TextFormField(
-                      validator: Helper.validateEmail,
-                      controller: _teamController,
-                      onChanged: (value) => ref.read(teamPlayProvider.notifier).state = value,
-                      decoration: const InputDecoration(
+                      // Squadra
+                      TextFormField(
+                        validator: Helper.validateEmail,
+                        controller: _teamController,
+                        onChanged: (value) => ref.read(teamPlayProvider.notifier).state = value,
+                        decoration: const InputDecoration(
                           labelText: tTeam,
                           prefixIcon: Icon(LineAwesomeIcons.user),
-                          hintText: tTeam),
-                    ),
-
-                    SizedBox(height: 12),
-
-                    //Dropdown for select nation player
-                    DropdownNationsWithFlags(),
-
-                    SizedBox(height: 12),
-
-                    //TextFormField for continent
-                    TextFormField(
-                      enabled: false,
-                      initialValue: continent ?? '',
-                      decoration: const InputDecoration(
-                        labelText: tContinent,
-                        prefixIcon: Icon(LineAwesomeIcons.globe_solid),
+                          hintText: tTeam,
+                        ),
                       ),
-                    ),
-                  ],
+
+                      const SizedBox(height: 12),
+
+                      // Nazione
+                      const DropdownNationsWithFlags(),
+
+                      const SizedBox(height: 12),
+
+                      // Continente
+                      TextFormField(
+                        enabled: false,
+                        initialValue: continent ?? '',
+                        decoration: const InputDecoration(
+                          labelText: tContinent,
+                          prefixIcon: Icon(LineAwesomeIcons.globe_solid),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
