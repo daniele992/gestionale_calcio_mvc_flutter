@@ -18,24 +18,36 @@ class Helper extends GetxController {
     return null;
   }
 
-  static String? validateHeightOrWeight(value) {
+  static String? validateHeightOrWeight(String? value, {required String field}) {
     final Filter _filter = Filter();
-    if(value == null || value.isEmpty) return tHeightEmpty;
-    if (RegExp(r'[!@#\$%^&*(),?":{}|<>]').hasMatch(value)) {
-      return 'Caratteri speciali non consentiti';
+
+    if (value == null || value.trim().isEmpty) return '$field non può essere vuoto';
+
+    final parsed = double.tryParse(value.replaceAll(',', '.')); // supports both period and semicolon
+
+    if (parsed == null) return '$field deve essere un numero valido';
+
+    if (_filter.isProfane(value)) return 'Il testo contiene parole inappropriate';
+
+    // Logical checks
+    if (field == 'Altezza') {
+      if (parsed < 50 || parsed > 250) {
+        return 'Inserisci un\'altezza tra 50 e 250 cm';
+      }
+    } else if (field == 'Peso') {
+      if (parsed < 20 || parsed > 300) {
+        return 'Inserisci un peso tra 20 e 300 kg';
+      }
     }
-    // Filters offensive words.
-    if (_filter.isProfane(value)) {
-      return 'Il testo contiene parole inappropriate';
-    }
-    return null; // all ok
+
+    return null; // validation passed
   }
 
   ///Checks that the name is not empty. Verifies it contains only letters (a-z, A-Z). Uses the bad_words library to filter offensive words and returns an error if any are found.
-  static String? validateNameSurnameFoot(value){
+  static String? validateNameSurnameFoot(String? value){
     final Filter _filter = Filter();
-    if(value == null || value.isEmpty) return tNamePlayerCannotEmpty;
-    final lettersOnlyRegex = RegExp(r'^[a-zA-Z]+$');
+    if(value == null || value.trim().isEmpty) return tNamePlayerCannotEmpty;
+    final lettersOnlyRegex = RegExp(r'^[a-zA-ZàèéìòùÀÈÉÌÒÙ\s\-]+$');
     if (!lettersOnlyRegex.hasMatch(value)) {
       return 'Solo lettere sono permesse';
     }
@@ -47,8 +59,6 @@ class Helper extends GetxController {
     return null; //Validation passed.
 
   }
-
-
 
   ///Checks that the password is not empty and matches a pattern: at least 8 characters long, with at least one uppercase letter, one lowercase letter, one number, and one special symbol.
   static String? validatePassword(value) {

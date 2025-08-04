@@ -23,6 +23,9 @@ class InsertPlayers extends ConsumerStatefulWidget {
 
 class _InsertPlayersState extends ConsumerState<InsertPlayers> {
   final _formKey = GlobalKey<FormState>(); // <-- QUI è persistente
+  final _personalKey = GlobalKey<FormState>();
+  final _physicalKey = GlobalKey<FormState>();
+  final _ratingKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +33,7 @@ class _InsertPlayersState extends ConsumerState<InsertPlayers> {
     final pageController = ref.read(pageControllerProvider.notifier).controller;
     final titlePage = ['Dati Anagrafici', 'Dati Fisici', 'Voto'];
     final birthday = ref.read(dateOfBirthdayProvider);
-    final formattedDateBirthday =
-        birthday != null ? DateFormat('dd/MM/yyyy').format(birthday) : '';
+    final formattedDateBirthday = birthday != null ? DateFormat('dd/MM/yyyy').format(birthday) : '';
     final dateObservation = ref.read(dateObservationProvider);
     final formattedDateObservation = dateObservation != null
         ? DateFormat('dd/MM/yyyy').format(dateObservation)
@@ -66,18 +68,16 @@ class _InsertPlayersState extends ConsumerState<InsertPlayers> {
               color: Colors.white,
               boxShadow: [BoxShadow(blurRadius: 4, color: Colors.black26)],
             ),
-            child: Form(
-              key: _formKey,
               child: Column(
                 children: [
                   Expanded(
                     child: PageView(
                       controller: pageController,
                       physics: const BouncingScrollPhysics(),
-                      children: const [
-                        FormPersonalDateWidget(),
-                        FormPhysicalDateWidget(),
-                        FormRateDateWidget(),
+                      children: [
+                        FormPersonalDateWidget(formKey: _personalKey),
+                        FormPhysicalDateWidget(formKey: _physicalKey),
+                        FormRateDateWidget(formKey: _ratingKey),
                       ],
                     ),
                   ),
@@ -143,20 +143,21 @@ class _InsertPlayersState extends ConsumerState<InsertPlayers> {
                                 ),
                                 ElevatedButton(
                                   onPressed: () async {
-                                    if (!_formKey.currentState!.validate()) {
+                                    if (!_personalKey.currentState!.validate() ||
+                                        !_physicalKey.currentState!.validate() ||
+                                        !_ratingKey.currentState!.validate()) {
                                       Get.snackbar('Errore', 'Controlla i dati inseriti');
                                       return;
                                     }
                                     final controller = ref.read(insertPlayersControllerProvider);
-
                                     try {
                                       await controller.submitPlayer();
+                                      if(!mounted) return; //A good practice to avoid context errors. Always check if (!mounted) return; before calling Navigator.of(context).
                                       Get.snackbar('Successo', 'Giocatore salvato');
-                                      Navigator.of(context).pop();
+                                      Navigator.of(context).pop(); //Closed current page
                                     } catch (e) {
                                       Get.snackbar('Errore', 'Errore nel salvataggio');
                                     }
-                                    Navigator.of(context).pop();
                                   },
                                   child: Text('Conferma'),
                                 ),
@@ -170,7 +171,6 @@ class _InsertPlayersState extends ConsumerState<InsertPlayers> {
                 ],
               ),
             ),
-          ),
 
           const SizedBox(height: 16),
 
